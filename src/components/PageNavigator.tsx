@@ -1,0 +1,120 @@
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useRouter } from "next/router";
+import { Box, colors, Stack } from "secptrum-ui";
+import styled from "styled-components";
+import Typography from "./custom/Typography";
+import { localColors } from "@/styles/global";
+import { sidebarlinks } from "@/data/sidebar";
+import { useTheme } from "@/context/useTheme";
+
+const PageNavigator = () => {
+  const router = useRouter();
+  const [currentPage, setCurrentPage] = useState<any>(null);
+  const [nextPage, setNextPage] = useState<any>(null);
+  const [prevPage, setPrevPage] = useState<any>(null);
+  const { mode } = useTheme();
+  const light = mode === "light";
+
+  useEffect(() => {
+    // Function to get current, previous, and next pages
+    function getPage() {
+      let found = false;
+      for (let i = 0; i < sidebarlinks.length; i++) {
+        for (let j = 0; j < sidebarlinks[i].links.length; j++) {
+          const page = sidebarlinks[i].links[j];
+
+          // Match current route with the page's uri
+          if (router.pathname === page.uri) {
+            setCurrentPage(page);
+
+            // Set previous page if it's not the first one
+            if (j > 0) {
+              setPrevPage(sidebarlinks[i].links[j - 1]);
+            } else {
+              setPrevPage(null); // No previous page
+            }
+
+            // Set next page if it's not the last one
+            if (j < sidebarlinks[i].links.length - 1) {
+              setNextPage(sidebarlinks[i].links[j + 1]);
+            } else {
+              setNextPage(null); // No next page
+            }
+
+            found = true;
+            break;
+          }
+        }
+        if (found) break;
+      }
+    }
+
+    // Call getPage on mount or when router changes
+    getPage();
+  }, [router.pathname]);
+
+  return (
+    <Navigator align="horizontal">
+      {/* Previous Page Link */}
+      {prevPage ? (
+        <Link href={prevPage.uri}>
+          <Navigator_ light={light}>
+            <IoIosArrowBack />
+            <Typography font="inter">{prevPage.label}</Typography>
+          </Navigator_>
+        </Link>
+      ) : (
+        <div /> // Empty div to maintain layout if no previous page
+      )}
+
+      {/* Next Page Link */}
+      {nextPage ? (
+        <Link href={nextPage.uri}>
+          <Navigator_ light={light}>
+            <Typography font="inter">{nextPage.label}</Typography>
+            <IoIosArrowForward />
+          </Navigator_>
+        </Link>
+      ) : (
+        <div /> // Empty div to maintain layout if no next page
+      )}
+    </Navigator>
+  );
+};
+
+export default PageNavigator;
+
+const Navigator = styled(Stack)`
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  a {
+    text-decoration: none;
+  }
+`;
+
+const Navigator_ = styled(Box).withConfig({
+  shouldForwardProp: (prop) => prop !== "light",
+})<{ light: boolean }>`
+  width: auto;
+  padding: 5px 8px;
+  border-radius: 6px;
+  align-items: center;
+  color: blue;
+  cursor: pointer;
+  justify-content: center;
+  display: flex;
+  gap: 8px;
+
+  p {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background: ${(props) =>
+      props.light ? colors.blue100 : localColors.slate800};
+  }
+`;
