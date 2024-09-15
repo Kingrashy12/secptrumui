@@ -186,7 +186,7 @@ const BarStack = styled(Box).withConfig({
   ${(props) => getContent(props.fold)}
 `;
 
-const DocsContent = styled(Box).withConfig({
+export const DocsContent = styled(Box).withConfig({
   shouldForwardProp: (props) => props != "notavailable",
 })<{ notavailable: boolean | undefined }>`
   flex-direction: column;
@@ -198,7 +198,7 @@ const DocsContent = styled(Box).withConfig({
   }
 `;
 
-const DocsCategory = styled(Typography)`
+export const DocsCategory = styled(Typography)`
   color: blue;
   font-size: 14px;
   text-transform: uppercase;
@@ -206,7 +206,7 @@ const DocsCategory = styled(Typography)`
   margin-top: 5px;
 `;
 
-const DocsLabel = styled(Typography).withConfig({
+export const DocsLabel = styled(Typography).withConfig({
   shouldForwardProp: (props) => props !== "notavailable",
 })<{ notavailable: boolean | undefined }>`
   color: ${(props) => props.theme.colors?.text};
@@ -214,7 +214,7 @@ const DocsLabel = styled(Typography).withConfig({
   opacity: ${(props) => (props.notavailable ? 0.4 : 1)};
 `;
 
-const DocAlert = styled(Typography).withConfig({
+export const DocAlert = styled(Typography).withConfig({
   shouldForwardProp: (props) => props !== "notavailable",
 })<{ notavailable: boolean | undefined }>`
   color: blue;
@@ -226,7 +226,7 @@ const DocAlert = styled(Typography).withConfig({
   opacity: 0.4;
 `;
 
-const DocLinkWrap = styled(Box).withConfig({
+export const DocLinkWrap = styled(Box).withConfig({
   shouldForwardProp: (props) => props !== "light",
 })<{
   isactive: boolean;

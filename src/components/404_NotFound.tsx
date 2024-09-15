@@ -22,9 +22,11 @@ export default NotFound_404;
 
 const Container = styled(Stack)`
   gap: 1.5rem;
+  height: 100vh;
 
   p {
     color: ${(props) => props.theme.colors?.body};
+    text-align: center;
   }
 `;
 

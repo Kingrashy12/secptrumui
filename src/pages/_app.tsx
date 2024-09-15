@@ -1,4 +1,5 @@
 import { RootLayout } from "@/components";
+import { MenuProvider, SideBarProvider } from "@/context";
 import { ThemeProvider } from "@/context/useTheme";
 import { store } from "@/store/store";
 import "@/styles/globals.css";
@@ -39,10 +40,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={customTheme}>
-        <RootLayout>
-          <Toaster />
-          <Component {...pageProps} />
-        </RootLayout>
+        <MenuProvider>
+          <SideBarProvider>
+            <RootLayout>
+              <Toaster />
+              <Component {...pageProps} />
+            </RootLayout>
+          </SideBarProvider>
+        </MenuProvider>
       </ThemeProvider>
     </Provider>
   );

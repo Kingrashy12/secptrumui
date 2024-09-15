@@ -33,6 +33,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
+    // Add link to docs for ref
     throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;

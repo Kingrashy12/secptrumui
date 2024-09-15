@@ -5,21 +5,32 @@ import { GithubImg, SecptrumLogo } from "@/assets";
 import { Box, colors, Icon } from "secptrum-ui";
 import Typography from "../custom/Typography";
 import Link from "next/link";
-import { RiArrowRightUpLine } from "react-icons/ri";
+import { RiArrowRightUpLine, RiMenuUnfold3Line } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 import { GoBell } from "react-icons/go";
 import { MdSunny } from "react-icons/md";
 import { useTheme } from "@/context/useTheme";
 import { IoMdMoon } from "react-icons/io";
 import { sidebarlinks } from "@/data/sidebar";
+import { LuMenu } from "react-icons/lu";
+import { useMenu } from "@/context/useMenu";
+import { useSideBar } from "@/context/useSideBar";
 
 const Navbar = () => {
   const { mode, theme, toggleTheme } = useTheme();
+  const { onOpen } = useMenu();
+  const { onOpen: openSideBar } = useSideBar();
   const light = mode === "light";
 
   return (
     <Nav light={light}>
       <Box className="logo">
+        <Icon
+          icon={RiMenuUnfold3Line}
+          onClick={openSideBar}
+          size={25}
+          color={theme.colors?.icon}
+        />
         <Link href="/">
           <Logo src={SecptrumLogo.src} />
         </Link>
@@ -58,6 +69,22 @@ const Navbar = () => {
           />
         </Links>
       </LinkWrapper>
+      <MenuIcon>
+        <Icon
+          icon={light ? IoMdMoon : MdSunny}
+          size={22}
+          className="not"
+          color={theme.colors?.icon}
+          onClick={toggleTheme}
+        />
+        <GoBell size={20} color={theme.colors?.icon} className="not" />
+        <Icon
+          icon={LuMenu}
+          onClick={onOpen}
+          color={theme.colors?.icon}
+          size={25}
+        />
+      </MenuIcon>
     </Nav>
   );
 };
@@ -84,6 +111,14 @@ const Nav = styled.div.withConfig({
   .logo {
     flex-grow: 0.5;
     align-items: center;
+
+    svg {
+      display: none;
+
+      @media screen and (max-width: 550px) {
+        display: flex;
+      }
+    }
   }
 
   @media screen and (max-width: 1024px) {
@@ -108,6 +143,9 @@ const LinkWrapper = styled(Box)`
   @media screen and (max-width: 768px) {
     gap: 2rem;
     width: 65%;
+  }
+  @media screen and (max-width: 550px) {
+    display: none;
   }
 `;
 
@@ -146,4 +184,15 @@ const Divider = styled.div`
   background: ${(props) => props.theme.colors?.divider};
   width: 1px;
   height: auto;
+`;
+
+const MenuIcon = styled(Box)`
+  display: none;
+
+  @media screen and (max-width: 550px) {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    /* width: 50%; */
+  }
 `;

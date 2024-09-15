@@ -33,3 +33,13 @@ declare type ThemeContextType = {
   setCustomTheme: (theme: { light: any; dark: any }) => void;
   mode: "light" | "dark";
 };
+
+declare type ContextProviderType = {
+  children: React.ReactNode;
+};
+
+declare type ModalContextType = {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+};
