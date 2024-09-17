@@ -47,12 +47,13 @@ const UL = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 5px 9px;
-  /* gap: 8px; */
+  gap: 12px;
 `;
 
 const ListItem = styled.li`
   color: ${(props) => props.theme.colors?.body};
-  ${fontInter.style}
+  font-family: "SUSE", sans-serif;
+  line-height: 1.3rem;
 
   b {
     color: ${(props) => props.theme.colors?.text};

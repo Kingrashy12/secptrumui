@@ -2,6 +2,7 @@ import { RootLayout } from "@/components";
 import { MenuProvider, SideBarProvider } from "@/context";
 import { ThemeProvider } from "@/context/useTheme";
 import { store } from "@/store/store";
+import { localColors } from "@/styles/global";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";

@@ -38,7 +38,7 @@ const StyledBar = styled(Box).withConfig({
   height: 100vh;
   width: 300px;
   border-left: 1px solid
-    ${(props) => (props.light ? colors.neutral300 : localColors.neutral800)};
+    ${(props) => (props.light ? colors.neutral300 : localColors.neutral[800])};
   overflow-y: auto;
   flex-direction: column;
   position: sticky;

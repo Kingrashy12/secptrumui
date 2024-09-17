@@ -16,6 +16,19 @@ const shouldForwardProp = (prop: string) => {
     "align",
     "isactive",
     "centerContent",
+    "isCurrent",
+    "activeColor",
+    "variant",
+    "inActiveColor",
+    "disabled",
+    //Extend lib props
+    "backgroundColor",
+    "solidBorder",
+    "onHoverBackgroundSolid",
+    "onHoverBackgroundOutline",
+    "onHoverBackgroundLight",
+    "onHoverBackgroundGhost",
+    "borderColor",
   ];
 
   return !invalidProps.includes(prop); // Only forward valid props

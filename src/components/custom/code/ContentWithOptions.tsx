@@ -58,7 +58,6 @@ const ContentWithOptions = ({
           <OptionSelector
             id="option-1"
             isactive={currId === "option-1"} // Check if this option is active based on currId
-            font="off"
             onClick={() => switchCmd(firstCmd!, "option-1")}
           >
             {firstOpt}
@@ -66,7 +65,6 @@ const ContentWithOptions = ({
           <OptionSelector
             id="option-2"
             isactive={currId === "option-2"}
-            font="off"
             onClick={() => switchCmd(secondCmd!, "option-2")}
           >
             {secondOpt}
@@ -74,7 +72,6 @@ const ContentWithOptions = ({
           <OptionSelector
             id="option-3"
             isactive={currId === "option-3"}
-            font="off"
             onClick={() => switchCmd(thirdCmd!, "option-3")}
           >
             {thirdOpt}

@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      displayName: true,
+      namespace: "Sui",
+      fileName: false,
+    },
   },
 };
 

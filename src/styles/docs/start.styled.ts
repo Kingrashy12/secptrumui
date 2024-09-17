@@ -1,5 +1,5 @@
-import { Typography } from "@/components";
-import { Box, Card, colors } from "secptrum-ui";
+import { Card, Typography } from "@/components";
+import { Box, colors } from "secptrum-ui";
 import styled from "styled-components";
 import { fontInter, localColors } from "../global";
 
@@ -73,14 +73,22 @@ export const MediumTextHeader = styled(Typography).withConfig({
 `;
 export const BodyText = styled(Typography)`
   color: ${(props) => props.theme.colors?.body};
-  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "SUSE", sans-serif;
   font-size: 1.125rem;
   line-height: 1.3333333333333333;
   letter-spacing: 0;
   font-weight: 400;
   margin: 0 0 24px;
+
+  a {
+    width: auto;
+    overflow: hidden;
+    text-decoration: none;
+    color: blue;
+  }
+  #note {
+    color: ${(props) => props.theme.colors?.text};
+  }
 `;
 
 export const FrameWorksContainer = styled(Box)`
@@ -93,7 +101,7 @@ export const FrameWorkContent = styled(Card)`
   border: 1px solid ${(props) => props.theme.colors?.card_border};
   cursor: pointer;
   width: 260px;
-  max-width: 100%;
+  /* max-width: 100%; */
 
   &:hover {
     filter: ${(props) =>
@@ -138,5 +146,44 @@ export const FrameWorkGuideContainer = styled(Box)`
   p a {
     color: ${(props) => props.theme.colors?.text};
     font-weight: 600;
+  }
+`;
+
+export const Preview = styled(Card)`
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+`;
+
+export const TextContent_Wrap = styled(Box)`
+  flex-direction: column;
+  gap: 5px;
+
+  .a {
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    width: auto;
+    height: auto;
+    position: relative;
+  }
+
+  .a::before {
+    content: "#";
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 25px;
+    color: ${colors.neutral500};
+    top: 46px;
+    font-weight: 700;
+    height: 20px;
+    width: 20px;
+  }
+
+  /* Show the # symbol when the header is hovered */
+  &:hover .a::before {
+    opacity: 1;
   }
 `;

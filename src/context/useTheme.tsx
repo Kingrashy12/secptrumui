@@ -2,16 +2,26 @@
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import deepmerge from "deepmerge";
+import { colors } from "secptrum-ui";
+import { localColors } from "@/styles/global";
 
 const defaultLightTheme = {
   colors: {
     background: "#ffffff",
     text: "#000000",
-    primary: "#0070f3",
+    outline_button_border: colors.neutral200,
+    active_tab_color: "black", //TabHandle active color
+    active_tab_color_solid: "black", //TabHandle active color for solid varaint
+    inactive_tab_color: colors.neutral400, //TabHandle inactive color
+    tab_list: colors.gray100, //TabList BackgroundColor
+    button_outline_hover: localColors.gray[50],
+    card_bg: "white",
+    card_border: localColors.neutral[300],
+    prop: localColors.gray[200],
   },
   fonts: {
-    body: "Arial, sans-serif",
-    heading: "Helvetica, sans-serif",
+    body: "'Poppins-Medium', sans-serif",
+    heading: "'Poppins-Semibold', sans-serif",
   },
 };
 
@@ -19,11 +29,19 @@ const defaultDarkTheme = {
   colors: {
     background: "#121212",
     text: "#ffffff",
-    primary: "#bb86fc",
+    outline_button_border: localColors.neutral[800],
+    active_tab_color: "white", //TabHandle active color
+    active_tab_color_solid: "black", //TabHandle active color for solid variant
+    inactive_tab_color: localColors.neutral[800], //TabHandle inactive color
+    tab_list: localColors.neutral[800], //TabList BackgroundColor
+    button_outline_hover: "rgb(59,130,246,.1)",
+    card_bg: "black",
+    card_border: localColors.neutral[800],
+    prop: localColors.neutral[800],
   },
   fonts: {
-    body: "Arial, sans-serif",
-    heading: "Helvetica, sans-serif",
+    body: "'Poppins-Medium', sans-serif",
+    heading: "'Poppins-Semibold', sans-serif",
   },
 };
 

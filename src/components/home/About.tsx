@@ -24,9 +24,13 @@ const Hero_About = () => {
           React
         </Typography>
       </TagWrapper>
-      <Typography font="nunito">
-        Create stunning, responsive UIs with ease.
-      </Typography>
+      <DescWrap>
+        <Typography font="nunito">
+          A versatile and user-friendly UI component library that offers
+          customizable and responsive design elements, empowering developers to
+          create dynamic interfaces with ease.
+        </Typography>
+      </DescWrap>
       <BTN>
         <Link href="/docs/getting-started">
           <Button className={fontOff.className} radius="lg">
@@ -108,5 +112,18 @@ const BTN = styled(Box)`
     width: 130px;
     z-index: 10;
     ${fontNunito.style};
+  }
+`;
+
+const DescWrap = styled(Box)`
+  width: 50%;
+  text-align: center;
+
+  p {
+    line-height: 1.3rem;
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 75%;
   }
 `;
