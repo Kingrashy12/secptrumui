@@ -143,7 +143,7 @@ const StyledBar = styled(Box).withConfig({
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 820px) {
     display: none;
   }
 `;

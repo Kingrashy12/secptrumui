@@ -115,7 +115,7 @@ const Nav = styled.div.withConfig({
     svg {
       display: none;
 
-      @media screen and (max-width: 550px) {
+      @media screen and (max-width: 820px) {
         display: flex;
       }
     }

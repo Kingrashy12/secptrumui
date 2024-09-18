@@ -21,6 +21,8 @@ import ButtonSize from "@/components/preview/button/Size";
 import ButtonRadius from "@/components/preview/button/Radius";
 import TextBadge from "@/components/test/TextBadge";
 import ButtonLoading from "@/components/preview/button/Loading";
+import ReferenceTable from "@/components/custom/docs/ReferenceTable";
+import { buttonRef } from "@/data/reference/button";
 
 const Button = () => {
   const { theme } = useTheme();
@@ -115,10 +117,12 @@ const Button = () => {
           </MediumTextHeader>
         </Link>
         <BodyText theme={theme}>
-          This component extends the HTML <TextBadge>button</TextBadge> element
-          and supports all of its props.
+          This component builds upon the HTML <TextBadge>button</TextBadge>{" "}
+          element, supporting all its native props and attributes, and adds
+          custom functionality and styling capabilities.
         </BodyText>
       </TextContent_Wrap>
+      <ReferenceTable reference={buttonRef} />
     </InstallPageContainer>
   );
 };

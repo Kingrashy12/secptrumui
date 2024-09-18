@@ -27,8 +27,6 @@ export const App = () => {
         radius="lg"
         variant="outline"
         color={theme.colors?.text}
-        onHoverBackgroundOutline={theme.colors?.button_outline_hover}
-        outlineBorderColor={theme.colors?.outline_button_border}
       >
         Outline Button
       </Button>
@@ -79,8 +77,6 @@ export const App = () => {
             radius="lg"
             variant="outline"
             color={theme.colors?.text}
-            onHoverBackgroundOutline={theme.colors?.button_outline_hover}
-            outlineBorderColor={theme.colors?.outline_button_border}
           >
             Large Button
           </Button>

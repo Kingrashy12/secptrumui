@@ -1,7 +1,9 @@
 import CodeBlock from "@/components/custom/code/CodeBlock";
+import DocInfo from "@/components/custom/docs/DocInfo";
 import PreviewCard from "@/components/custom/docs/PreviewCard";
 import TextContent from "@/components/custom/docs/TextContent";
 import PageNavigator from "@/components/PageNavigator";
+import TextBadge from "@/components/test/TextBadge";
 import { useTheme } from "@/context/useTheme";
 import {
   BodyText,
@@ -15,7 +17,7 @@ import React from "react";
 
 const UsageSection = () => {
   const router = useRouter();
-  const { theme } = useTheme();
+  const { theme, mode } = useTheme();
   return (
     <InstallPageContainer>
       <TextContent
@@ -51,8 +53,6 @@ export default function Home() {
     radius="lg"
     variant="outline"
     color={theme.colors?.text}
-    onHoverBackgroundOutline={theme.colors?.button_outline_hover}
-    solidBorder={theme.colors?.solid_button_border}
     onClick={() => toast.success("This is a success message!")}
   >
     Make a toast
@@ -79,15 +79,23 @@ export default function Home() {
           easily customize the theme if needed.
         </BodyText>
       </TextContent_Wrap>
-      <BodyText theme={theme}>
+      {/* <BodyText theme={theme}>
         <b id="note">Note:</b> While using the{" "}
         <Link href="/docs/components/utility/theme#theme-provider">
           ThemeProvider
         </Link>{" "}
-        is optional, it is strongly encouraged to maintain visual consistency
-        throughout your application.
-      </BodyText>
-      <BodyText>
+        
+      </BodyText> */}
+      <DocInfo type="note">
+        <BodyText>
+          <b>Note:</b> It's highly recommended that you wrap your app with the{" "}
+          <TextBadge>ThemeProvider</TextBadge> to ensure consistent theming. If
+          you choose not to, components will fall back to the default theme, but
+          customization options will be limited.
+        </BodyText>
+      </DocInfo>
+
+      <BodyText style={{ color: theme.colors?.text }}>
         <b>Example:</b>
       </BodyText>
       <CodeBlock
@@ -105,9 +113,8 @@ export default function App(){
       <TextContent id="" bodyText="<b></b>" />
       <BodyText theme={theme}>
         By wrapping your root component with the{" "}
-        <Link href="/docs/components/theme#theme-provider">ThemeProvider</Link>,
-        you'll have access to default styles and can customize the theme as
-        needed for your project.
+        <TextBadge>ThemeProvider</TextBadge>, you'll have access to default
+        styles and can customize the theme as needed for your project.
       </BodyText>
       <TextContent_Wrap>
         <MediumTextHeader theme={theme} isMedium as="h4">

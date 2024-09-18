@@ -98,15 +98,10 @@ export const FrameWorksContainer = styled(Box)`
 
 export const FrameWorkContent = styled(Card)`
   background: ${(props) => props.theme.colors?.card};
-  border: 1px solid ${(props) => props.theme.colors?.card_border};
+  /* border: 1px solid ${(props) => props.theme.colors?.card_border}; */
   cursor: pointer;
   width: 260px;
-  /* max-width: 100%; */
-
-  &:hover {
-    filter: ${(props) =>
-      `drop-shadow(0 2px 2px ${props.theme.colors?.card_hover})`};
-  }
+  max-width: 100%;
 
   div {
     display: flex;

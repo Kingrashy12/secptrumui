@@ -15,13 +15,8 @@ const ButtonLoading = ({ code }: { code: string }) => {
       backgroundColor={theme.colors?.card}
     >
       <Tabs>
-        <TabsList variant="solid" backgroundColor={theme.colors?.tab_list}>
-          <TabsHandle
-            activeColor={theme.colors?.active_tab_color}
-            activeSolidColor={theme.colors?.active_tab_color_solid}
-            value="preview"
-            onClick={() => setMode("preview")}
-          >
+        <TabsList variant="solid">
+          <TabsHandle value="preview" onClick={() => setMode("preview")}>
             Preview
           </TabsHandle>
           <TabsHandle

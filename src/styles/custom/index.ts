@@ -1,3 +1,8 @@
+import { Typography } from "@/components";
+import { Box } from "secptrum-ui";
+import styled from "styled-components";
+import { localColors } from "../global";
+
 export const customTheme = {
   hljs: {
     background: "#000", // Black background
@@ -16,3 +21,22 @@ export const customTheme = {
     color: "#6272a4", // Comments
   },
 };
+
+export const ReferenceTable = styled(Box)`
+  flex-direction: column;
+`;
+
+export const PropBadge = styled(Typography)`
+  padding: 2px 4px; /* Adjust padding for a badge-like appearance */
+  border-radius: 5px; /* Rounded for a typical badge style */
+  font-family: "SUSE", sans-serif;
+  background-color: ${localColors.gray[200]};
+  color: ${localColors.neutral[800]};
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+`;

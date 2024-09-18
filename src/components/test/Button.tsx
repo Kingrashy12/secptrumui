@@ -1,3 +1,4 @@
+import { useTheme } from "@/context/useTheme";
 import shouldForwardProp from "@/hooks/styled_prop";
 import {
   getBorderRadius,
@@ -111,18 +112,23 @@ const Btn = ({
   onHoverBackgroundOutline,
   onHoverBackgroundLight,
   onHoverBackgroundGhost,
-  outlineBorderColor = colors.neutral200,
+  outlineBorderColor,
   ...props
 }: ButtonProps): JSX.Element => {
   const disabled = props.disabled;
+  const { theme } = useTheme();
   return (
     <Button
       backgroundColor={backgroundColor}
       onHoverBackgroundSolid={onHoverBackgroundSolid}
       onHoverBackgroundGhost={onHoverBackgroundGhost}
       onHoverBackgroundLight={onHoverBackgroundLight}
-      onHoverBackgroundOutline={onHoverBackgroundOutline}
-      outlineBorderColor={outlineBorderColor}
+      onHoverBackgroundOutline={
+        onHoverBackgroundOutline || theme.colors?.button_outline_hover
+      }
+      outlineBorderColor={
+        outlineBorderColor || theme.colors?.outline_button_border
+      }
       color={color}
       disabled={isLoading || disabled}
       {...props}

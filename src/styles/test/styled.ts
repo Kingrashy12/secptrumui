@@ -1,3 +1,4 @@
+import { getTabVariantStyle } from "@/utils/test/variant";
 import { Box, colors, shouldForwardProps } from "secptrum-ui";
 import styled from "styled-components";
 
@@ -88,10 +89,47 @@ export const CardWrap = styled(Box).withConfig({
   justify-content: center;
   align-items: ${(props) => props.centerContent && "center"};
   height: auto;
-  filter: drop-shadow(1px 0 1px 2px rgb(0 0 0 / 0.1))
-    drop-shadow(1px 0 1px 1px rgb(0 0 0 / 0.06));
+  /* filter: drop-shadow(1px 0 1px 2px rgb(0 0 0 / 0.1))
+    drop-shadow(1px 0 1px 1px rgb(0 0 0 / 0.06)); */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   @media screen and (max-width: 700px) {
     padding: 10px;
+  }
+`;
+
+export const TabHandle = styled.button.withConfig({ shouldForwardProp })<{
+  isCurrent: boolean;
+  activeColor: string | any;
+  variant: "line" | "solid";
+  inActiveColor: string;
+  disabled: boolean;
+}>`
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  white-space: nowrap;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  border: none;
+  padding: 9px;
+  font-weight: 500;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+
+  ${(props) =>
+    getTabVariantStyle(
+      props.variant,
+      props.isCurrent,
+      props.activeColor,
+      props.inActiveColor,
+      props.disabled
+    )}
+
+  &:hover {
+    border-bottom-color: ${(props) => !props.isCurrent && colors.neutral300};
   }
 `;

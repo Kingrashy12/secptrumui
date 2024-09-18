@@ -1,3 +1,4 @@
+import { useTheme } from "@/context/useTheme";
 import { CardWrap } from "@/styles/test/styled";
 import React, { ComponentPropsWithRef } from "react";
 import { colors } from "secptrum-ui";
@@ -19,17 +20,18 @@ declare interface CardType extends BoxProps {
 
 const Card = ({
   children,
-  backgroundColor = "white",
+  backgroundColor,
   centerContent,
-  borderColor = colors.neutral300,
+  borderColor,
   ...props
 }: CardType) => {
   // To do: get theme here and integrate to color state
+  const { theme } = useTheme();
   return (
     <CardWrap
       {...props}
-      borderColor={borderColor}
-      backgroundColor={backgroundColor}
+      borderColor={borderColor || theme.colors?.card_border}
+      backgroundColor={backgroundColor || theme.colors?.card}
       className={props.className}
       centerContent={centerContent}
     >

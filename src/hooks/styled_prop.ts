@@ -29,6 +29,10 @@ const shouldForwardProp = (prop: string) => {
     "onHoverBackgroundLight",
     "onHoverBackgroundGhost",
     "borderColor",
+    "outlineBorderColor",
+    "isCurrent",
+    "activeColor",
+    "",
   ];
 
   return !invalidProps.includes(prop); // Only forward valid props

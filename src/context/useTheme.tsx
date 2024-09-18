@@ -16,8 +16,10 @@ const defaultLightTheme = {
     tab_list: colors.gray100, //TabList BackgroundColor
     button_outline_hover: localColors.gray[50],
     card_bg: "white",
+    card: "white",
     card_border: localColors.neutral[300],
     prop: localColors.gray[200],
+    icon: "white",
   },
   fonts: {
     body: "'Poppins-Medium', sans-serif",
@@ -36,8 +38,10 @@ const defaultDarkTheme = {
     tab_list: localColors.neutral[800], //TabList BackgroundColor
     button_outline_hover: "rgb(59,130,246,.1)",
     card_bg: "black",
+    card: "#000000",
     card_border: localColors.neutral[800],
     prop: localColors.neutral[800],
+    icon: "black",
   },
   fonts: {
     body: "'Poppins-Medium', sans-serif",
@@ -51,8 +55,12 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
-    // Add link to docs for ref
-    throw new Error("useTheme must be used within a ThemeProvider");
+    return {
+      theme: defaultLightTheme,
+      mode: "light",
+      toggleTheme: () => {},
+      setCustomTheme: () => {},
+    };
   }
   return context;
 };

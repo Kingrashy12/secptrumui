@@ -15,13 +15,8 @@ const ButtonSize = ({ code }: { code: string }) => {
       backgroundColor={theme.colors?.card}
     >
       <Tabs>
-        <TabsList variant="solid" backgroundColor={theme.colors?.tab_list}>
-          <TabsHandle
-            activeColor={theme.colors?.active_tab_color}
-            activeSolidColor={theme.colors?.active_tab_color_solid}
-            value="preview"
-            onClick={() => setMode("preview")}
-          >
+        <TabsList variant="solid">
+          <TabsHandle value="preview" onClick={() => setMode("preview")}>
             Preview
           </TabsHandle>
           <TabsHandle
@@ -43,8 +38,6 @@ const ButtonSize = ({ code }: { code: string }) => {
             radius="lg"
             variant="outline"
             color={theme.colors?.text}
-            onHoverBackgroundOutline={theme.colors?.button_outline_hover}
-            outlineBorderColor={theme.colors?.outline_button_border}
           >
             Large Button
           </Button>

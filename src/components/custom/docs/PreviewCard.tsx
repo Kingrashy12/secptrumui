@@ -20,13 +20,8 @@ const PreviewCard = ({ code }: PreviewCardType) => {
       backgroundColor={theme.colors?.card}
     >
       <Tabs>
-        <TabsList variant="solid" backgroundColor={theme.colors?.tab_list}>
-          <TabsHandle
-            activeColor={theme.colors?.active_tab_color}
-            activeSolidColor={theme.colors?.active_tab_color_solid}
-            value="preview"
-            onClick={() => setMode("preview")}
-          >
+        <TabsList variant="solid">
+          <TabsHandle value="preview" onClick={() => setMode("preview")}>
             Preview
           </TabsHandle>
           <TabsHandle
@@ -45,8 +40,6 @@ const PreviewCard = ({ code }: PreviewCardType) => {
             radius="lg"
             variant="outline"
             color={theme.colors?.text}
-            onHoverBackgroundOutline={theme.colors?.button_outline_hover}
-            outlineBorderColor={theme.colors?.outline_button_border}
             onClick={() => toast.success("This is a success message!")}
           >
             Make a toast

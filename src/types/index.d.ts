@@ -43,3 +43,12 @@ declare type ModalContextType = {
   onOpen: () => void;
   onClose: () => void;
 };
+
+declare type ReferenceType = {
+  reference: {
+    prop: string;
+    type: string;
+    description: string;
+    default: string;
+  }[];
+};

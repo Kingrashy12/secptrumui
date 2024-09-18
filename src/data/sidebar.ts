@@ -58,6 +58,11 @@ export const sidebarlinks = [
         uri: "/docs/components/layout/tabs",
       },
       {
+        label: "Table",
+        not_available: true,
+        uri: "/docs/components/layout/table",
+      },
+      {
         label: "Checkbox",
         category: "Input",
         uri: "/docs/components/input/checkbox",

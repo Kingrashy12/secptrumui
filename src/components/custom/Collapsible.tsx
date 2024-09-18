@@ -19,20 +19,30 @@ const Collapsible = ({ header, children, isActive }: CollapsibleProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, mode } = useTheme();
   const light = mode === "light";
+  const [canOpen, setCanOpen] = useState(isActive);
+
+  function open() {
+    setIsOpen(!isOpen);
+    if (canOpen) {
+      setCanOpen(false);
+    }
+  }
 
   return (
     <StyledCollapsible>
-      <CollapsibleAction onClick={() => setIsOpen(!isOpen)} theme={theme}>
+      <CollapsibleAction onClick={open} theme={theme}>
         <Icon
           icon={
-            isOpen ? MdOutlineKeyboardArrowDown : MdOutlineKeyboardArrowRight
+            isOpen || canOpen
+              ? MdOutlineKeyboardArrowDown
+              : MdOutlineKeyboardArrowRight
           }
           size={25}
           color={theme.colors?.icon}
         />
         <Typography>{header}</Typography>
       </CollapsibleAction>
-      {isOpen || isActive ? (
+      {isOpen || canOpen ? (
         <ContentWrap light={light}>{children}</ContentWrap>
       ) : null}
     </StyledCollapsible>

@@ -1,4 +1,5 @@
 import { TabListProvider } from "@/context";
+import { useTheme } from "@/context/useTheme";
 import React from "react";
 import { colors, Stack } from "secptrum-ui";
 import styled from "styled-components";
@@ -22,15 +23,14 @@ type TabsListType = {
 const TabsList = ({
   children,
   variant = "line",
-  backgroundColor = colors.gray100,
+  backgroundColor,
 }: TabsListType) => {
+  const { theme } = useTheme();
+
+  const tab_bg = backgroundColor ? backgroundColor : theme.colors?.tab_list;
   return (
     <TabListProvider tabVariant={variant}>
-      <TabList
-        backgroundColor={backgroundColor}
-        variant={variant}
-        align="horizontal"
-      >
+      <TabList backgroundColor={tab_bg} variant={variant} align="horizontal">
         {children}
       </TabList>
     </TabListProvider>
@@ -41,7 +41,7 @@ export default TabsList;
 
 const TabList = styled(Stack)<{
   variant: TabsListType["variant"];
-  backgroundColor: string;
+  backgroundColor: string | any;
 }>`
   padding: 0;
   border-bottom: ${(props) =>
