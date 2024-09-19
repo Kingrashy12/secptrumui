@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-import { FloatingButton } from "secptrum-ui";
-import styled from "styled-components";
+import { Fab } from ".";
 
 const ScrollTop = () => {
   const [visible, setVisible] = useState(false);
@@ -27,14 +26,12 @@ const ScrollTop = () => {
   return (
     <>
       {visible && (
-        <Float onClick={scrollToTop}>
-          <IoIosArrowUp color="white" />
-        </Float>
+        <Fab variant="light" size="lg" onClick={scrollToTop}>
+          <IoIosArrowUp />
+        </Fab>
       )}
     </>
   );
 };
 
 export default ScrollTop;
-
-const Float = styled(FloatingButton)``;

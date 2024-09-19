@@ -30,7 +30,11 @@ export const sidebarlinks = [
         not_available: true,
         uri: "/docs/components/feedback/barloader",
       },
-      { label: "BounceLoader", uri: "/docs/components/feedback/bounceloader" },
+      {
+        label: "BounceLoader",
+        not_available: true,
+        uri: "/docs/components/feedback/bounceloader",
+      },
       { label: "CircleLoader", uri: "/docs/components/feedback/circleloader" },
       {
         label: "CircleRollerLoader",
@@ -90,6 +94,11 @@ export const sidebarlinks = [
         not_available: true,
         category: "Selection",
         uri: "/docs/components/selection/dropdown-menu",
+      },
+      {
+        label: "Menu",
+        not_available: true,
+        uri: "/docs/components/selection/menu",
       },
       {
         label: "Select Menu",

@@ -1,7 +1,7 @@
 import { useTheme } from "@/context/useTheme";
 import { CardWrap } from "@/styles/test/styled";
 import React, { ComponentPropsWithRef } from "react";
-import { colors } from "secptrum-ui";
+// import { colors } from "secptrum-ui";
 
 type BoxProps = ComponentPropsWithRef<"div">;
 

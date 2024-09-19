@@ -25,13 +25,6 @@ const MenuModal = () => {
             <Link href="/docs/getting-started">
               <Typography>Docs</Typography>
             </Link>
-            <Link
-              href="https://www.npmjs.com/package/secptrum-ui"
-              target="_blank"
-            >
-              <Typography>NPM</Typography>
-              <RiArrowRightUpLine />
-            </Link>
           </Links>
           <Divider theme={theme} />
           <Links>

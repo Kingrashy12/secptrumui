@@ -43,13 +43,6 @@ const Navbar = () => {
           <Link href="/docs/getting-started">
             <Typography>Docs</Typography>
           </Link>
-          <Link
-            href="https://www.npmjs.com/package/secptrum-ui"
-            target="_blank"
-          >
-            <Typography>NPM</Typography>
-            <RiArrowRightUpLine />
-          </Link>
         </Links>
         <Divider theme={theme} />
         <Links>
@@ -132,17 +125,17 @@ const Logo = styled(Media)`
 
 const LinkWrapper = styled(Box)`
   justify-content: space-between;
-  width: 35%;
+  width: 30%;
   @media screen and (max-width: 1024px) {
-    width: 50%;
+    width: 40%;
   }
   @media screen and (max-width: 820px) {
-    gap: 2rem;
-    width: 55%;
+    gap: 1.5rem;
+    width: 50%;
   }
   @media screen and (max-width: 768px) {
-    gap: 2rem;
-    width: 65%;
+    gap: 1rem;
+    width: 55%;
   }
   @media screen and (max-width: 550px) {
     display: none;

@@ -12,6 +12,13 @@ export const buttonRef = [
     default: "md",
   },
   {
+    prop: "radius",
+    type: "string",
+    description:
+      "Defines the border radius which the button will inherit (medium, large, extra large, full)",
+    default: "xl",
+  },
+  {
     prop: "disabled",
     type: "boolean",
     description: "Disables the button",

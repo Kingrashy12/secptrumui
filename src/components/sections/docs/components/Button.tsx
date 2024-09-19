@@ -23,6 +23,7 @@ import TextBadge from "@/components/test/TextBadge";
 import ButtonLoading from "@/components/preview/button/Loading";
 import ReferenceTable from "@/components/custom/docs/ReferenceTable";
 import { buttonRef } from "@/data/reference/button";
+import PageNavigator from "@/components/PageNavigator";
 
 const Button = () => {
   const { theme } = useTheme();
@@ -35,7 +36,7 @@ const Button = () => {
         <BodyText theme={theme}>
           The Button component is an essential element of any UI. It's used for
           actions such as submitting forms, performing tasks, or triggering
-          events. Our button component is customizable with different styles,
+          events. The button component is customizable with different styles,
           sizes, and states to fit various use cases.
         </BodyText>
       </TextContent_Wrap>
@@ -123,6 +124,7 @@ const Button = () => {
         </BodyText>
       </TextContent_Wrap>
       <ReferenceTable reference={buttonRef} />
+      <PageNavigator />
     </InstallPageContainer>
   );
 };

@@ -1,15 +1,14 @@
 import React from "react";
 import { Container } from "../../start/InstallPage";
 import PageNavigator from "@/components/PageNavigator";
-import Button from "@/components/sections/docs/components/Button";
+import FAB from "@/components/sections/docs/components/FAB";
 
-const ButtonDocs = () => {
+const FabDocs = () => {
   return (
     <Container>
-      <Button />
-      {/* <PageNavigator /> */}
+      <FAB />
     </Container>
   );
 };
 
-export default ButtonDocs;
+export default FabDocs;

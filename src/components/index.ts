@@ -11,6 +11,8 @@ export const ButtonDocs = lazy(
   () => import("./docs/components/action/ButtonDocs")
 );
 
+export const FabDocs = lazy(() => import("./docs/components/action/FABDocs"));
+
 export { default as RootLayout } from "./layout/RootLayout";
 export { default as Media } from "./custom/Media";
 export { default as Typography } from "./custom/Typography";
@@ -24,3 +26,4 @@ export { default as TabsList } from "./test/tabs/TabsList";
 export { default as TabsHandle } from "./test/tabs/TabsHandle";
 export { default as Button } from "./test/Button";
 export { default as Card } from "./test/Card";
+export { default as Fab } from "./test/Fab";

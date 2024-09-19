@@ -44,10 +44,7 @@ const SideBarModal = () => {
                     </DocsCategory>
                     <Link href={doc.uri}>
                       <DocLinkWrap
-                        isactive={
-                          router.pathname === doc.uri.toString() ||
-                          router.pathname.includes(doc.label.toLowerCase())
-                        }
+                        isactive={router.pathname === doc.uri.toString()}
                         notavailable={doc?.not_available}
                         light={light}
                       >

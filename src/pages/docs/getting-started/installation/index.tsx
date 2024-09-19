@@ -1,12 +1,18 @@
 import { BackgroundLoader, InstallPage } from "@/components";
 import Head from "next/head";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
 const Installation = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
+
   return (
     <Suspense fallback={<BackgroundLoader />}>
       <Head>
-        <title>Installation - Secptrum UI</title>
+        <title>{isLoading ? "Loading..." : "Installation - Secptrum UI"}</title>
       </Head>
       <InstallPage />
     </Suspense>

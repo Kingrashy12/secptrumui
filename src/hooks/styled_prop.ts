@@ -32,7 +32,8 @@ const shouldForwardProp = (prop: string) => {
     "outlineBorderColor",
     "isCurrent",
     "activeColor",
-    "",
+    "moveOnScroll",
+    "colorScheme",
   ];
 
   return !invalidProps.includes(prop); // Only forward valid props
