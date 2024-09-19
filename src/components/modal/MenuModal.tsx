@@ -1,22 +1,21 @@
 import { useMenu } from "@/context/useMenu";
 import { useTheme } from "@/context/useTheme";
 import React from "react";
-import { Backdrop, Box, colors, Icon, Stack } from "secptrum-ui";
+import { Box, colors, Stack } from "secptrum-ui";
 import styled from "styled-components";
 import Media from "../custom/Media";
-import { GoBell } from "react-icons/go";
 import { GithubImg } from "@/assets";
 import Link from "next/link";
 import { sidebarlinks } from "@/data/sidebar";
 import Typography from "../custom/Typography";
-import { RiArrowRightUpLine } from "react-icons/ri";
+import Backdrop from "../test/Backdrop";
 
 const MenuModal = () => {
   const { isOpen, onClose } = useMenu();
   const { theme } = useTheme();
   return (
     <Backdrop open={isOpen} onClose={onClose}>
-      <Container onClick={(e) => e.stopPropagation()} theme={theme}>
+      <Container theme={theme}>
         <LinkWrapper>
           <Links theme={theme}>
             <Link href={sidebarlinks[1].links[0].uri}>

@@ -20,7 +20,6 @@ export default function App({ Component, pageProps }: AppProps) {
         card_hover: colors.slate500,
         code: "yellow",
         code_opt_line: "#2d2c2c",
-        drop: "rgb(255, 255, 255, 0.5)",
       },
     },
     dark: {
@@ -32,7 +31,6 @@ export default function App({ Component, pageProps }: AppProps) {
         card_hover: colors.neutral600,
         code: "white",
         code_opt_line: "#2d2c2c",
-        drop: "rgb(0,0,0, 0.5)",
       },
     },
   };

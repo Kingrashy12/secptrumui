@@ -23,7 +23,7 @@ export const sidebarlinks = [
       {
         label: "Backdrop",
         category: "Feedback",
-        uri: "/docs/components/backdrop",
+        uri: "/docs/components/feedback/backdrop",
       },
       {
         label: "BarLoader",
@@ -38,9 +38,14 @@ export const sidebarlinks = [
       { label: "CircleLoader", uri: "/docs/components/feedback/circleloader" },
       {
         label: "CircleRollerLoader",
+        not_available: true,
         uri: "/docs/components/feedback/circle-roller-loader",
       },
-      { label: "FadeLoader", uri: "/docs/components/feedback/fadeloader" },
+      {
+        label: "FadeLoader",
+        not_available: true,
+        uri: "/docs/components/feedback/fadeloader",
+      },
       { label: "Modal", uri: "/docs/components/feedback/modal" },
       { label: "Toast", uri: "/docs/components/feedback/toast" },
       {

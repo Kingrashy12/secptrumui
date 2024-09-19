@@ -18,12 +18,17 @@ const PageNavigator = () => {
   const light = mode === "light";
 
   useEffect(() => {
-    // Function to get current, previous, and next pages
     function getPage() {
       let found = false;
+
       for (let i = 0; i < sidebarlinks.length; i++) {
-        for (let j = 0; j < sidebarlinks[i].links.length; j++) {
-          const page = sidebarlinks[i].links[j];
+        // Filter out unavailable links upfront
+        const availableLinks = sidebarlinks[i].links.filter(
+          (link) => !link.not_available
+        );
+
+        for (let j = 0; j < availableLinks.length; j++) {
+          const page = availableLinks[j];
 
           // Match current route with the page's uri
           if (router.pathname === page.uri) {
@@ -31,14 +36,14 @@ const PageNavigator = () => {
 
             // Set previous page if it's not the first one
             if (j > 0) {
-              setPrevPage(sidebarlinks[i].links[j - 1]);
+              setPrevPage(availableLinks[j - 1]);
             } else {
               setPrevPage(null); // No previous page
             }
 
             // Set next page if it's not the last one
-            if (j < sidebarlinks[i].links.length - 1) {
-              setNextPage(sidebarlinks[i].links[j + 1]);
+            if (j < availableLinks.length - 1) {
+              setNextPage(availableLinks[j + 1]);
             } else {
               setNextPage(null); // No next page
             }
@@ -47,6 +52,7 @@ const PageNavigator = () => {
             break;
           }
         }
+
         if (found) break;
       }
     }

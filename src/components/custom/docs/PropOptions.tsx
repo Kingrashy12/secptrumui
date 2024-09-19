@@ -9,13 +9,17 @@ type PropOptionType = {
    * List of props wrap with list item `li`
    */
   children: React.ReactNode;
+  hideHeader?: boolean;
+  italic?: boolean;
 };
-const PropOptions = ({ children }: PropOptionType) => {
+const PropOptions = ({ children, hideHeader, italic }: PropOptionType) => {
   const { theme } = useTheme();
   return (
     <Wrapper>
-      <Lable theme={theme}>Props</Lable>
-      <PropsList theme={theme}>{children}</PropsList>
+      {hideHeader ? null : <Lable theme={theme}>Props</Lable>}
+      <PropsList italic={italic} theme={theme}>
+        {children}
+      </PropsList>
     </Wrapper>
   );
 };
@@ -32,7 +36,9 @@ const Lable = styled(Typography)`
   font-weight: 500;
   color: ${({ theme }) => theme.colors?.text};
 `;
-const PropsList = styled.ul`
+const PropsList = styled.ul.withConfig({
+  shouldForwardProp: (prop) => prop !== "italic",
+})<{ italic: PropOptionType["italic"] }>`
   display: flex;
   flex-direction: column;
   padding-left: 20px;
@@ -40,5 +46,6 @@ const PropsList = styled.ul`
   li {
     font-family: "SUSE", sans-serif;
     color: ${({ theme }) => theme.colors?.text};
+    font-style: ${(props) => props.italic && "italic"};
   }
 `;

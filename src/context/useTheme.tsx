@@ -1,6 +1,12 @@
 "use-client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 import deepmerge from "deepmerge";
 import { colors } from "secptrum-ui";
 import { localColors } from "@/styles/global";
@@ -20,10 +26,14 @@ const defaultLightTheme = {
     card_border: localColors.neutral[300],
     prop: localColors.gray[200],
     icon: "white",
+    drop: "rgb(255, 255, 255, 0.5)",
   },
   fonts: {
     body: "'Poppins-Medium', sans-serif",
     heading: "'Poppins-Semibold', sans-serif",
+  },
+  effects: {
+    drop_blur: 6,
   },
 };
 
@@ -42,10 +52,14 @@ const defaultDarkTheme = {
     card_border: localColors.neutral[800],
     prop: localColors.neutral[800],
     icon: "black",
+    drop: "rgb(0,0,0, 0.6)",
   },
   fonts: {
     body: "'Poppins-Medium', sans-serif",
     heading: "'Poppins-Semibold', sans-serif",
+  },
+  effects: {
+    drop_blur: 6,
   },
 };
 
@@ -60,6 +74,7 @@ export const useTheme = () => {
       mode: "light",
       toggleTheme: () => {},
       setCustomTheme: () => {},
+      overrideTheme: () => {},
     };
   }
   return context;
@@ -86,18 +101,36 @@ export const ThemeProvider = ({
   );
   const [mode, setMode] = useState<"light" | "dark">(initialMode);
 
-  // Toggle between light and dark modes
-  const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newMode = mode === "light" ? "dark" : "light";
-      setMode(newMode);
-      global?.localStorage?.setItem("secptrum-ui-theme", newMode);
+  useEffect(() => {
+    setTheme(
+      deepmerge(
+        mode === "light" ? defaultLightTheme : defaultDarkTheme,
+        mode === "light" ? userTheme.light : userTheme.dark
+      )
+    );
+  }, [mode, userTheme]);
 
-      // Merge the user-provided themes for light/dark mode
-      return deepmerge(
-        newMode === "light" ? defaultLightTheme : defaultDarkTheme,
-        newMode === "light" ? userTheme.light : userTheme.dark
-      );
+  // Toggle between light and dark modes
+  // const toggleTheme = () => {
+  //   setTheme((prevTheme) => {
+  //     const newMode = mode === "light" ? "dark" : "light";
+  //     setMode(newMode);
+  //     global?.localStorage?.setItem("secptrum-ui-theme", newMode);
+
+  //     // Merge the user-provided themes for light/dark mode
+  //     return deepmerge(
+  //       newMode === "light" ? defaultLightTheme : defaultDarkTheme,
+  //       newMode === "light" ? userTheme.light : userTheme.dark
+  //     );
+  //   });
+  // };
+  const toggleTheme = () => {
+    setMode((prevMode) => {
+      const newMode = prevMode === "light" ? "dark" : "light";
+      if (typeof window !== undefined) {
+        localStorage.setItem("secptrum-ui-theme", newMode);
+      }
+      return newMode;
     });
   };
 
@@ -111,8 +144,22 @@ export const ThemeProvider = ({
     });
   };
 
+  // Allow overriding specific properties of the current theme
+  function overrideTheme(themeOverride: { light?: any; dark?: any }) {
+    setTheme((prevTheme) =>
+      deepmerge(
+        prevTheme,
+        mode === "light"
+          ? { ...defaultLightTheme, ...themeOverride.light }
+          : { ...defaultDarkTheme, ...themeOverride.dark }
+      )
+    );
+  }
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setCustomTheme, mode }}>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, setCustomTheme, overrideTheme, mode }}
+    >
       {children}
     </ThemeContext.Provider>
   );

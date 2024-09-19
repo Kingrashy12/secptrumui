@@ -12,6 +12,18 @@ export const ButtonDocs = lazy(
 );
 
 export const FabDocs = lazy(() => import("./docs/components/action/FABDocs"));
+export const BackdropDocs = lazy(
+  () => import("./docs/components/feedback/BackdropDocs")
+);
+export const CircleLoaderDocs = lazy(
+  () => import("./docs/components/feedback/CircleLoaderDocs")
+);
+export const ModalDocs = lazy(
+  () => import("./docs/components/feedback/ModalDocs")
+);
+export const ToastDocs = lazy(
+  () => import("./docs/components/feedback/ToastDocs")
+);
 
 export { default as RootLayout } from "./layout/RootLayout";
 export { default as Media } from "./custom/Media";

@@ -6,13 +6,14 @@ import {
   DocsContent,
   DocsLabel,
 } from "@/components/custom/StickyBar";
+import Backdrop from "@/components/test/Backdrop";
 import { useSideBar } from "@/context/useSideBar";
 import { useTheme } from "@/context/useTheme";
 import { sidebarlinks } from "@/data/sidebar";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { Backdrop, Box } from "secptrum-ui";
+import { Box } from "secptrum-ui";
 import styled from "styled-components";
 
 const SideBarModal = () => {
@@ -23,7 +24,7 @@ const SideBarModal = () => {
 
   return (
     <Backdrop open={isOpen} onClose={onClose}>
-      <SideBarContainer onClick={(e) => e.stopPropagation()} theme={theme}>
+      <SideBarContainer theme={theme}>
         <BarContent>
           {sidebarlinks.map((link, index) => (
             <Collapsible

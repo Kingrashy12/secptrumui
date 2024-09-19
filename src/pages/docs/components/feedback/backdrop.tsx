@@ -1,24 +1,22 @@
-import { BackgroundLoader, ButtonDocs } from "@/components";
+import { BackdropDocs, BackgroundLoader } from "@/components";
 import Head from "next/head";
 import React, { Suspense, useEffect, useState } from "react";
 
-const button = () => {
+const Backdrop = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(false);
   }, []);
 
-  const title = isLoading ? "Loading..." : "Button";
-
   return (
     <Suspense fallback={<BackgroundLoader />}>
       <Head>
-        <title>{title} - Secptrum UI</title>
+        <title>{isLoading ? "Loading" : "Backdrop - Secptrum UI"}</title>
       </Head>
-      <ButtonDocs />
+      <BackdropDocs />
     </Suspense>
   );
 };
 
-export default button;
+export default Backdrop;

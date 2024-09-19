@@ -1,24 +1,22 @@
-import { BackgroundLoader, ButtonDocs } from "@/components";
+import { BackgroundLoader, ModalDocs } from "@/components";
 import Head from "next/head";
 import React, { Suspense, useEffect, useState } from "react";
 
-const button = () => {
+const Modal = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(false);
   }, []);
 
-  const title = isLoading ? "Loading..." : "Button";
-
   return (
     <Suspense fallback={<BackgroundLoader />}>
       <Head>
-        <title>{title} - Secptrum UI</title>
+        <title>{isLoading ? "Loading" : "Modal - Secptrum UI"}</title>
       </Head>
-      <ButtonDocs />
+      <ModalDocs />
     </Suspense>
   );
 };
 
-export default button;
+export default Modal;

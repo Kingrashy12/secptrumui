@@ -25,7 +25,7 @@ const Container = styled(Preview)`
   position: relative;
   justify-content: center;
   align-items: center;
-  height: 150px;
+  height: 250px;
 `;
 
 const Text = styled(Typography)`
