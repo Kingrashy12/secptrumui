@@ -85,8 +85,8 @@ const TextInput = ({
   return (
     <Input
       disabled={props.disabled}
-      outLineBorderColor={
-        outLineBorderColor || theme.colors?.outline_button_border
+      outlinebordercolor={
+        outLineBorderColor || theme.colors?.outline_ButtonBorderColor
       }
       variant={variant}
       radius={radius}

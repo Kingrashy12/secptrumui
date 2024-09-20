@@ -11,6 +11,16 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["react-icons", "styled-components"],
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "fakestoreapi.com",
+        protocol: "https",
+        pathname: "/img/*",
+        port: "",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

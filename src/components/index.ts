@@ -24,6 +24,9 @@ export const ModalDocs = lazy(
 export const ToastDocs = lazy(
   () => import("./docs/components/feedback/ToastDocs")
 );
+export const BoxDocs = lazy(() => import("./docs/components/layout/Box"));
+export const CardDocs = lazy(() => import("./docs/components/layout/Card"));
+export const StackDocs = lazy(() => import("./docs/components/layout/Stack"));
 
 export { default as RootLayout } from "./layout/RootLayout";
 export { default as Media } from "./custom/Media";

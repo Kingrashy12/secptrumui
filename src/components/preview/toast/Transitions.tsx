@@ -43,11 +43,7 @@ const TransitionsToast = ({ code }: { code: string }) => {
           <TabsHandle value="preview" onClick={() => setMode("preview")}>
             Preview
           </TabsHandle>
-          <TabsHandle
-            activeColor={theme.colors?.active_tab_color}
-            value="code"
-            onClick={() => setMode("code")}
-          >
+          <TabsHandle value="code" onClick={() => setMode("code")}>
             Code
           </TabsHandle>
         </TabsList>

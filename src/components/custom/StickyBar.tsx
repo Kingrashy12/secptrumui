@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { localColors } from "@/styles/global";
 import { useTheme } from "@/context/useTheme";
+import shouldForwardProp from "@/hooks/styled_prop";
 
 const getContent = (fold: boolean) => {
   return fold ? { display: "flex" } : { display: "none" };
@@ -224,7 +225,7 @@ export const DocAlert = styled(Typography).withConfig({
 `;
 
 export const DocLinkWrap = styled(Box).withConfig({
-  shouldForwardProp: (props) => props !== "light",
+  shouldForwardProp,
 })<{
   isactive: boolean;
   notavailable: boolean | undefined;

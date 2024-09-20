@@ -93,20 +93,23 @@ export const CardWrap = styled(Box).withConfig({
   centerContent?: boolean;
   backgroundColor: string | any;
   borderColor: string | any;
+  space: number | any;
+  card_BoxShadowColor: string | any;
 }>`
   flex-direction: column;
   background: ${(props) => props.backgroundColor};
   border: 1px solid ${(props) => props.borderColor};
   border-radius: 11px;
   padding: 16px;
+  gap: ${(props) => props.space || 16}px;
   width: auto;
   max-width: 100%;
   justify-content: center;
   align-items: ${(props) => props.centerContent && "center"};
   height: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px ${(props) => props.card_BoxShadowColor};
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 550px) {
     padding: 10px;
   }
 `;
@@ -161,7 +164,7 @@ export const Button = styled.button.withConfig({
   variant: ButtonProps["variant"];
   radius: ButtonProps["radius"];
   size: ButtonProps["size"];
-  outlineBorderColor: ButtonProps["outlineBorderColor"];
+  outlinebordercolor: ButtonProps["outlineBorderColor"];
   backgroundColor: ButtonProps["backgroundColor"];
   onHoverBackgroundSolid: ButtonProps["onHoverBackgroundSolid"];
   onHoverBackgroundOutline: ButtonProps["onHoverBackgroundOutline"];
@@ -206,7 +209,7 @@ export const Button = styled.button.withConfig({
     getButtonStyles(
       props.variant,
       props.color,
-      props.outlineBorderColor,
+      props.outlinebordercolor,
       props.backgroundColor
     )};
   transition-property: all;
@@ -328,7 +331,7 @@ export const Input = styled.div.withConfig({
 })<{
   variant: InputType["variant"];
   radius: InputType["radius"];
-  outLineBorderColor: string | any;
+  outlinebordercolor: string | any;
   focusColor: InputType["focusColor"];
   focusBorderColor: InputType["focusBorderColor"];
   disabled: boolean | any;
@@ -351,7 +354,7 @@ export const Input = styled.div.withConfig({
   ${(props) =>
     getInputVariantStyles(
       props.variant,
-      props.outLineBorderColor,
+      props.outlinebordercolor,
       props.focusBorderColor,
       props.focusColor,
       props.disabled

@@ -15,15 +15,15 @@ const defaultLightTheme = {
   colors: {
     background: "#ffffff",
     text: "#000000",
-    outline_button_border: colors.neutral200,
-    active_tab_color: "black", //TabHandle active color
-    active_tab_color_solid: "black", //TabHandle active color for solid varaint
-    inactive_tab_color: colors.neutral400, //TabHandle inactive color
-    tab_list: colors.gray100, //TabList BackgroundColor
-    button_outline_hover: localColors.gray[50],
-    card_bg: "white",
+    outline_ButtonBorderColor: colors.neutral200,
+    active_TabColor: "black", //TabHandle active color
+    active_TabColor_Solid: "black", //TabHandle active color for solid varaint
+    inActiveTabColor: colors.neutral400, //TabHandle inactive color
+    tabListBackground: colors.gray100, //TabList BackgroundColor
+    button_OutlineHoverColor: localColors.gray[50],
     card: "white",
-    card_border: localColors.neutral[300],
+    card_BorderColor: localColors.neutral[200],
+    card_BoxShadowColor: "rgba(0, 0, 0, 0.1)",
     prop: localColors.gray[200],
     icon: "white",
     drop: "rgb(255, 255, 255, 0.5)",
@@ -41,15 +41,15 @@ const defaultDarkTheme = {
   colors: {
     background: "#121212",
     text: "#ffffff",
-    outline_button_border: localColors.neutral[800],
-    active_tab_color: "white", //TabHandle active color
-    active_tab_color_solid: "black", //TabHandle active color for solid variant
-    inactive_tab_color: localColors.neutral[800], //TabHandle inactive color
-    tab_list: localColors.neutral[800], //TabList BackgroundColor
-    button_outline_hover: "rgb(59,130,246,.1)",
-    card_bg: "black",
+    outline_ButtonBorderColor: localColors.neutral[800],
+    active_TabColor: "white", //TabHandle active color
+    active_TabColor_Solid: "black", //TabHandle active color for solid variant
+    inActiveTabColor: localColors.neutral[800], //TabHandle inactive color
+    tabListBackground: localColors.neutral[800], //TabList BackgroundColor
+    button_OutlineHoverColor: "rgb(59,130,246,.1)",
     card: "#000000",
-    card_border: localColors.neutral[800],
+    card_BorderColor: localColors.neutral[800],
+    card_BoxShadowColor: "rgba(255, 255, 255, 0.1)",
     prop: localColors.neutral[800],
     icon: "black",
     drop: "rgb(0,0,0, 0.6)",

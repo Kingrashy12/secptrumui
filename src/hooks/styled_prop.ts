@@ -42,6 +42,12 @@ const shouldForwardProp = (prop: string) => {
     "focusBorderColor",
     "focusColor",
     "transition",
+    "card_BoxShadowColor",
+    "space",
+    "gap",
+    "notavailable",
+    "light",
+    "outlinebordercolor",
   ];
 
   return !invalidProps.includes(prop); // Only forward valid props

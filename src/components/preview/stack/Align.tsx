@@ -4,19 +4,18 @@ import { toast } from "@/components/test/toast/Toast";
 import { useTheme } from "@/context/useTheme";
 import { Preview } from "@/styles/docs/start.styled";
 import React, { useState } from "react";
-import { Stack } from "secptrum-ui";
+import {
+  RiContactsFill,
+  RiDeleteBin5Line,
+  RiMessage3Line,
+  RiVideoChatFill,
+} from "react-icons/ri";
+import { Box, Stack } from "secptrum-ui";
 import styled from "styled-components";
 
-const PositionToast = ({ code }: { code: string }) => {
+const AlignStack = ({ code }: { code: string }) => {
   const [mode, setMode] = useState("preview");
   const { theme } = useTheme();
-
-  function makeToast() {
-    toast.success("You changed the position", {
-      position: "top-left",
-      transition: "dropIn",
-    });
-  }
 
   return (
     <Preview>
@@ -31,11 +30,17 @@ const PositionToast = ({ code }: { code: string }) => {
         </TabsList>
       </Tabs>
       {mode === "preview" ? (
-        <PrevContainer align="horizontal">
-          <Button size="lg" variant="outline" onClick={makeToast}>
-            Change position
+        <Container align="horizontal">
+          <Button size="lg" icon={RiVideoChatFill} variant="outline">
+            Video Chat
           </Button>
-        </PrevContainer>
+          <Button size="lg" icon={RiMessage3Line} variant="ghost">
+            Chat
+          </Button>
+          <Button icon={RiContactsFill} size="lg" variant="light">
+            Add to contact
+          </Button>
+        </Container>
       ) : (
         <CodeBlock code={code} />
       )}
@@ -43,13 +48,9 @@ const PositionToast = ({ code }: { code: string }) => {
   );
 };
 
-export default PositionToast;
+export default AlignStack;
 
-export const PrevContainer = styled(Stack)`
+const Container = styled(Stack)`
   width: auto;
   flex-wrap: wrap;
-
-  button {
-    width: auto;
-  }
 `;

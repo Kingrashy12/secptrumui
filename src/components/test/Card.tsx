@@ -15,7 +15,16 @@ declare interface CardType extends BoxProps {
    * A custom background color to overide current one or provide theme colors
    */
   backgroundColor?: string;
+  /**
+   * A custom border color to override the default or theme border color
+   */
   borderColor?: string;
+
+  /**
+   * Controls the internal spacing between card elements
+   * Accepts only number
+   */
+  space?: number;
 }
 
 const Card = ({
@@ -23,6 +32,7 @@ const Card = ({
   backgroundColor,
   centerContent,
   borderColor,
+  space,
   ...props
 }: CardType) => {
   // To do: get theme here and integrate to color state
@@ -30,10 +40,12 @@ const Card = ({
   return (
     <CardWrap
       {...props}
-      borderColor={borderColor || theme.colors?.card_border}
+      space={space}
+      borderColor={borderColor || theme.colors?.card_BorderColor}
       backgroundColor={backgroundColor || theme.colors?.card}
       className={props.className}
       centerContent={centerContent}
+      card_BoxShadowColor={theme.colors?.card_BoxShadowColor}
     >
       {children}
     </CardWrap>

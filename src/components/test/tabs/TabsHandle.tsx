@@ -64,10 +64,10 @@ const TabsHandle = ({
   const isCurrent = activeTabValue === value;
   const active_solidColor = activeSolidColor
     ? activeSolidColor
-    : theme.colors?.active_tab_color_solid;
+    : theme.colors?.active_TabColor_Solid;
   const active_color = activeColor
     ? activeColor
-    : theme.colors?.active_tab_color;
+    : theme.colors?.active_TabColor;
 
   return (
     <TabHandle

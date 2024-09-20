@@ -15,17 +15,14 @@ const PreviewCard = ({ code }: PreviewCardType) => {
   const [mode, setMode] = useState("preview");
   const { theme } = useTheme();
   return (
-    <Preview
-      borderColor={theme.colors?.card_border}
-      backgroundColor={theme.colors?.card}
-    >
+    <Preview>
       <Tabs>
         <TabsList variant="solid">
           <TabsHandle value="preview" onClick={() => setMode("preview")}>
             Preview
           </TabsHandle>
           <TabsHandle
-            activeColor={theme.colors?.active_tab_color}
+            activeColor={theme.colors?.active_TabColor}
             value="code"
             onClick={() => setMode("code")}
           >

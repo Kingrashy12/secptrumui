@@ -27,7 +27,9 @@ const TabsList = ({
 }: TabsListType) => {
   const { theme } = useTheme();
 
-  const tab_bg = backgroundColor ? backgroundColor : theme.colors?.tab_list;
+  const tab_bg = backgroundColor
+    ? backgroundColor
+    : theme.colors?.tabListBackground;
   return (
     <TabListProvider tabVariant={variant}>
       <TabList backgroundColor={tab_bg} variant={variant} align="horizontal">

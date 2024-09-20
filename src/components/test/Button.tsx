@@ -102,6 +102,7 @@ export declare interface ButtonProps extends ButtonTypes {
    * to the specified value. If not provided, the button will use the default width of `auto`
    */
   width?: string;
+  iconSize?: number;
 }
 
 const Btn = ({
@@ -120,6 +121,7 @@ const Btn = ({
   onHoverBackgroundGhost,
   outlineBorderColor,
   width,
+  iconSize,
   ...props
 }: ButtonProps): JSX.Element => {
   const disabled = props.disabled;
@@ -145,10 +147,10 @@ const Btn = ({
       onHoverBackgroundGhost={onHoverBackgroundGhost}
       onHoverBackgroundLight={onHoverBackgroundLight}
       onHoverBackgroundOutline={
-        onHoverBackgroundOutline || theme.colors?.button_outline_hover
+        onHoverBackgroundOutline || theme.colors?.button_OutlineHoverColor
       }
-      outlineBorderColor={
-        outlineBorderColor || theme.colors?.outline_button_border
+      outlinebordercolor={
+        outlineBorderColor || theme.colors?.outline_ButtonBorderColor
       }
       color={getColor(variant, color)}
       disabled={isLoading || disabled}
@@ -164,13 +166,13 @@ const Btn = ({
       ) : (
         <>
           {icon && iconPosition === "left"
-            ? icon && <Icon icon={icon} />
+            ? icon && <Icon size={iconSize} icon={icon} />
             : null}
         </>
       )}{" "}
       {children}
       {!isLoading && icon && iconPosition === "right"
-        ? icon && <Icon icon={icon} />
+        ? icon && <Icon size={iconSize} icon={icon} />
         : null}
     </Button>
   );
