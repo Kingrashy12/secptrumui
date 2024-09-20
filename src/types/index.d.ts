@@ -65,7 +65,7 @@ declare type ThemeContextType = {
    *   }
    * });
    */
-  overrideTheme: (themeOverride: { light?: any; dark?: any }) => void;
+  // overrideTheme: (themeOverride: { light?: any; dark?: any }) => void;
   /**
    * The current theme mode of the application, either `light` or `dark`.
    *

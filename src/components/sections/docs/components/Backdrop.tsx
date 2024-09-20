@@ -1,6 +1,6 @@
 import PropOptions from "@/components/custom/docs/PropOptions";
 import ReferenceTable from "@/components/custom/docs/ReferenceTable";
-import PageNavigator from "@/components/PageNavigator";
+import DocsLayout from "@/components/layout/DocsLayout";
 import BasicDrop from "@/components/preview/backdrop/Basic";
 import TextBadge from "@/components/test/TextBadge";
 import { useTheme } from "@/context/useTheme";
@@ -8,7 +8,6 @@ import { dropCode } from "@/data/code/backdrop";
 import { backdropRef } from "@/data/reference/backdrop";
 import {
   BodyText,
-  InstallPageContainer,
   LargeTextHeader,
   MediumTextHeader,
   TextContent_Wrap,
@@ -19,7 +18,7 @@ import React from "react";
 const Backdrop = () => {
   const { theme } = useTheme();
   return (
-    <InstallPageContainer>
+    <DocsLayout>
       <TextContent_Wrap>
         <LargeTextHeader as="h1" theme={theme}>
           Backdrop
@@ -48,11 +47,29 @@ const Backdrop = () => {
             Theming
           </MediumTextHeader>
         </Link>
-        <PropOptions>
+        <PropOptions italic hideHeader>
           <li>
-            The Backdrop component respects the theme provided by your
-            ThemeProvider, allowing you to seamlessly integrate it with your
+            The <TextBadge>Backdrop</TextBadge> component respects the theme
+            provided, allowing you to seamlessly integrate it with your
             application's design system.
+          </li>
+        </PropOptions>
+        <PropOptions
+          italic
+          hideHeader
+          hasBodyText
+          bodyText="You can modify these values globally by adjusting the theme or override them per instance using props, allowing for flexible styling that aligns with your design system."
+        >
+          <li>
+            <TextBadge>drop</TextBadge>:{" "}
+            <TextBadge>rgba(0, 0, 0, 0.5)</TextBadge>,{" "}
+            <TextBadge>rgba(255, 255, 255, 0.5)</TextBadge> – The default
+            semi-transparent background of the backdrop.
+          </li>
+          <li>
+            <TextBadge>drop_blur</TextBadge>: <TextBadge>5px</TextBadge> – The
+            default blur effect applied to the backdrop for a frosted glass
+            appearance.
           </li>
         </PropOptions>
       </TextContent_Wrap>
@@ -68,8 +85,7 @@ const Backdrop = () => {
         </BodyText>
       </TextContent_Wrap>
       <ReferenceTable reference={backdropRef} />
-      <PageNavigator />
-    </InstallPageContainer>
+    </DocsLayout>
   );
 };
 

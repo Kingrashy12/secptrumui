@@ -1,8 +1,9 @@
+"use-client";
+
 import StyledComponentsRegistry from "@/lib/registry";
 import React, { useEffect } from "react";
 import { Box } from "secptrum-ui";
 import dynamic from "next/dynamic";
-// import StickyBar from "../custom/StickyBar";
 import { GlobalStyles, RootWrap } from "@/styles/global";
 import { useRouter } from "next/router";
 import ScrollTop from "../ScrollTop";

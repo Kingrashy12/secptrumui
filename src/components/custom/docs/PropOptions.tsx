@@ -3,6 +3,7 @@ import { Box } from "secptrum-ui";
 import styled from "styled-components";
 import Typography from "../Typography";
 import { useTheme } from "@/context/useTheme";
+import { BodyText } from "@/styles/docs/start.styled";
 
 type PropOptionType = {
   /**
@@ -11,15 +12,28 @@ type PropOptionType = {
   children: React.ReactNode;
   hideHeader?: boolean;
   italic?: boolean;
+  hasBodyText?: boolean;
+  bodyText?: string;
+  header?: string;
 };
-const PropOptions = ({ children, hideHeader, italic }: PropOptionType) => {
+const PropOptions = ({
+  children,
+  hideHeader,
+  italic,
+  hasBodyText,
+  bodyText,
+  header,
+}: PropOptionType) => {
   const { theme } = useTheme();
   return (
     <Wrapper>
-      {hideHeader ? null : <Lable theme={theme}>Props</Lable>}
+      {hideHeader ? null : (
+        <Lable theme={theme}>{header ? header : "Props"}</Lable>
+      )}
       <PropsList italic={italic} theme={theme}>
         {children}
       </PropsList>
+      {hasBodyText && <BodyText theme={theme}>{bodyText}</BodyText>}
     </Wrapper>
   );
 };

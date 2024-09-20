@@ -3,7 +3,7 @@ import { CardWrap } from "@/styles/test/styled";
 import React, { ComponentPropsWithRef } from "react";
 // import { colors } from "secptrum-ui";
 
-type BoxProps = ComponentPropsWithRef<"div">;
+export type BoxProps = ComponentPropsWithRef<"div">;
 
 declare interface CardType extends BoxProps {
   children?: React.ReactNode;

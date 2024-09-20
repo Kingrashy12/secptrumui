@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 
 import React, {
   createContext,
@@ -79,7 +79,6 @@ export const useTheme = () => {
   }
   return context;
 };
-
 export const ThemeProvider = ({
   children,
   theme: userTheme = { light: {}, dark: {} },
@@ -111,19 +110,6 @@ export const ThemeProvider = ({
   }, [mode, userTheme]);
 
   // Toggle between light and dark modes
-  // const toggleTheme = () => {
-  //   setTheme((prevTheme) => {
-  //     const newMode = mode === "light" ? "dark" : "light";
-  //     setMode(newMode);
-  //     global?.localStorage?.setItem("secptrum-ui-theme", newMode);
-
-  //     // Merge the user-provided themes for light/dark mode
-  //     return deepmerge(
-  //       newMode === "light" ? defaultLightTheme : defaultDarkTheme,
-  //       newMode === "light" ? userTheme.light : userTheme.dark
-  //     );
-  //   });
-  // };
   const toggleTheme = () => {
     setMode((prevMode) => {
       const newMode = prevMode === "light" ? "dark" : "light";
@@ -145,21 +131,19 @@ export const ThemeProvider = ({
   };
 
   // Allow overriding specific properties of the current theme
-  function overrideTheme(themeOverride: { light?: any; dark?: any }) {
-    setTheme((prevTheme) =>
-      deepmerge(
-        prevTheme,
-        mode === "light"
-          ? { ...defaultLightTheme, ...themeOverride.light }
-          : { ...defaultDarkTheme, ...themeOverride.dark }
-      )
-    );
-  }
+  // function overrideTheme(themeOverride: { light?: any; dark?: any }) {
+  //   setTheme((prevTheme) =>
+  //     deepmerge(
+  //       prevTheme,
+  //       mode === "light"
+  //         ? { ...defaultLightTheme, ...themeOverride.light }
+  //         : { ...defaultDarkTheme, ...themeOverride.dark }
+  //     )
+  //   );
+  // }
 
   return (
-    <ThemeContext.Provider
-      value={{ theme, toggleTheme, setCustomTheme, overrideTheme, mode }}
-    >
+    <ThemeContext.Provider value={{ theme, toggleTheme, setCustomTheme, mode }}>
       {children}
     </ThemeContext.Provider>
   );

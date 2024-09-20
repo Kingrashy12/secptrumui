@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Box } from "secptrum-ui";
 import styled from "styled-components";

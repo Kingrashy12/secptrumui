@@ -1,7 +1,8 @@
+"use client";
+
 import React, { useState } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { FaCopy } from "react-icons/fa";
 import { Icon, toast } from "secptrum-ui";
 import { TbCopy, TbCopyCheckFilled } from "react-icons/tb";
 import styled from "styled-components";

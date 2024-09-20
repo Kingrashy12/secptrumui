@@ -1,5 +1,6 @@
 import { useTheme } from "@/context/useTheme";
 import shouldForwardProp from "@/hooks/styled_prop";
+import { Button } from "@/styles/test/styled";
 import {
   getBorderRadius,
   getButtonStyles,
@@ -96,6 +97,11 @@ export declare interface ButtonProps extends ButtonTypes {
    * @default "#000000"
    */
   outlineBorderColor?: string;
+  /**
+   * Specifies the width of the button. If provided, it sets the button’s width
+   * to the specified value. If not provided, the button will use the default width of `auto`
+   */
+  width?: string;
 }
 
 const Btn = ({
@@ -113,10 +119,25 @@ const Btn = ({
   onHoverBackgroundLight,
   onHoverBackgroundGhost,
   outlineBorderColor,
+  width,
   ...props
 }: ButtonProps): JSX.Element => {
   const disabled = props.disabled;
   const { theme } = useTheme();
+
+  const getColor = (
+    varaint: ButtonProps["variant"],
+    color: ButtonProps["color"]
+  ) => {
+    switch (varaint) {
+      case "outline":
+        return `
+          ${color ? color : theme.colors?.text}
+        `;
+      default:
+        return color;
+    }
+  };
   return (
     <Button
       backgroundColor={backgroundColor}
@@ -129,12 +150,13 @@ const Btn = ({
       outlineBorderColor={
         outlineBorderColor || theme.colors?.outline_button_border
       }
-      color={color}
+      color={getColor(variant, color)}
       disabled={isLoading || disabled}
       {...props}
       variant={variant}
       size={size}
       radius={radius}
+      width={width}
       className={props.className}
     >
       {isLoading ? (
@@ -155,72 +177,3 @@ const Btn = ({
 };
 
 export default Btn;
-
-const Button = styled.button.withConfig({
-  shouldForwardProp,
-})<{
-  variant: ButtonProps["variant"];
-  radius: ButtonProps["radius"];
-  size: ButtonProps["size"];
-  outlineBorderColor: ButtonProps["outlineBorderColor"];
-  backgroundColor: ButtonProps["backgroundColor"];
-  onHoverBackgroundSolid: ButtonProps["onHoverBackgroundSolid"];
-  onHoverBackgroundOutline: ButtonProps["onHoverBackgroundOutline"];
-  onHoverBackgroundGhost: ButtonProps["onHoverBackgroundGhost"];
-  onHoverBackgroundLight: ButtonProps["onHoverBackgroundLight"];
-}>`
-  width: 100%;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: ${(props) => getSizeVariant(props.size)};
-  border-radius: ${(props) => getBorderRadius(props.radius)};
-  font-family: "Poppins-Medium", sans-serif;
-  &:focus {
-    outline: none;
-  }
-  ${(props) =>
-    props.disabled &&
-    `
-    cursor: not-allowed;
-    opacity: 0.75;
-    pointer-events: none;
-  `}
-  &:hover {
-    ${(props) =>
-      getHoverStyle(
-        props.variant,
-        props.onHoverBackgroundSolid,
-        props.onHoverBackgroundOutline,
-        props.onHoverBackgroundGhost,
-        props.onHoverBackgroundLight
-      )};
-  }
-  ${(props) =>
-    getButtonStyles(
-      props.variant,
-      props.color,
-      props.outlineBorderColor,
-      props.backgroundColor
-    )};
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
-  .loader {
-    animation: spin 1s infinite linear;
-  }
-
-  @keyframes spin {
-    from {
-      transform: rotate(-360deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`;

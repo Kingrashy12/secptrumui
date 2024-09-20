@@ -1,12 +1,15 @@
 import { BackgroundLoader, InstallPage } from "@/components";
 import Head from "next/head";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState, useTransition } from "react";
 
 const Installation = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
-    setIsLoading(false);
+    startTransition(() => {
+      setIsLoading(false);
+    });
   }, []);
 
   return (

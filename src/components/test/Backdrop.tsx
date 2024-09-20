@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import shouldForwardProp from "@/hooks/styled_prop";
-import { FixedBox } from "@/styles/test/styled";
+import { Drop, FixedBox } from "@/styles/test/styled";
 import { useTheme } from "@/context/useTheme";
 
 interface DropType {
@@ -35,6 +35,17 @@ interface DropType {
    * @default true
    */
   centerContent?: boolean;
+  /**
+   * Determines the stack order of the backdrop, ensuring it appears above other content but behind interactive elements.
+   */
+  zIndex?: number;
+  /**
+   * Prevents the modal from closing if an action is in progress.
+   * When set to `true`, the modal will remain open and cannot be closed
+   * until the ongoing action completes.
+   * Useful for preventing accidental closure during important tasks or loading states.
+   */
+  preventClose?: boolean;
 }
 
 const Backdrop = ({
@@ -44,11 +55,12 @@ const Backdrop = ({
   className,
   style,
   centerContent = true,
+  preventClose,
 }: DropType) => {
   const { theme } = useTheme();
 
   const handleClose = (event: any) => {
-    if (event.target === event.currentTarget) {
+    if (!preventClose && event.target === event.currentTarget) {
       onClose();
     }
   };
@@ -68,14 +80,3 @@ const Backdrop = ({
 };
 
 export default Backdrop;
-
-const Drop = styled(FixedBox).withConfig({ shouldForwardProp })<{
-  open: boolean;
-  centerContent: boolean;
-}>`
-  background: ${(props) => props.theme.colors?.drop};
-  display: ${(props) => (props.open ? "flex" : "none")};
-  justify-content: ${(props) => props.centerContent && "center"};
-  align-items: ${(props) => props.centerContent && "center"};
-  backdrop-filter: ${(props) => `blur(${props.theme.effects?.drop_blur}px)`};
-`;

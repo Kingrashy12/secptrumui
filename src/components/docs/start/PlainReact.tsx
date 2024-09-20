@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Container } from "./InstallPage";
 import CreateReactApp from "@/components/sections/docs/start/CreateReactApp";

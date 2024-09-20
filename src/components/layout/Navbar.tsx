@@ -1,3 +1,5 @@
+"use-client";
+
 import React from "react";
 import styled from "styled-components";
 import Media from "../custom/Media";
@@ -5,8 +7,7 @@ import { GithubImg, SecptrumLogo } from "@/assets";
 import { Box, colors, Icon } from "secptrum-ui";
 import Typography from "../custom/Typography";
 import Link from "next/link";
-import { RiArrowRightUpLine, RiMenuUnfold3Line } from "react-icons/ri";
-import { FaGithub } from "react-icons/fa";
+import { RiMenuUnfold3Line } from "react-icons/ri";
 import { GoBell } from "react-icons/go";
 import { MdSunny } from "react-icons/md";
 import { useTheme } from "@/context/useTheme";

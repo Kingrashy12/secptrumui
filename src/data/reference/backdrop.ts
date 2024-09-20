@@ -25,6 +25,13 @@ export const backdropRef = [
     default: "undefined",
   },
   {
+    prop: "zIndex",
+    type: "number",
+    description:
+      "Determines the stack order of the backdrop, ensuring it appears above other content but behind interactive elements.",
+    default: "500",
+  },
+  {
     prop: "style",
     type: "object",
     description:

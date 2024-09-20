@@ -1,6 +1,6 @@
 import PropOptions from "@/components/custom/docs/PropOptions";
 import ReferenceTable from "@/components/custom/docs/ReferenceTable";
-import PageNavigator from "@/components/PageNavigator";
+import DocsLayout from "@/components/layout/DocsLayout";
 import BasicFab from "@/components/preview/fab/Basic";
 import FabSize from "@/components/preview/fab/Size";
 import FabVariant from "@/components/preview/fab/Variant";
@@ -11,7 +11,6 @@ import { fabRef } from "@/data/reference/fab";
 import { PropBadge } from "@/styles/custom";
 import {
   BodyText,
-  InstallPageContainer,
   LargeTextHeader,
   MediumTextHeader,
   TextContent_Wrap,
@@ -22,7 +21,7 @@ import React from "react";
 const FAB = () => {
   const { theme } = useTheme();
   return (
-    <InstallPageContainer>
+    <DocsLayout>
       <TextContent_Wrap>
         <LargeTextHeader as="h1" theme={theme}>
           Floating Action Button
@@ -116,8 +115,7 @@ const FAB = () => {
         </BodyText>
       </TextContent_Wrap>
       <ReferenceTable reference={fabRef} />
-      <PageNavigator />
-    </InstallPageContainer>
+    </DocsLayout>
   );
 };
 

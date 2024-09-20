@@ -1,7 +1,6 @@
 import { useTheme } from "@/context/useTheme";
 import {
   BodyText,
-  InstallPageContainer,
   LargeTextHeader,
   MediumTextHeader,
   TextContent_Wrap,
@@ -23,12 +22,12 @@ import TextBadge from "@/components/test/TextBadge";
 import ButtonLoading from "@/components/preview/button/Loading";
 import ReferenceTable from "@/components/custom/docs/ReferenceTable";
 import { buttonRef } from "@/data/reference/button";
-import PageNavigator from "@/components/PageNavigator";
+import DocsLayout from "@/components/layout/DocsLayout";
 
 const Button = () => {
   const { theme } = useTheme();
   return (
-    <InstallPageContainer>
+    <DocsLayout>
       <TextContent_Wrap>
         <LargeTextHeader as="h1" theme={theme}>
           Button
@@ -124,8 +123,7 @@ const Button = () => {
         </BodyText>
       </TextContent_Wrap>
       <ReferenceTable reference={buttonRef} />
-      <PageNavigator />
-    </InstallPageContainer>
+    </DocsLayout>
   );
 };
 

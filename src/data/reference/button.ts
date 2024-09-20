@@ -12,6 +12,13 @@ export const buttonRef = [
     default: "md",
   },
   {
+    prop: "width",
+    type: "string",
+    description:
+      "Specifies the width of the button. If provided, it sets the button’s width to the specified value.",
+    default: "auto",
+  },
+  {
     prop: "radius",
     type: "string",
     description:
