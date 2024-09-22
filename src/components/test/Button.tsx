@@ -1,5 +1,6 @@
-import { useTheme } from "@/context/useTheme";
+import { useTheme, useThemeMode } from "@/context/useTheme";
 import shouldForwardProp from "@/hooks/styled_prop";
+import { getModeStyle } from "@/lib/helper";
 import { Button } from "@/styles/test/styled";
 import {
   getBorderRadius,
@@ -7,7 +8,7 @@ import {
   getHoverStyle,
   getSizeVariant,
 } from "@/utils/test/variant";
-import React, { ComponentPropsWithRef } from "react";
+import React, { ComponentPropsWithRef, useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { colors, Icon } from "secptrum-ui";
 import styled from "styled-components";
@@ -103,6 +104,18 @@ export declare interface ButtonProps extends ButtonTypes {
    */
   width?: string;
   iconSize?: number;
+  /**
+   * Sets the theme mode for the input component.
+   *
+   * Options:
+   * - `light` (default)
+   * - `dark`
+   * - Custom theme mode (override default styles)
+   *
+   * Allows developers to integrate with apps that support light/dark modes or provide a custom design.
+   * @type {"light" | "dark"}
+   */
+  mode?: "dark" | "light";
 }
 
 const Btn = ({
@@ -122,37 +135,50 @@ const Btn = ({
   outlineBorderColor,
   width,
   iconSize,
+  mode,
   ...props
 }: ButtonProps): JSX.Element => {
   const disabled = props.disabled;
-  const { theme } = useTheme();
+  const { mode: themeMode } = useTheme();
+  const [m, setM] = useState(mode);
+
+  useEffect(() => {
+    if (mode) {
+      setM(mode);
+    } else {
+      setM(themeMode as ButtonProps["mode"]);
+    }
+  }, [mode, themeMode]);
 
   const getColor = (
     varaint: ButtonProps["variant"],
-    color: ButtonProps["color"]
+    color: ButtonProps["color"],
+    mode: "light" | "dark"
   ) => {
     switch (varaint) {
       case "outline":
         return `
-          ${color ? color : theme.colors?.text}
+          ${color ? color : getModeStyle(mode)?.text}
         `;
       default:
         return color;
     }
   };
+
+  const getOulineBorder = () => {
+    return getModeStyle(m as "light" | "dark")?.outline_ButtonBorderColor;
+  };
+
   return (
     <Button
-      backgroundColor={backgroundColor}
+      backgroundcolor={backgroundColor}
       onHoverBackgroundSolid={onHoverBackgroundSolid}
       onHoverBackgroundGhost={onHoverBackgroundGhost}
       onHoverBackgroundLight={onHoverBackgroundLight}
-      onHoverBackgroundOutline={
-        onHoverBackgroundOutline || theme.colors?.button_OutlineHoverColor
-      }
-      outlinebordercolor={
-        outlineBorderColor || theme.colors?.outline_ButtonBorderColor
-      }
-      color={getColor(variant, color)}
+      onHoverBackgroundOutline={onHoverBackgroundOutline}
+      mode={m}
+      outlinebordercolor={outlineBorderColor || getOulineBorder()}
+      color={getColor(variant, color, m as "light" | "dark")}
       disabled={isLoading || disabled}
       {...props}
       variant={variant}

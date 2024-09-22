@@ -34,6 +34,7 @@ export type ModalPanelType = {
    * Optional object to add custom inline styles.
    */
   style?: React.CSSProperties;
+  backgroundColor?: string;
 };
 
 const MPl = ({
@@ -42,6 +43,7 @@ const MPl = ({
   transition = "walkIn",
   className,
   style,
+  backgroundColor,
 }: ModalPanelType) => {
   useModalContext();
   return (
@@ -50,6 +52,7 @@ const MPl = ({
       style={style}
       transition={transition}
       size={size}
+      background-color={backgroundColor}
     >
       {children}
     </ModalPanel>

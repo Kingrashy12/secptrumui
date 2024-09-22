@@ -1,6 +1,7 @@
 import { TabListProvider } from "@/context";
 import { useTheme } from "@/context/useTheme";
-import React from "react";
+import { getModeStyle } from "@/lib/helper";
+import React, { useEffect, useState } from "react";
 import { colors, Stack } from "secptrum-ui";
 import styled from "styled-components";
 
@@ -18,21 +19,48 @@ type TabsListType = {
    */
   variant?: "line" | "solid";
   backgroundColor?: string;
+  /**
+   * Sets the theme mode for the input component.
+   *
+   * Options:
+   * - `light` (default)
+   * - `dark`
+   * - Custom theme mode (override default styles)
+   *
+   * Allows developers to integrate with apps that support light/dark modes or provide a custom design.
+   * @type {"light" | "dark"}
+   */
+  mode?: "light" | "dark";
 };
 
 const TabsList = ({
   children,
   variant = "line",
   backgroundColor,
+  mode,
 }: TabsListType) => {
-  const { theme } = useTheme();
+  const { mode: themeMode } = useTheme();
+  const [m, setM] = useState(mode);
 
-  const tab_bg = backgroundColor
-    ? backgroundColor
-    : theme.colors?.tabListBackground;
+  useEffect(() => {
+    if (mode) {
+      setM(mode);
+    } else {
+      setM(themeMode as TabsListType["mode"]);
+    }
+  }, [mode, themeMode]);
+
+  const tablistStyle = {
+    background:
+      backgroundColor || getModeStyle(m as "light" | "dark")?.tabListBackground,
+  };
   return (
-    <TabListProvider tabVariant={variant}>
-      <TabList backgroundColor={tab_bg} variant={variant} align="horizontal">
+    <TabListProvider tabVariant={variant} mode={m as "light" | "dark"}>
+      <TabList
+        backgroundcolor={tablistStyle.background}
+        variant={variant}
+        align="horizontal"
+      >
         {children}
       </TabList>
     </TabListProvider>
@@ -43,7 +71,7 @@ export default TabsList;
 
 const TabList = styled(Stack)<{
   variant: TabsListType["variant"];
-  backgroundColor: string | any;
+  backgroundcolor: string | any;
 }>`
   padding: 0;
   border-bottom: ${(props) =>
@@ -51,7 +79,7 @@ const TabList = styled(Stack)<{
   padding: ${(props) => (props.variant === "solid" ? "5px" : 0)};
   border-radius: ${(props) => (props.variant === "solid" ? "6px" : "none")};
   background: ${(props) =>
-    props.variant === "solid" ? props.backgroundColor : "transparent"};
+    props.variant === "solid" ? props.backgroundcolor : "transparent"};
   align-items: center;
   width: auto;
 `;

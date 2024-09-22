@@ -38,6 +38,14 @@ type ModalType = {
    * Useful for preventing accidental closure during important tasks or loading states.
    */
   preventClose?: boolean;
+  /**
+   * Controls the intensity of the backdrop glass effect (blur).
+   * A higher value increases the blur, creating a stronger glass effect.
+   *
+   * @type {number} - The intensity of the glass effect (blur).
+   * @default Inherit from theme '6'
+   */
+  glassEffect?: number;
 };
 
 /**
@@ -55,7 +63,9 @@ type ModalType = {
  * ```
  * <Modal open onClose={()=>setOpenModal(false)}>
  *      <ModalPanel align='vertical'>
- *       <h1>A modal</h1>
+ *       <ModalContent>
+ *         <h1>A modal</h1>
+ *       </ModalContent>
  *    </ModalPanel>
  * </Modal>
  * ```
@@ -68,6 +78,7 @@ const Modal = ({
   className,
   style,
   preventClose,
+  glassEffect,
 }: ModalType) => {
   return (
     <ModalProvider>
@@ -77,6 +88,7 @@ const Modal = ({
         onClose={onClose}
         open={open}
         preventClose={preventClose}
+        glassEffect={glassEffect}
       >
         {children}
       </Backdrop>

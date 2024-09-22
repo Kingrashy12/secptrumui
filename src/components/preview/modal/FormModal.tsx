@@ -18,6 +18,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import ModalTitle from "@/components/test/modal/ModalTitle";
 import { toast } from "@/components/test/toast/Toast";
+import { useTheme } from "@/context/useTheme";
 
 const FormModal = ({ code }: { code: string }) => {
   const [open, setOpen] = useState(false);

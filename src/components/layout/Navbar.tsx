@@ -170,6 +170,11 @@ const Links = styled(Box)`
       opacity: 0.85;
     }
   }
+
+  p {
+    font-family: "Poppins-Medium";
+    font-size: 14px;
+  }
 `;
 
 const Git = styled(Media)`

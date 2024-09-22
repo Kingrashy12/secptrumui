@@ -19,6 +19,12 @@ export const fabRef = [
     default: "bottom-right",
   },
   {
+    prop: "mode",
+    type: "string",
+    description: "Sets the theme mode for the fab component.",
+    default: "Inherit from theme",
+  },
+  {
     prop: "colorScheme",
     type: "string",
     description: "Theme color scheme for the Fab background.",

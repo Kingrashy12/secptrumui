@@ -21,6 +21,12 @@ export const cardRef = [
     default: "Inherited from theme",
   },
   {
+    prop: "mode",
+    type: "string",
+    description: "Sets the theme mode for the card component.",
+    default: "Inherit from theme",
+  },
+  {
     prop: "borderColor",
     type: "string",
     description:

@@ -23,6 +23,7 @@ const shouldForwardProp = (prop: string) => {
     "disabled",
     //Extend lib props
     "backgroundColor",
+    "backgroundcolor",
     "solidBorder",
     "onHoverBackgroundSolid",
     "onHoverBackgroundOutline",
@@ -42,12 +43,15 @@ const shouldForwardProp = (prop: string) => {
     "focusBorderColor",
     "focusColor",
     "transition",
-    "card_BoxShadowColor",
+    "cardShadow",
     "space",
     "gap",
     "notavailable",
     "light",
     "outlinebordercolor",
+    "checked",
+    "rounded",
+    "textColor",
   ];
 
   return !invalidProps.includes(prop); // Only forward valid props

@@ -43,7 +43,7 @@ const SideBarModal = () => {
                     <DocsCategory hidden={!doc.category}>
                       {doc?.category}
                     </DocsCategory>
-                    <Link href={doc.uri}>
+                    <Link href={doc.uri} onClick={onClose}>
                       <DocLinkWrap
                         isactive={router.pathname === doc.uri.toString()}
                         notavailable={doc?.not_available}

@@ -34,8 +34,18 @@ const getHoverStyle = (
   onHoverBackgroundSolid: ButtonProps["onHoverBackgroundSolid"],
   onHoverBackgroundOutline: ButtonProps["onHoverBackgroundOutline"],
   onHoverBackgroundGhost: ButtonProps["onHoverBackgroundGhost"],
-  onHoverBackgroundLight: ButtonProps["onHoverBackgroundLight"]
+  onHoverBackgroundLight: ButtonProps["onHoverBackgroundLight"],
+  mode: ButtonProps["mode"]
 ) => {
+  const modeColors =
+    mode === "light"
+      ? {
+          outline: onHoverBackgroundOutline || localColors.gray[50],
+        }
+      : {
+          outline: onHoverBackgroundOutline || "rgb(59,130,246,.1)",
+        };
+
   switch (variant) {
     case "solid":
       return `
@@ -59,11 +69,7 @@ const getHoverStyle = (
           `;
     case "outline":
       return `
-      background: ${
-        onHoverBackgroundOutline
-          ? onHoverBackgroundOutline
-          : localColors.gray[50]
-      };
+      background: ${modeColors.outline};
       `;
     case "danger":
       return `

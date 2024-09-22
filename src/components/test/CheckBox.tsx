@@ -1,8 +1,8 @@
+import { useTheme } from "@/context/useTheme";
 import { CheckBox, Checked } from "@/styles/test/styled";
 import React from "react";
 import { IoIosCheckmark } from "react-icons/io";
-import { Box, colors, Icon } from "secptrum-ui";
-import styled from "styled-components";
+import { Icon } from "secptrum-ui";
 
 type CheckBoxType = {
   /**
@@ -13,7 +13,7 @@ type CheckBoxType = {
 
   /**
    * Defines the size of the checkbox.
-   * @default 25
+   * @default 20
    */
   size?: number;
 
@@ -32,19 +32,37 @@ type CheckBoxType = {
    * Callback function triggered when the checkbox is checked or unchecked.
    */
   onCheck: () => void;
+  /**
+   * Disables the checkbox if set to true, preventing user interaction.
+   * @type {boolean}
+   */
   disabled?: boolean;
+
+  /**
+   * Optional className for custom styling of the checkbox component.
+   * @type {string}
+   */
   className?: string;
+
+  /**
+   * Specifies the border color of the checkbox.
+   * Accepts any valid CSS color value (e.g., "red", "#f00", "rgb(255, 0, 0)").
+   * @type {string}
+   */
+  borderColor?: string;
 };
 
 const Ch = ({
   rounded,
-  size = 25,
+  size = 20,
   color = "blue",
   checked,
   onCheck,
   disabled,
   className,
+  borderColor,
 }: CheckBoxType) => {
+  const { theme } = useTheme();
   return (
     <CheckBox
       onClick={onCheck}
@@ -52,10 +70,12 @@ const Ch = ({
       rounded={rounded}
       disabled={disabled}
       className={className}
+      checked={checked}
+      borderColor={borderColor || theme.colors?.checkBoxBorderColor}
     >
       {checked ? (
         <Checked color={color} rounded={rounded} size={size}>
-          <Icon icon={IoIosCheckmark} size={21} color="white" />
+          <Icon icon={IoIosCheckmark} size={size} color="white" />
         </Checked>
       ) : null}
     </CheckBox>

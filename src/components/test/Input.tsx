@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { InputType } from "@/types/test";
 import { Icon } from "secptrum-ui";
 import { localColors } from "@/styles/global";
-import { Input } from "@/styles/test/styled";
-import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
+import { Input, InputForm } from "@/styles/test/styled";
+import { RiErrorWarningFill, RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { useTheme } from "@/context/useTheme";
 
 /**
@@ -52,10 +52,28 @@ const TextInput = ({
   outLineBorderColor,
   focusBorderColor,
   focusColor,
+  error,
+  errorMessage,
+  width,
+  mode,
+  inputStyle,
+  formStyle,
+  color,
+  formClassName,
+  backgroundColor,
   ...props
 }: InputType): JSX.Element => {
   const [inputType, setInputType] = useState(props.type);
-  const { theme } = useTheme();
+  const { theme, mode: themeMode } = useTheme();
+  const [m, setM] = useState(mode);
+
+  useEffect(() => {
+    if (mode) {
+      setM(mode);
+    } else {
+      setM(themeMode as InputType["mode"]);
+    }
+  }, [mode, themeMode]);
 
   const typeMap = {
     email: "email",
@@ -83,34 +101,54 @@ const TextInput = ({
   };
 
   return (
-    <Input
-      disabled={props.disabled}
-      outlinebordercolor={
-        outLineBorderColor || theme.colors?.outline_ButtonBorderColor
-      }
-      variant={variant}
-      radius={radius}
-      className={props.className}
-      focusBorderColor={focusBorderColor}
-      focusColor={focusColor}
-    >
-      {icon && (
-        <Icon size={iconSize} icon={icon} color={localColors.neutral[500]} />
-      )}
-      <input
-        {...props}
-        type={inputType}
-        placeholder={props.placeholder || "Type here..."}
-      />
-      {Type === "password" && (
-        <Icon
-          onClick={togglePasswordVisibility}
-          size={20}
-          icon={isPassword ? RiEyeFill : RiEyeOffFill}
-          className="eye_pass"
+    <InputForm className={formClassName} style={{ width, ...formStyle }}>
+      <Input
+        disabled={props.disabled}
+        backgroundcolor={backgroundColor}
+        error={error}
+        color={color}
+        mode={m}
+        outlinebordercolor={
+          outLineBorderColor || theme.colors?.outline_ButtonBorderColor
+        }
+        variant={variant}
+        radius={radius}
+        className={props.className}
+        focusBorderColor={focusBorderColor}
+        focusColor={focusColor}
+      >
+        {icon ? (
+          <Icon
+            className="Icon__Sui"
+            size={iconSize}
+            icon={icon}
+            color={localColors.neutral[500]}
+          />
+        ) : error ? (
+          <Icon
+            className="Icon__Sui"
+            size={25}
+            icon={RiErrorWarningFill}
+            color="red"
+          />
+        ) : null}
+        <input
+          {...props}
+          className=""
+          type={inputType}
+          placeholder={props.placeholder || "Type here..."}
         />
-      )}
-    </Input>
+        {Type === "password" && (
+          <Icon
+            onClick={togglePasswordVisibility}
+            size={20}
+            icon={isPassword ? RiEyeFill : RiEyeOffFill}
+            className="eye_pass"
+          />
+        )}
+      </Input>
+      {error && <p>{errorMessage}</p>}
+    </InputForm>
   );
 };
 

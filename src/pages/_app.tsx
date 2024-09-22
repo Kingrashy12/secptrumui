@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
         divider: colors.neutral200,
         code: "yellow",
         code_opt_line: "#2d2c2c",
+        prop: localColors.gray[200],
       },
     },
     dark: {
@@ -27,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
         divider: "#2d2c2c",
         code: "white",
         code_opt_line: "#2d2c2c",
+        prop: localColors.neutral[800],
       },
     },
   };

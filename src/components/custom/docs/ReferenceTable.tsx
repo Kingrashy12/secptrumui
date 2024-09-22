@@ -13,7 +13,7 @@ const ReferenceTable = ({ reference }: ReferenceType) => {
     <Table>
       <TableHead>
         <TableRow>
-          <TableHeaderCell>Prop Name</TableHeaderCell>
+          <TableHeaderCell>Prop</TableHeaderCell>
           <TableHeaderCell>Type</TableHeaderCell>
           <TableHeaderCell>Description</TableHeaderCell>
           <TableHeaderCell>Default</TableHeaderCell>

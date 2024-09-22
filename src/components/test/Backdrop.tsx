@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import shouldForwardProp from "@/hooks/styled_prop";
 import { Drop, FixedBox } from "@/styles/test/styled";
 import { useTheme } from "@/context/useTheme";
+import { getModeStyle } from "@/lib/helper";
 
 interface DropType {
   /**
@@ -46,6 +47,26 @@ interface DropType {
    * Useful for preventing accidental closure during important tasks or loading states.
    */
   preventClose?: boolean;
+  /**
+   * Sets the theme mode for the input component.
+   *
+   * Options:
+   * - `light` (default)
+   * - `dark`
+   * - Custom theme mode (override default styles)
+   *
+   * Allows developers to integrate with apps that support light/dark modes or provide a custom design.
+   * @type {"light" | "dark"}
+   */
+  mode?: "light" | "dark";
+  /**
+   * Controls the intensity of the backdrop glass effect (blur).
+   * A higher value increases the blur, creating a stronger glass effect.
+   *
+   * @type {number} - The intensity of the glass effect (blur).
+   * @default Inherit from theme '6'
+   */
+  glassEffect?: number;
 }
 
 const Backdrop = ({
@@ -56,13 +77,28 @@ const Backdrop = ({
   style,
   centerContent = true,
   preventClose,
+  mode,
+  glassEffect,
 }: DropType) => {
-  const { theme } = useTheme();
+  const { mode: themeMode, theme } = useTheme();
+  const [m, setM] = useState(mode);
+
+  useEffect(() => {
+    if (mode) {
+      setM(mode);
+    } else {
+      setM(themeMode as DropType["mode"]);
+    }
+  }, [mode, themeMode]);
 
   const handleClose = (event: any) => {
     if (!preventClose && event.target === event.currentTarget) {
       onClose();
     }
+  };
+
+  const dropStyle = {
+    background: getModeStyle(m as "light" | "dark")?.drop,
   };
 
   return (
@@ -72,7 +108,9 @@ const Backdrop = ({
       className={className}
       style={style}
       onClick={handleClose}
+      background-color={dropStyle.background}
       theme={theme}
+      glass-effect={glassEffect}
     >
       <> {children}</>
     </Drop>

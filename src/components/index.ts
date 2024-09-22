@@ -27,6 +27,15 @@ export const ToastDocs = lazy(
 export const BoxDocs = lazy(() => import("./docs/components/layout/Box"));
 export const CardDocs = lazy(() => import("./docs/components/layout/Card"));
 export const StackDocs = lazy(() => import("./docs/components/layout/Stack"));
+export const InputDocs = lazy(
+  () => import("./docs/components/input/InputDocs")
+);
+export const CheckboxDocs = lazy(
+  () => import("./docs/components/input/CheckBoxDocs")
+);
+export const SwitchDocs = lazy(
+  () => import("./docs/components/input/SwitchDocs")
+);
 
 export { default as RootLayout } from "./layout/RootLayout";
 export { default as Media } from "./custom/Media";

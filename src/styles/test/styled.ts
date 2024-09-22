@@ -59,13 +59,16 @@ export const SwitchHandle = styled.div.withConfig({ shouldForwardProp })<{
 `;
 
 // Extend shouldForwardProps to include - size, rounded ad disabled
-export const CheckBox = styled.div<{
+export const CheckBox = styled.div.withConfig({ shouldForwardProp })<{
   rounded: boolean | any;
   size: number;
   disabled: boolean | any;
+  borderColor: string | any;
+  checked: boolean;
 }>`
   background: none;
-  border: 1px solid ${colors.neutral200};
+  border: ${(props) =>
+    props.checked ? "none" : `1.5px solid ${props.borderColor}`};
   width: ${(props) => props.size}px;
   height: ${(props) => props.size}px;
   border-radius: ${(props) => (props.rounded ? `${props.size / 2}px` : "7px")};
@@ -73,8 +76,9 @@ export const CheckBox = styled.div<{
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   pointer-events: ${(props) => props.disabled && "none"};
 `;
+
 // Extend shouldForwardProps to include - color and rounded
-export const Checked = styled(Box)<{
+export const Checked = styled(Box).withConfig({ shouldForwardProp })<{
   color: string;
   rounded: boolean | any;
   size: number;
@@ -85,29 +89,30 @@ export const Checked = styled(Box)<{
   width: 100%;
   height: 100%;
   border-radius: ${(props) => (props.rounded ? `${props.size / 2}px` : "7px")};
+  border: none;
 `;
 
 export const CardWrap = styled(Box).withConfig({
   shouldForwardProp,
 })<{
   centerContent?: boolean;
-  backgroundColor: string | any;
+  backgroundcolor: string | any;
   borderColor: string | any;
   space: number | any;
-  card_BoxShadowColor: string | any;
+  cardShadow: string | any;
 }>`
   flex-direction: column;
-  background: ${(props) => props.backgroundColor};
+  background: ${(props) => props.backgroundcolor};
   border: 1px solid ${(props) => props.borderColor};
   border-radius: 11px;
-  padding: 16px;
+  padding: ${(props) => props.padding || "16px"};
   gap: ${(props) => props.space || 16}px;
   width: auto;
   max-width: 100%;
   justify-content: center;
   align-items: ${(props) => props.centerContent && "center"};
   height: auto;
-  box-shadow: 0 4px 8px ${(props) => props.card_BoxShadowColor};
+  box-shadow: 0 4px 8px ${(props) => props.cardShadow};
 
   @media screen and (max-width: 550px) {
     padding: 10px;
@@ -165,12 +170,13 @@ export const Button = styled.button.withConfig({
   radius: ButtonProps["radius"];
   size: ButtonProps["size"];
   outlinebordercolor: ButtonProps["outlineBorderColor"];
-  backgroundColor: ButtonProps["backgroundColor"];
+  backgroundcolor: ButtonProps["backgroundColor"];
   onHoverBackgroundSolid: ButtonProps["onHoverBackgroundSolid"];
   onHoverBackgroundOutline: ButtonProps["onHoverBackgroundOutline"];
   onHoverBackgroundGhost: ButtonProps["onHoverBackgroundGhost"];
   onHoverBackgroundLight: ButtonProps["onHoverBackgroundLight"];
   width: ButtonProps["width"];
+  mode: ButtonProps["mode"];
 }>`
   max-width: 100%;
   width: ${(props) => props.width || "auto"};
@@ -202,7 +208,8 @@ export const Button = styled.button.withConfig({
         props.onHoverBackgroundSolid,
         props.onHoverBackgroundOutline,
         props.onHoverBackgroundGhost,
-        props.onHoverBackgroundLight
+        props.onHoverBackgroundLight,
+        props.mode
       )};
   }
   ${(props) =>
@@ -210,7 +217,7 @@ export const Button = styled.button.withConfig({
       props.variant,
       props.color,
       props.outlinebordercolor,
-      props.backgroundColor
+      props.backgroundcolor
     )};
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -232,12 +239,15 @@ export const Button = styled.button.withConfig({
 export const Drop = styled(FixedBox).withConfig({ shouldForwardProp })<{
   open: boolean;
   centerContent: boolean;
+  "background-color": string | any;
+  "glass-effect": number | any;
 }>`
-  background: ${(props) => props.theme.colors?.drop};
+  background: ${(props) => props["background-color"]};
   display: ${(props) => (props.open ? "flex" : "none")};
   justify-content: ${(props) => props.centerContent && "center"};
   align-items: ${(props) => props.centerContent && "center"};
-  backdrop-filter: ${(props) => `blur(${props.theme.effects?.drop_blur}px)`};
+  backdrop-filter: ${(props) =>
+    `blur(${props["glass-effect"] || props.theme.effects?.drop_blur}px)`};
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
@@ -247,9 +257,10 @@ export const Drop = styled(FixedBox).withConfig({ shouldForwardProp })<{
 export const ModalPanel = styled.div.withConfig({ shouldForwardProp })<{
   size: ModalPanelType["size"];
   transition: ModalPanelType["transition"];
+  "background-color": string | any;
 }>`
   position: relative;
-  background: ${(props) => props.theme?.colors?.background || "white"};
+  background: ${(props) => props["background-color"] || "white"};
   border-radius: 11px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 100%;
@@ -318,13 +329,41 @@ export const ModalFooter = styled.div.withConfig({
   justify-content: ${(props) =>
     props.position === "left" ? "flex-start" : "flex-end"};
   margin-top: 20px;
-  /* border-top: 1px solid
-    ${(props) => props.theme?.colors?.outline_button_border || "#e0e0e0"}; */
   padding-top: 10px;
   gap: ${(props) => props.space || 10}px;
 `;
 
 // Input style
+
+export const InputForm = styled(Box)`
+  flex-direction: column;
+  gap: 8px;
+  min-width: auto;
+  max-width: 100%;
+  p {
+    font-weight: 500;
+    font-size: 14px;
+    color: ${localColors.red[500]};
+    margin-left: 3px;
+    font-family: inherit;
+    animation: pop 1s ease-in;
+  }
+
+  @keyframes pop {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 100%;
+  }
+`;
 
 export const Input = styled.div.withConfig({
   shouldForwardProp,
@@ -335,12 +374,16 @@ export const Input = styled.div.withConfig({
   focusColor: InputType["focusColor"];
   focusBorderColor: InputType["focusBorderColor"];
   disabled: boolean | any;
+  error: InputType["error"] | any;
+  color: string | any;
+  backgroundcolor: InputType["backgroundColor"];
+  mode: InputType["mode"];
 }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 48px;
+  height: 45px;
   padding: 12px;
   gap: 6px;
   border-radius: ${(props) => getInputRadius(props.radius)};
@@ -357,7 +400,9 @@ export const Input = styled.div.withConfig({
       props.outlinebordercolor,
       props.focusBorderColor,
       props.focusColor,
-      props.disabled
+      props.disabled,
+      props.error,
+      props.mode
     )};
 
   input {
@@ -367,7 +412,8 @@ export const Input = styled.div.withConfig({
     border: none;
     background: transparent;
     caret-color: ${colors.blue500};
-    color: currentColor;
+    color: ${(props) =>
+      props.color || props.mode === "light" ? "black" : "white"};
     font-family: inherit;
     transition: color 0.3s ease;
     height: 100%;
@@ -375,6 +421,9 @@ export const Input = styled.div.withConfig({
     &:focus {
       outline: none;
     }
+  }
+  .Icon__Sui {
+    height: 100%;
   }
 
   .eye_pass {

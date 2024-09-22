@@ -25,6 +25,12 @@ export const backdropRef = [
     default: "undefined",
   },
   {
+    prop: "mode",
+    type: "string",
+    description: "Sets the theme mode for the backdrop component.",
+    default: "Inherit from theme",
+  },
+  {
     prop: "zIndex",
     type: "number",
     description:

@@ -1,10 +1,11 @@
 import { useTheme } from "@/context/useTheme";
+import { getModeStyle } from "@/lib/helper";
 import { CardWrap } from "@/styles/test/styled";
-import React, { ComponentPropsWithRef } from "react";
+import React, { ComponentPropsWithRef, useEffect, useState } from "react";
 // import { colors } from "secptrum-ui";
 
 export type BoxProps = ComponentPropsWithRef<"div">;
-
+// Extend main box types not props
 declare interface CardType extends BoxProps {
   children?: React.ReactNode;
   /**
@@ -25,6 +26,18 @@ declare interface CardType extends BoxProps {
    * Accepts only number
    */
   space?: number;
+  /**
+   * Sets the theme mode for the input component.
+   *
+   * Options:
+   * - `light` (default)
+   * - `dark`
+   * - Custom theme mode (override default styles)
+   *
+   * Allows developers to integrate with apps that support light/dark modes or provide a custom design.
+   * @type {"light" | "dark"}
+   */
+  mode?: "light" | "dark";
 }
 
 const Card = ({
@@ -33,19 +46,35 @@ const Card = ({
   centerContent,
   borderColor,
   space,
+  mode,
   ...props
 }: CardType) => {
-  // To do: get theme here and integrate to color state
-  const { theme } = useTheme();
+  const { mode: themeMode } = useTheme();
+  const [m, setM] = useState(mode);
+
+  useEffect(() => {
+    if (mode) {
+      setM(mode);
+    } else {
+      setM(themeMode as CardType["mode"]);
+    }
+  }, [mode, themeMode]);
+
+  const modeStyle = {
+    background: getModeStyle(m as "light" | "dark")?.card,
+    borderColor: getModeStyle(m as "light" | "dark")?.card_BorderColor,
+    cardShadow: getModeStyle(m as "light" | "dark")?.cardShadow,
+  };
+
   return (
     <CardWrap
       {...props}
       space={space}
-      borderColor={borderColor || theme.colors?.card_BorderColor}
-      backgroundColor={backgroundColor || theme.colors?.card}
+      borderColor={borderColor || modeStyle.borderColor}
+      backgroundcolor={backgroundColor || modeStyle.background}
       className={props.className}
       centerContent={centerContent}
-      card_BoxShadowColor={theme.colors?.card_BoxShadowColor}
+      cardShadow={modeStyle.cardShadow}
     >
       {children}
     </CardWrap>

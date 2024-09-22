@@ -62,6 +62,12 @@ export const buttonRef = [
     default: "default",
   },
   {
+    prop: "mode",
+    type: "string",
+    description: "Sets the theme mode for the button component.",
+    default: "Inherit from theme",
+  },
+  {
     prop: "outlineBorderColor",
     type: "string",
     description: "Sets the border color for the outline variant",

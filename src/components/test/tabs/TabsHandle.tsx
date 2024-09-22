@@ -1,6 +1,7 @@
 import { useTabList } from "@/context/useTabList";
 import { useTheme } from "@/context/useTheme";
 import shouldForwardProp from "@/hooks/styled_prop";
+import { getModeStyle } from "@/lib/helper";
 import { TabHandle } from "@/styles/test/styled";
 import React from "react";
 import { colors } from "secptrum-ui";
@@ -52,7 +53,7 @@ const TabsHandle = ({
   onClick,
   disabled = false,
 }: TabsHandleType) => {
-  const { onSwitch, activeTabValue, variant } = useTabList();
+  const { onSwitch, activeTabValue, variant, themeMode } = useTabList();
   const { theme } = useTheme();
 
   function switchTab() {
@@ -62,16 +63,20 @@ const TabsHandle = ({
     }
   }
   const isCurrent = activeTabValue === value;
-  const active_solidColor = activeSolidColor
-    ? activeSolidColor
-    : theme.colors?.active_TabColor_Solid;
-  const active_color = activeColor
-    ? activeColor
-    : theme.colors?.active_TabColor;
+
+  const handleStyle = {
+    activeColor: activeColor || getModeStyle(themeMode)?.active_TabColor,
+    activeSolidColor:
+      activeSolidColor || getModeStyle(themeMode)?.active_TabColor_Solid,
+  };
 
   return (
     <TabHandle
-      activeColor={variant === "solid" ? active_solidColor : active_color}
+      activeColor={
+        variant === "solid"
+          ? handleStyle.activeSolidColor
+          : handleStyle.activeColor
+      }
       isCurrent={isCurrent}
       value={value}
       onClick={switchTab}

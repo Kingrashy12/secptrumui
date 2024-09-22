@@ -41,7 +41,7 @@ const FloatingActionButton = ({
     <Fab
       {...props}
       className={props.className}
-      backgroundColor={backgroundColor}
+      backgroundcolor={backgroundColor}
       position={position}
       colorScheme={colorScheme}
       disabled={disabled}
@@ -57,7 +57,7 @@ const FloatingActionButton = ({
 export default FloatingActionButton;
 
 const Fab = styled.div<{
-  backgroundColor: string | any;
+  backgroundcolor: string | any;
   position: FloatProps["position"];
   disabled: boolean | any;
   colorScheme: FloatProps["colorScheme"];
@@ -81,7 +81,7 @@ const Fab = styled.div<{
     getFloatVariantStyle(
       props.variant,
       props.colorScheme,
-      props.backgroundColor
+      props.backgroundcolor
     )};
 
   ${(props) =>

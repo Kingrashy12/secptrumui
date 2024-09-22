@@ -1,65 +1,33 @@
 "use client";
 
-import React, {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useEffect,
-} from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import deepmerge from "deepmerge";
-import { colors } from "secptrum-ui";
-import { localColors } from "@/styles/global";
+import { modeColors } from "@/lib/helper";
 
-const defaultLightTheme = {
-  colors: {
-    background: "#ffffff",
-    text: "#000000",
-    outline_ButtonBorderColor: colors.neutral200,
-    active_TabColor: "black", //TabHandle active color
-    active_TabColor_Solid: "black", //TabHandle active color for solid varaint
-    inActiveTabColor: colors.neutral400, //TabHandle inactive color
-    tabListBackground: colors.gray100, //TabList BackgroundColor
-    button_OutlineHoverColor: localColors.gray[50],
-    card: "white",
-    card_BorderColor: localColors.neutral[200],
-    card_BoxShadowColor: "rgba(0, 0, 0, 0.1)",
-    prop: localColors.gray[200],
-    icon: "white",
-    drop: "rgb(255, 255, 255, 0.5)",
+const systemTheme: SystemTheme = {
+  defaultLightTheme: {
+    colors: {
+      ...modeColors.light,
+    },
+    fonts: {
+      body: "'Poppins-Medium', sans-serif",
+      heading: "'Poppins-Semibold', sans-serif",
+    },
+    effects: {
+      drop_blur: 6,
+    },
   },
-  fonts: {
-    body: "'Poppins-Medium', sans-serif",
-    heading: "'Poppins-Semibold', sans-serif",
-  },
-  effects: {
-    drop_blur: 6,
-  },
-};
-
-const defaultDarkTheme = {
-  colors: {
-    background: "#121212",
-    text: "#ffffff",
-    outline_ButtonBorderColor: localColors.neutral[800],
-    active_TabColor: "white", //TabHandle active color
-    active_TabColor_Solid: "black", //TabHandle active color for solid variant
-    inActiveTabColor: localColors.neutral[800], //TabHandle inactive color
-    tabListBackground: localColors.neutral[800], //TabList BackgroundColor
-    button_OutlineHoverColor: "rgb(59,130,246,.1)",
-    card: "#000000",
-    card_BorderColor: localColors.neutral[800],
-    card_BoxShadowColor: "rgba(255, 255, 255, 0.1)",
-    prop: localColors.neutral[800],
-    icon: "black",
-    drop: "rgb(0,0,0, 0.6)",
-  },
-  fonts: {
-    body: "'Poppins-Medium', sans-serif",
-    heading: "'Poppins-Semibold', sans-serif",
-  },
-  effects: {
-    drop_blur: 6,
+  defaultDarkTheme: {
+    colors: {
+      ...modeColors.dark,
+    },
+    fonts: {
+      body: "'Poppins-Medium', sans-serif",
+      heading: "'Poppins-Semibold', sans-serif",
+    },
+    effects: {
+      drop_blur: 6,
+    },
   },
 };
 
@@ -70,7 +38,7 @@ export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
     return {
-      theme: defaultLightTheme,
+      theme: systemTheme.defaultLightTheme,
       mode: "light",
       toggleTheme: () => {},
       setCustomTheme: () => {},
@@ -83,7 +51,7 @@ export const ThemeProvider = ({
   children,
   theme: userTheme = { light: {}, dark: {} },
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
   theme?: { light: any; dark: any };
 }) => {
   const savedMode = global?.localStorage?.getItem("secptrum-ui-theme") as
@@ -94,7 +62,9 @@ export const ThemeProvider = ({
   // Set initial theme state
   const [theme, setTheme] = useState(
     deepmerge(
-      initialMode === "light" ? defaultLightTheme : defaultDarkTheme,
+      initialMode === "light"
+        ? systemTheme.defaultLightTheme
+        : systemTheme.defaultDarkTheme,
       initialMode === "light" ? userTheme.light : userTheme.dark
     )
   );
@@ -103,7 +73,9 @@ export const ThemeProvider = ({
   useEffect(() => {
     setTheme(
       deepmerge(
-        mode === "light" ? defaultLightTheme : defaultDarkTheme,
+        mode === "light"
+          ? systemTheme.defaultLightTheme
+          : systemTheme.defaultDarkTheme,
         mode === "light" ? userTheme.light : userTheme.dark
       )
     );
@@ -124,27 +96,37 @@ export const ThemeProvider = ({
   const setCustomTheme = (newTheme: { light: any; dark: any }) => {
     setTheme((prevTheme) => {
       return deepmerge(
-        mode === "light" ? defaultLightTheme : defaultDarkTheme,
+        mode === "light"
+          ? systemTheme.defaultLightTheme
+          : systemTheme.defaultDarkTheme,
         mode === "light" ? newTheme.light : newTheme.dark
       );
     });
   };
-
-  // Allow overriding specific properties of the current theme
-  // function overrideTheme(themeOverride: { light?: any; dark?: any }) {
-  //   setTheme((prevTheme) =>
-  //     deepmerge(
-  //       prevTheme,
-  //       mode === "light"
-  //         ? { ...defaultLightTheme, ...themeOverride.light }
-  //         : { ...defaultDarkTheme, ...themeOverride.dark }
-  //     )
-  //   );
-  // }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setCustomTheme, mode }}>
       {children}
     </ThemeContext.Provider>
   );
+};
+
+enum ThemeNames {
+  light = "defaultLightTheme",
+  dark = "defaultDarkTheme",
+}
+
+const themeModeMap = {
+  light: ThemeNames.light,
+  dark: ThemeNames.dark,
+};
+
+// Adjust the useThemeMode function
+export const useThemeMode = (mode: "light" | "dark"): Theme => {
+  if (mode === "light") {
+    return systemTheme.defaultLightTheme;
+  } else if (mode === "dark") {
+    return systemTheme.defaultDarkTheme;
+  }
+  return systemTheme.defaultLightTheme; // Fallback to light theme if mode not recognized
 };

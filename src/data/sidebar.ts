@@ -76,7 +76,7 @@ export const sidebarlinks = [
         category: "Input",
         uri: "/docs/components/input/checkbox",
       },
-      { label: "Input", uri: "/docs/components/input/input" },
+      { label: "TextInput", uri: "/docs/components/input/textinput" },
       { label: "Switch", uri: "/docs/components/input/switch" },
       {
         label: "Bottom Navigation",

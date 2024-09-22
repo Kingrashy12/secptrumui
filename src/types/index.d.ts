@@ -47,26 +47,6 @@ declare type ThemeContextType = {
   toggleTheme: () => void;
   setCustomTheme: (theme: { light: any; dark: any }) => void;
   /**
-   * Applies custom theme overrides to the existing default theme.
-   * The overrides are merged with the current default theme based on the active mode (`light` or `dark`).
-   *
-   * @param {Object} themeOverride - The theme overrides to be applied.
-   * @param {Object} [themeOverride.light] - Custom theme overrides for light mode.
-   * @param {Object} [themeOverride.dark] - Custom theme overrides for dark mode.
-   *
-   * @example
-   * // Apply custom light and dark theme overrides
-   * overrideTheme({
-   *   light: {
-   *     colors: { background: '#f0f0f0' } // Override light theme background color
-   *   },
-   *   dark: {
-   *     colors: { background: '#1e1e1e' } // Override dark theme background color
-   *   }
-   * });
-   */
-  // overrideTheme: (themeOverride: { light?: any; dark?: any }) => void;
-  /**
    * The current theme mode of the application, either `light` or `dark`.
    *
    * @type {`light` | `dark`}
