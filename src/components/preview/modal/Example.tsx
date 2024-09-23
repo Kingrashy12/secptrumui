@@ -36,7 +36,7 @@ const ModalExample = ({ code }: { code: string }) => {
           <ModalPanel size="lg">
             <ModalTitle>Confirm Deletion</ModalTitle>
             <ModalContent>
-              <Typography>
+              <Typography style={{ color: "black" }}>
                 Are you sure you want to delete your account? This action cannot
                 be undone.
               </Typography>
