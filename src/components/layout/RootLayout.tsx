@@ -1,5 +1,3 @@
-"use-client";
-
 import StyledComponentsRegistry from "@/lib/registry";
 import React, { useEffect } from "react";
 import { Box } from "secptrum-ui";
@@ -10,6 +8,7 @@ import ScrollTop from "../ScrollTop";
 import { useAppDispatch } from "@/hooks/store";
 import { getPageContents } from "@/store/contentBar";
 import { useTheme } from "@/context/useTheme";
+import { Analytics } from "@vercel/analytics/react";
 
 const Navbar = dynamic(() => import("./Navbar"), { ssr: false });
 const StickyBar = dynamic(() => import("../custom/StickyBar"), { ssr: false });
@@ -29,7 +28,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <Navbar />
       <RootWrap>
         {router.pathname === "/" ? null : <StickyBar />}
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          {children}
+          <Analytics />
+        </StyledComponentsRegistry>
       </RootWrap>
       <ScrollTop />
     </Box>

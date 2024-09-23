@@ -67,7 +67,7 @@ const Hero = styled.section`
   align-items: center;
   flex-direction: column;
   gap: 5px;
-  margin-top: 3rem;
+  padding-top: 4rem;
   padding-bottom: 3rem;
 
   h1 {
