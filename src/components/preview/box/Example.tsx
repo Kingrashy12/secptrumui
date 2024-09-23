@@ -37,7 +37,6 @@ const BoxExample = ({ code }: { code: string }) => {
             icon={RiMessage3Line}
             onClick={() =>
               toast.info("Login to chat with user", {
-                transition: "walkIn",
                 position: "top-left",
               })
             }
