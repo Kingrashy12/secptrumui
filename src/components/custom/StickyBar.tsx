@@ -132,7 +132,7 @@ const StyledBar = styled(Box).withConfig({
   width: ${(props) => props.width}px;
   flex-direction: column;
   border-right: 1px solid
-    ${(props) => (props.light ? colors.neutral[300] : localColors.neutral[800])};
+    ${(props) => (props.light ? colors.gray[300] : localColors.neutral[800])};
   position: sticky;
   top: 0;
   flex-shrink: 0;

@@ -100,7 +100,7 @@ const Nav = styled.div.withConfig({
   align-items: center;
   backdrop-filter: blur(6px);
   border-bottom: 1px solid
-    ${(props) => (props.light ? colors.neutral[300] : "rgb(38 38 38)")};
+    ${(props) => (props.light ? colors.gray[300] : "rgb(38 38 38)")};
 
   .logo {
     flex-grow: 0.5;

@@ -8,6 +8,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { colors } from "secptrum-ui";
+import { Toaster as ToastContainer } from "secptrum-ui";
 
 export default function App({ Component, pageProps }: AppProps) {
   const customTheme = {
@@ -39,6 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <SideBarProvider>
             <RootLayout>
               <Toaster />
+              <ToastContainer />
               <Component {...pageProps} />
             </RootLayout>
           </SideBarProvider>

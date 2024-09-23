@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { Icon, toast } from "secptrum-ui";
 import { TbCopy, TbCopyCheckFilled } from "react-icons/tb";
+import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
 import styled from "styled-components";
 
 interface CodeBlockProps {
@@ -28,28 +29,18 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       <CodeContainer>
         <SyntaxHighlighter
           language={language}
+          wrapLines
+          wrapLongLines
           style={{
-            ...dracula,
+            ...a11yDark,
             // Base theme from dracula
             hljs: {
-              background: "#000", // Black background
-              color: "#f8f8f2", // Main text color (you can replace it with your theme's main color)
+              background: "#0000", // Black background
+              color: "lightblue", // Main text color (you can replace it with your theme's main color)
               display: "flex",
               flexDirection: "column",
               gap: "2rem",
               lineHeight: "1.2rem",
-            },
-            "hljs-keyword": {
-              color: "#ff79c6", // Keywords (customize for your theme)
-            },
-            "hljs-string": {
-              color: "#50fa7b", // Strings (customize for your theme)
-            },
-            "hljs-variable": {
-              color: "#8be9fd", // Variables (customize for your theme)
-            },
-            "hljs-comment": {
-              color: "#6272a4", // Comments (customize for your theme)
             },
           }}
         >
