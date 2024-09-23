@@ -45,7 +45,7 @@ const TabsHandle = ({
   children,
   activeColor,
   activeSolidColor,
-  inActiveColor = colors.neutral400,
+  inActiveColor = colors.neutral[400],
   value,
   onClick,
   disabled = false,

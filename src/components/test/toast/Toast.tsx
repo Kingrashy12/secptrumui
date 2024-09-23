@@ -31,7 +31,7 @@ export type ToastPositionType =
   | "bottom-right";
 
 // Toast options
-type ToastOptionsType = {
+export type ToastOptionsType = {
   position?: ToastPositionType;
   className?: string;
   transition?: "dropIn" | "slideIn" | "popIn" | "walkIn";
@@ -45,6 +45,19 @@ type ToastNotification = {
   className?: string;
   transition?: ToastOptionsType["transition"];
   type: ToastVariant;
+};
+
+export type ToastTransitionType = "dropIn" | "slideIn" | "popIn" | "walkIn";
+
+export type ToastType = {
+  [key in ToastVariant]: (
+    message: string,
+    options?: {
+      position?: ToastPositionType;
+      className?: string;
+      transition?: ToastTransitionType;
+    }
+  ) => void;
 };
 
 let toast: ToastType;

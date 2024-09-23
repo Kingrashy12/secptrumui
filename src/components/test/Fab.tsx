@@ -4,6 +4,7 @@ import { getFloatSize, getFloatVariantStyle } from "@/utils/test/variant";
 import React, { ComponentPropsWithRef } from "react";
 import { shouldForwardProps } from "secptrum-ui";
 import styled from "styled-components";
+import { ToastPositionType } from "./toast/Toast";
 
 const shouldForwardProp = shouldForwardProps;
 

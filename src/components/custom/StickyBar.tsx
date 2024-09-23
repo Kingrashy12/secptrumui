@@ -132,7 +132,7 @@ const StyledBar = styled(Box).withConfig({
   width: ${(props) => props.width}px;
   flex-direction: column;
   border-right: 1px solid
-    ${(props) => (props.light ? colors.neutral300 : localColors.neutral[800])};
+    ${(props) => (props.light ? colors.neutral[300] : localColors.neutral[800])};
   position: sticky;
   top: 0;
   flex-shrink: 0;
@@ -168,7 +168,7 @@ const FoldIcon = styled(Box).withConfig({
 
   &:hover {
     background: ${(props) =>
-      props.light ? colors.neutral100 : "rgb(38 38 38)"};
+      props.light ? colors.neutral[100] : "rgb(38 38 38)"};
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 500ms;
@@ -236,7 +236,7 @@ export const DocLinkWrap = styled(Box).withConfig({
   background: ${(props) =>
     props.isactive
       ? props.light
-        ? colors.blue100
+        ? colors.blue[100]
         : "rgb(30 41 59)"
       : "transparent"};
   padding: 4px 8px;

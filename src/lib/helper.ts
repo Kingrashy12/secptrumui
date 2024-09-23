@@ -15,11 +15,11 @@ const modeColors = {
   light: {
     background: "#ffffff",
     text: "#000000",
-    outline_ButtonBorderColor: colors.neutral200,
+    outline_ButtonBorderColor: colors.neutral[200],
     active_TabColor: "black", //TabHandle active color
     active_TabColor_Solid: "black", //TabHandle active color for solid varaint
-    inActiveTabColor: colors.neutral400, //TabHandle inactive color
-    tabListBackground: colors.gray100, //TabList BackgroundColor
+    inActiveTabColor: colors.neutral[400], //TabHandle inactive color
+    tabListBackground: colors.gray[100], //TabList BackgroundColor
     button_OutlineHoverColor: localColors.gray[50],
     card: "white",
     card_BorderColor: localColors.neutral[200],

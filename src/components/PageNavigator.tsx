@@ -122,6 +122,6 @@ const Navigator_ = styled(Box).withConfig({
 
   &:hover {
     background: ${(props) =>
-      props.light ? colors.blue100 : localColors.slate[800]};
+      props.light ? colors.blue[100] : localColors.slate[800]};
   }
 `;

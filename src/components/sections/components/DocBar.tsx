@@ -38,7 +38,7 @@ const StyledBar = styled(Box).withConfig({
   height: 100vh;
   width: 300px;
   border-left: 1px solid
-    ${(props) => (props.light ? colors.neutral300 : localColors.neutral[800])};
+    ${(props) => (props.light ? colors.neutral[300] : localColors.neutral[800])};
   overflow-y: auto;
   flex-direction: column;
   position: sticky;
@@ -60,7 +60,7 @@ const ContentWrap = styled(Box)`
   margin: auto;
 
   h3 {
-    color: ${colors.neutral500};
+    color: ${colors.neutral[500]};
     font-size: 14px;
   }
 `;

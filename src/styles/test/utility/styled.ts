@@ -4,7 +4,7 @@ import styled from "styled-components";
 //***********ImagePicker Components************//
 // ImagePicker styles
 export const FilePicker = styled(Box)`
-  border: 2px dashed ${colors.neutral500};
+  border: 2px dashed ${colors.neutral[500]};
   border-radius: 8px;
   flex-direction: column;
   gap: 12px;
@@ -20,7 +20,7 @@ export const FilePicker = styled(Box)`
     font-weight: 500;
     font-size: 15px;
     font-family: inherit;
-    color: ${colors.neutral500};
+    color: ${colors.neutral[500]};
   }
 
   @media screen and (max-width: 768px) {
@@ -34,12 +34,12 @@ export const UploadIcon = styled(Box)`
   width: 35px;
   height: 35px;
   border-radius: 9999px;
-  background: ${colors.green100};
+  background: ${colors.green[100]};
   padding: 1px;
   margin-top: 2px;
 
   svg {
-    color: ${colors.green500};
+    color: ${colors.green[500]};
   }
 `;
 
@@ -49,7 +49,7 @@ export const SelectedImage = styled.img`
   border-radius: 9px;
   cursor: pointer;
   z-index: 0;
-  border: 1px solid ${colors.neutral300};
+  border: 1px solid ${colors.neutral[300]};
 
   @media screen and (max-width: 1440px) {
     width: 125px;
@@ -90,7 +90,7 @@ export const SelectedImageContainer = styled(Box)`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  border: 1px solid ${colors.neutral300};
+  border: 1px solid ${colors.neutral[300]};
   background: white;
   /* width: 400px; */
   width: 50vw;
@@ -148,7 +148,7 @@ export const ExtraImagePicker = styled(Box)`
   /* flex-direction: column; */
   align-content: center;
   justify-content: center;
-  border: 2px dashed ${colors.neutral300};
+  border: 2px dashed ${colors.neutral[300]};
   background: white;
   height: auto;
   border-radius: 8px;

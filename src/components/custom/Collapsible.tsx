@@ -76,5 +76,5 @@ const ContentWrap = styled(Box).withConfig({
   gap: 5px;
   padding: 6px 26px;
   border-left: 2px solid
-    ${(props) => (props.light ? colors.neutral200 : "rgb(38 38 38)")};
+    ${(props) => (props.light ? colors.neutral[200] : "rgb(38 38 38)")};
 `;

@@ -75,7 +75,7 @@ const TabList = styled(Stack)<{
 }>`
   padding: 0;
   border-bottom: ${(props) =>
-    props.variant === "line" ? `1px solid ${colors.neutral200}` : "none"};
+    props.variant === "line" ? `1px solid ${colors.neutral[200]}` : "none"};
   padding: ${(props) => (props.variant === "solid" ? "5px" : 0)};
   border-radius: ${(props) => (props.variant === "solid" ? "6px" : "none")};
   background: ${(props) =>

@@ -187,7 +187,7 @@ export const CodeOptions = styled(Box)`
 export const OptionSelector = styled.p.withConfig({
   shouldForwardProp: (props) => props !== "isactive",
 })<{ isactive: boolean }>`
-  color: ${(props) => (props.isactive ? "white" : colors.neutral400)};
+  color: ${(props) => (props.isactive ? "white" : colors.neutral[400])};
   font-size: 12px;
   padding: 6px;
   border-radius: 6px;

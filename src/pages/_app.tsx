@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
       colors: {
         icon: "black",
         body: "rgb(55,65,81)",
-        divider: colors.neutral200,
+        divider: colors.neutral[200],
         code: "yellow",
         code_opt_line: "#2d2c2c",
         prop: localColors.gray[200],
@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
     dark: {
       colors: {
         icon: "white",
-        body: colors.neutral500,
+        body: colors.neutral[500],
         divider: "#2d2c2c",
         code: "white",
         code_opt_line: "#2d2c2c",

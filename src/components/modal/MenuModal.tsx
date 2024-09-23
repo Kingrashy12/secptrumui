@@ -68,7 +68,7 @@ const Links = styled(Box)`
     align-items: center;
 
     &:hover {
-      color: ${colors.blue500};
+      color: ${colors.blue[500]};
     }
   }
   svg,

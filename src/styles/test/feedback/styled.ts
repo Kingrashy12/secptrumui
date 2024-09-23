@@ -6,6 +6,11 @@ import styled from "styled-components";
 import { FixedBox } from "../styled";
 import { getToastPosition } from "@/utils/test/position";
 import { getToastTransition } from "@/utils/test/transition";
+import {
+  ToastOptionsType,
+  ToastPositionType,
+} from "@/components/test/toast/Toast";
+type ToastVariant = "info" | "error" | "success" | "warning";
 
 //************Backdrop Component**************//
 // Backdrop style
@@ -129,7 +134,7 @@ export const StyledToast = styled(Box).withConfig({
   height: auto;
   border-radius: 6px;
   font-family: "Poppins-Medium", sans-serif;
-  border: 1px solid ${colors.neutral200};
+  border: 1px solid ${colors.neutral[200]};
   gap: 5px;
   position: fixed;
   max-width: 400px;
@@ -188,7 +193,7 @@ export const StyledToast = styled(Box).withConfig({
 
   span {
     font-weight: 500;
-    color: ${colors.neutral600};
+    color: ${colors.neutral[600]};
     font-size: 0.875rem;
     line-height: 1.25rem;
     width: 100%;
@@ -216,7 +221,7 @@ export const CloseIcon = styled(Box).withConfig({
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid ${colors.neutral200};
+  border-left: 1px solid ${colors.neutral[200]};
   padding: 12px;
   height: auto;
   transition: all;
@@ -226,7 +231,7 @@ export const CloseIcon = styled(Box).withConfig({
   border-bottom-right-radius: 6px;
 
   &:hover {
-    background: ${colors.slate100};
+    background: ${colors.slate[100]};
     transition: all;
     transition-duration: 100ms;
     transition-delay: 100ms;

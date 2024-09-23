@@ -51,7 +51,7 @@ const getHoverStyle = (
     case "solid":
       return `
           background: ${
-            onHoverBackgroundSolid ? onHoverBackgroundSolid : colors.blue600
+            onHoverBackgroundSolid ? onHoverBackgroundSolid : colors.blue[600]
           }
           `;
     case "ghost":
@@ -86,19 +86,19 @@ const getButtonStyles = (
   switch (variant) {
     case "solid":
       return `
-          background: ${backgroundColor ? backgroundColor : colors.blue500};
+          background: ${backgroundColor ? backgroundColor : colors.blue[500]};
           color: ${color ? color : "white"};
           `;
     case "ghost":
       return `
-            color: ${color ? color : colors.blue500};
+            color: ${color ? color : colors.blue[500]};
             background: transparent;
           `;
     case "light":
       return `
-            background: ${backgroundColor ? backgroundColor : colors.blue100};
-            border: 1px solid ${colors.blue500};
-            color: ${color ? color : colors.blue500};
+            background: ${backgroundColor ? backgroundColor : colors.blue[100]};
+            border: 1px solid ${colors.blue[500]};
+            color: ${color ? color : colors.blue[500]};
           `;
     case "outline":
       return `

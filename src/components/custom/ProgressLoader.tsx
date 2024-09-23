@@ -11,7 +11,7 @@ type BarLoaderType = {
 const BarLoader = ({
   width = 100,
   height = 4,
-  color = colors.blue600,
+  color = colors.blue[600],
 }: BarLoaderType) => {
   const parsedWidth = width.toString().includes("%") ? width : `${width}px`;
   const parsedHeight = height.toString().includes("%") ? height : `${height}px`;
@@ -27,7 +27,7 @@ export default BarLoader;
 const Container = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "size",
 })<{ width: number | string; height: number | string }>`
-  background: ${colors.blue100};
+  background: ${colors.blue[100]};
   height: ${(props) => props.height};
   width: ${(props) => props.width};
   position: relative;

@@ -259,7 +259,7 @@ const ImagePicker = ({
               <ExtraImagePicker onClick={() => pickerRef.current?.click()}>
                 <Icon
                   icon={IoAddSharp}
-                  color={colors.neutral300}
+                  color={colors.neutral[300]}
                   size={removeIconSize}
                 />
               </ExtraImagePicker>

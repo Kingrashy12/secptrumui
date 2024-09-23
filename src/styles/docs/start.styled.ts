@@ -36,7 +36,7 @@ export const TextContentWrap = styled(Box)`
     opacity: 0;
     transition: opacity 0.3s ease;
     font-size: 25px;
-    color: ${colors.neutral500};
+    color: ${colors.neutral[500]};
     top: 46px;
     font-weight: 700;
     height: auto;
@@ -169,7 +169,7 @@ export const TextContent_Wrap = styled(Box)`
     opacity: 0;
     transition: opacity 0.3s ease;
     font-size: 25px;
-    color: ${colors.neutral500};
+    color: ${colors.neutral[500]};
     top: 46px;
     font-weight: 700;
     height: 20px;
