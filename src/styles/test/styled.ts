@@ -1,7 +1,4 @@
-import { Box, colors, shouldForwardProps } from "secptrum-ui";
 import styled from "styled-components";
-
-const shouldForwardProp = shouldForwardProps;
 
 export const FixedBox = styled.div`
   position: fixed;

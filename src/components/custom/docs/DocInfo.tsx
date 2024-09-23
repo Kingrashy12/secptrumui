@@ -1,4 +1,3 @@
-import { localColors } from "@/styles/global";
 import React from "react";
 import { FaNoteSticky } from "react-icons/fa6";
 import { RiErrorWarningFill, RiInformationFill } from "react-icons/ri";

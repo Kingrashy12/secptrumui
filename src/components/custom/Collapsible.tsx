@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Box, colors, Icon } from "secptrum-ui";
 import styled from "styled-components";
 import Typography from "./Typography";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowRight,

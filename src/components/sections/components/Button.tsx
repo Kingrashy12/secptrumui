@@ -1,6 +1,5 @@
 import { Button, Tabs, TabsHandle, TabsList } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
-import { useTheme } from "@/context/useTheme";
 import { Preview } from "@/styles/docs/start.styled";
 import React, { useState } from "react";
 import { Stack } from "secptrum-ui";
@@ -8,7 +7,7 @@ import styled from "styled-components";
 
 const ButtonPreview = ({ code }: { code: string }) => {
   const [mode, setMode] = useState("preview");
-  const { theme } = useTheme();
+
   return (
     <Preview>
       <Tabs>

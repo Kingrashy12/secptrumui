@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RiMenuFold2Line, RiMenuUnfold2Line } from "react-icons/ri";
-import { Box, colors, Icon, Stack } from "secptrum-ui";
+import { Box, colors, Icon } from "secptrum-ui";
 import styled from "styled-components";
 import Collapsible from "./Collapsible";
 import { sidebarlinks } from "@/data/sidebar";

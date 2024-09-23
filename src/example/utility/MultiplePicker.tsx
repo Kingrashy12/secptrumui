@@ -1,6 +1,5 @@
 import { Button, Media, Tabs, TabsHandle, TabsList } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
-import Backdrop from "@/components/test/Backdrop";
 import ImagePicker from "@/components/test/ImagePicker";
 import { toast } from "@/components/test/toast/Toast";
 import { Preview } from "@/styles/docs/start.styled";
@@ -24,7 +23,7 @@ const MultiplePicker = ({ code }: { code: string }) => {
 
   function removeImage(index: number) {
     setImages((prev) => {
-      const updatedImages = prev.filter((image, _i) => _i !== index);
+      const updatedImages = prev.filter((_, _i) => _i !== index);
       return updatedImages;
     });
   }

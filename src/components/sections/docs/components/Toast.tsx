@@ -2,7 +2,7 @@ import PropOptions from "@/components/custom/docs/PropOptions";
 import DocsLayout from "@/components/layout/DocsLayout";
 import TextBadge from "@/components/test/TextBadge";
 import { useTheme } from "@/context/useTheme";
-import { PropBadge } from "@/styles/custom";
+
 import {
   BodyText,
   LargeTextHeader,

@@ -1,11 +1,8 @@
 import { useTheme } from "@/context/useTheme";
 import { MediumTextHeader, TextContentWrap } from "@/styles/docs/start.styled";
-import { fontInter } from "@/styles/global";
-import { Ultra } from "next/font/google";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { colors } from "secptrum-ui";
 import styled from "styled-components";
 
 type TextContentType = {

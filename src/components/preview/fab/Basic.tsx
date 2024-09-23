@@ -1,7 +1,7 @@
 import { Fab, Typography } from "@/components";
 import { Preview } from "@/styles/docs/start.styled";
 import React from "react";
-import { IoAdd, IoMenu } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 import { LuLogOut } from "react-icons/lu";
 import styled from "styled-components";
 

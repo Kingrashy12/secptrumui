@@ -1,6 +1,5 @@
 import { localColors } from "@/styles/global";
 import { InputType } from "@/types/test";
-import { colors } from "secptrum-ui";
 
 const getColors = (
   outLineBorderColor: string,

@@ -2,7 +2,7 @@ import { HeroBg, ReactImage } from "@/assets";
 import React from "react";
 import styled from "styled-components";
 import Typography from "../custom/Typography";
-import { Box, colors } from "secptrum-ui";
+import { Box } from "secptrum-ui";
 import Media from "../custom/Media";
 import { fontNunito, fontOff } from "@/styles/global";
 import Link from "next/link";

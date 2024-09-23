@@ -1,7 +1,6 @@
 import { Button, Tabs, TabsHandle, TabsList } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
 import { toast } from "@/components/test/toast/Toast";
-import { useTheme } from "@/context/useTheme";
 import { Preview } from "@/styles/docs/start.styled";
 import React, { useState } from "react";
 import { Stack } from "secptrum-ui";
@@ -9,7 +8,6 @@ import styled from "styled-components";
 
 const BasicToast = ({ code }: { code: string }) => {
   const [mode, setMode] = useState("preview");
-  const { theme } = useTheme();
 
   function makeToast() {
     toast.info("Hello world");

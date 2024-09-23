@@ -204,6 +204,7 @@ const getFloatVariantStyle = (
   colorScheme: FloatProps["colorScheme"],
   backgroundColor: string
 ) => {
+  console.log(backgroundColor);
   return getColor(colorScheme, variant);
 };
 

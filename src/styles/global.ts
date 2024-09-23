@@ -1,13 +1,6 @@
 "use-client";
-import { Typography } from "@/components";
-import {
-  Inter,
-  Lexend,
-  Manrope,
-  Nunito_Sans,
-  Offside,
-  Poppins,
-} from "next/font/google";
+
+import { Inter, Nunito_Sans, Offside, Poppins } from "next/font/google";
 import { Box, colors } from "secptrum-ui";
 import styled, { createGlobalStyle } from "styled-components";
 

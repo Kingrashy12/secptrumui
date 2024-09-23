@@ -1,17 +1,8 @@
-import {
-  Checkbox,
-  Fab,
-  Tabs,
-  TabsHandle,
-  TabsList,
-  Typography,
-} from "@/components";
+import { Checkbox, Tabs, TabsHandle, TabsList, Typography } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
 import { useTheme } from "@/context/useTheme";
 import { Preview } from "@/styles/docs/start.styled";
 import React, { useState } from "react";
-import { IoAdd, IoMenu } from "react-icons/io5";
-import { LuLogOut } from "react-icons/lu";
 import { Box, Stack } from "secptrum-ui";
 import styled from "styled-components";
 

@@ -5,7 +5,7 @@ import React, { Suspense, useEffect, useState, useTransition } from "react";
 
 const NextInstallation = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   useEffect(() => {
     startTransition(() => {

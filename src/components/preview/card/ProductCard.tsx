@@ -97,8 +97,3 @@ const Price = styled.h1`
   font-family: "Poppins-Semibold", sans-serif;
   color: ${(props) => props.theme.colors?.text};
 `;
-
-const ButtonContainer = styled(Box)`
-  display: flex;
-  justify-content: space-around;
-`;

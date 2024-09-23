@@ -3,7 +3,7 @@ import { NextInstallContainer } from "./NextInstallation";
 import Typography from "@/components/custom/Typography";
 import styled from "styled-components";
 import { Box } from "secptrum-ui";
-import { fontInter, fontPoppins } from "@/styles/global";
+import { fontInter } from "@/styles/global";
 import CodeBlock from "@/components/custom/code/CodeBlock";
 import { useTheme } from "@/context/useTheme";
 

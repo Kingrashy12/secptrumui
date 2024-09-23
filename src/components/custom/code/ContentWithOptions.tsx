@@ -2,12 +2,10 @@ import { useTheme } from "@/context/useTheme";
 import {
   CodeContainer,
   CodeOptions,
-  Divider,
   OptionSelector,
   OptionsLine,
 } from "@/styles/global";
 import React, { useState } from "react";
-import Typography from "../Typography";
 import { Icon, toast } from "secptrum-ui";
 import { TbCopy, TbCopyCheckFilled } from "react-icons/tb";
 

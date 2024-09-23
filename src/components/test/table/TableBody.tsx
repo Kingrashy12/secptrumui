@@ -1,5 +1,5 @@
 import React from "react";
-import { TableBody, TableCell } from "./Table";
+import { TableBody } from "./Table";
 
 type TableBodyType = {
   children?: React.ReactNode;

@@ -1,5 +1,5 @@
 import React from "react";
-import { CircleLoader, FadeLoader } from "secptrum-ui";
+import { CircleLoader } from "secptrum-ui";
 import styled from "styled-components";
 import ProgressLoader from "./ProgressLoader";
 import { useTheme } from "@/context/useTheme";

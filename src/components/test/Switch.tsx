@@ -1,6 +1,6 @@
 import { Switch, SwitchHandle } from "@/styles/test/input/styled";
 import React from "react";
-import { Box, colors, shouldForwardProps } from "secptrum-ui";
+import { colors } from "secptrum-ui";
 
 type SwitchType = {
   /**

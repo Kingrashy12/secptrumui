@@ -1,4 +1,3 @@
-import { useTheme } from "@/context/useTheme";
 import React from "react";
 import { Box } from "secptrum-ui";
 import styled from "styled-components";
@@ -7,7 +6,6 @@ type CodeContentType = {
   code: string;
 };
 const SingleCodeContent = ({ code }: CodeContentType) => {
-  const { theme } = useTheme();
   return <CodeBlock code={code} />;
 };
 

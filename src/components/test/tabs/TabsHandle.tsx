@@ -1,5 +1,4 @@
 import { useTabList } from "@/context/useTabList";
-import { useTheme } from "@/context/useTheme";
 import { getModeStyle } from "@/lib/helper";
 import { TabHandle } from "@/styles/test/layout/styled";
 import React from "react";
@@ -52,7 +51,6 @@ const TabsHandle = ({
   disabled = false,
 }: TabsHandleType) => {
   const { onSwitch, activeTabValue, variant, themeMode } = useTabList();
-  const { theme } = useTheme();
 
   function switchTab() {
     onSwitch(value);

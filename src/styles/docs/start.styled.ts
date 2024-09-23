@@ -1,7 +1,6 @@
 import { Card, Typography } from "@/components";
 import { Box, colors } from "secptrum-ui";
 import styled from "styled-components";
-import { fontInter, localColors } from "../global";
 
 export const InstallPageContainer = styled(Box)`
   width: 100%;

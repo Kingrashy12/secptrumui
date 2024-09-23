@@ -1,10 +1,8 @@
 import DocsLayout from "@/components/layout/DocsLayout";
 import ModalExample from "@/components/preview/modal/Example";
 import FormModal from "@/components/preview/modal/FormModal";
-import TextBadge from "@/components/test/TextBadge";
-import { useTheme } from "@/context/useTheme";
 import { modalCodes } from "@/data/code/modal";
-import { PropBadge } from "@/styles/custom";
+import { useTheme } from "@/context/useTheme";
 import {
   BodyText,
   LargeTextHeader,

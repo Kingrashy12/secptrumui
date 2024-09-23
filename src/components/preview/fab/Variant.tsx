@@ -1,16 +1,14 @@
-import { Button, Fab, Tabs, TabsHandle, TabsList } from "@/components";
+import { Fab, Tabs, TabsHandle, TabsList } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
-import { useTheme } from "@/context/useTheme";
 import { Preview } from "@/styles/docs/start.styled";
 import React, { useState } from "react";
-import { IoAdd, IoClose, IoMenu } from "react-icons/io5";
-import { MdAddAPhoto } from "react-icons/md";
+import { IoAdd, IoClose } from "react-icons/io5";
 import { Stack } from "secptrum-ui";
 import styled from "styled-components";
 
 const FabVariant = ({ code }: { code: string }) => {
   const [mode, setMode] = useState("preview");
-  const { theme } = useTheme();
+
   return (
     <Preview>
       <Tabs>

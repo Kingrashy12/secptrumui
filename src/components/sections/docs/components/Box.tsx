@@ -1,4 +1,3 @@
-import PropOptions from "@/components/custom/docs/PropOptions";
 import DocsLayout from "@/components/layout/DocsLayout";
 import TextBadge from "@/components/test/TextBadge";
 import { useTheme } from "@/context/useTheme";
@@ -11,7 +10,6 @@ import {
 import React from "react";
 import { BoxFeatures, BoxProps, BoxSizeVariant } from "../../components/Box";
 import Link from "next/link";
-import ReferenceTable from "@/components/custom/docs/ReferenceTable";
 import BoxExample from "@/components/preview/box/Example";
 import { boxCode } from "@/data/code/box";
 import BoxLay from "@/components/preview/box/LayoutFlex";

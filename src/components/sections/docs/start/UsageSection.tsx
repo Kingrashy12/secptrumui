@@ -18,7 +18,7 @@ import React from "react";
 
 const UsageSection = () => {
   const router = useRouter();
-  const { theme, mode } = useTheme();
+  const { theme } = useTheme();
   return (
     <InstallPageContainer>
       <TextContent
