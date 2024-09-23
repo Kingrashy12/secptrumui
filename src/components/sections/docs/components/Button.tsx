@@ -42,7 +42,7 @@ const Button = () => {
       <ButtonPreview code={buttonCodes.basic} />
       <TextContent_Wrap id="variants">
         <Link href="#variants" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Variants
           </MediumTextHeader>
         </Link>
@@ -59,7 +59,7 @@ const Button = () => {
       <ButtonVaraints code={buttonCodes.variants} />
       <TextContent_Wrap id="sizes">
         <Link href="#sizes" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Sizes
           </MediumTextHeader>
         </Link>
@@ -76,7 +76,7 @@ const Button = () => {
       <ButtonSize code={buttonCodes.size} />
       <TextContent_Wrap id="radius">
         <Link href="#radius" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Radius
           </MediumTextHeader>
         </Link>
@@ -93,7 +93,7 @@ const Button = () => {
       <ButtonRadius code={buttonCodes.radius} />
       <TextContent_Wrap id="loading-state">
         <Link href="#loading-state" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Loading State
           </MediumTextHeader>
         </Link>
@@ -112,7 +112,7 @@ const Button = () => {
       <ButtonLoading code={buttonCodes.loading} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

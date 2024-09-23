@@ -36,6 +36,9 @@ export const CheckboxDocs = lazy(
 export const SwitchDocs = lazy(
   () => import("./docs/components/input/SwitchDocs")
 );
+export const ImagePickerDocs = lazy(
+  () => import("./docs/components/utility/ImagePickerDocs")
+);
 
 export { default as RootLayout } from "./layout/RootLayout";
 export { default as Media } from "./custom/Media";

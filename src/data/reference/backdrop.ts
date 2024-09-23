@@ -38,6 +38,13 @@ export const backdropRef = [
     default: "500",
   },
   {
+    prop: "glassEffect",
+    type: "number",
+    description:
+      "Controls the intensity of the backdrop glass effect (blur). A higher value increases the blur, creating a stronger glass effect.",
+    default: "6",
+  },
+  {
     prop: "style",
     type: "object",
     description:

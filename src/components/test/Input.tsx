@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { InputType } from "@/types/test";
 import { Icon } from "secptrum-ui";
 import { localColors } from "@/styles/global";
-import { Input, InputForm } from "@/styles/test/styled";
+import { Input, InputForm } from "@/styles/test/input/styled";
 import { RiErrorWarningFill, RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { useTheme } from "@/context/useTheme";
 
@@ -52,7 +52,7 @@ const TextInput = ({
   outLineBorderColor,
   focusBorderColor,
   focusColor,
-  error,
+  hasError,
   errorMessage,
   width,
   mode,
@@ -61,6 +61,8 @@ const TextInput = ({
   color,
   formClassName,
   backgroundColor,
+  inputClass,
+  fullWidth,
   ...props
 }: InputType): JSX.Element => {
   const [inputType, setInputType] = useState(props.type);
@@ -100,12 +102,21 @@ const TextInput = ({
     setInputType((prevType) => (prevType === "password" ? "text" : "password"));
   };
 
+  const getWidth = () => {
+    if (fullWidth) {
+      return `100%`;
+    } else return width;
+  };
+
   return (
-    <InputForm className={formClassName} style={{ width, ...formStyle }}>
+    <InputForm
+      className={formClassName}
+      style={{ width: getWidth(), ...formStyle }}
+    >
       <Input
         disabled={props.disabled}
         backgroundcolor={backgroundColor}
-        error={error}
+        error={hasError}
         color={color}
         mode={m}
         outlinebordercolor={
@@ -116,6 +127,7 @@ const TextInput = ({
         className={props.className}
         focusBorderColor={focusBorderColor}
         focusColor={focusColor}
+        style={props.style}
       >
         {icon ? (
           <Icon
@@ -124,7 +136,7 @@ const TextInput = ({
             icon={icon}
             color={localColors.neutral[500]}
           />
-        ) : error ? (
+        ) : hasError ? (
           <Icon
             className="Icon__Sui"
             size={25}
@@ -134,7 +146,8 @@ const TextInput = ({
         ) : null}
         <input
           {...props}
-          className=""
+          className={inputClass}
+          style={inputStyle}
           type={inputType}
           placeholder={props.placeholder || "Type here..."}
         />
@@ -147,7 +160,7 @@ const TextInput = ({
           />
         )}
       </Input>
-      {error && <p>{errorMessage}</p>}
+      {hasError && <p>{errorMessage}</p>}
     </InputForm>
   );
 };

@@ -117,7 +117,6 @@ export const sidebarlinks = [
       },
       {
         label: "Theme",
-        not_available: true,
         uri: "/docs/components/utility/theme",
       },
     ],

@@ -18,7 +18,7 @@ import {
   ContentWrap,
   StyledToast,
   ToastContent,
-} from "@/styles/test/styled";
+} from "@/styles/test/feedback/styled";
 
 // Toast types
 export type ToastVariant = "info" | "success" | "error" | "warning";
@@ -158,7 +158,7 @@ const Toast = () => {
             </ToastContent>
           </ContentWrap>
           <CloseIcon type={toast.type} onClick={() => removeToast(toast)}>
-            <IoCloseCircleOutline size={30} />
+            <IoCloseCircleOutline size={30} color="black" />
           </CloseIcon>
         </StyledToast>
       ))}

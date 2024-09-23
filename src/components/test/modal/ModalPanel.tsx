@@ -1,5 +1,5 @@
 import { useModalContext } from "@/context/useModal";
-import { ModalPanel } from "@/styles/test/styled";
+import { ModalPanel } from "@/styles/test/feedback/styled";
 import React from "react";
 
 export type ModalPanelType = {

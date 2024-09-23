@@ -1,11 +1,9 @@
 import { useTabList } from "@/context/useTabList";
 import { useTheme } from "@/context/useTheme";
-import shouldForwardProp from "@/hooks/styled_prop";
 import { getModeStyle } from "@/lib/helper";
-import { TabHandle } from "@/styles/test/styled";
+import { TabHandle } from "@/styles/test/layout/styled";
 import React from "react";
 import { colors } from "secptrum-ui";
-import styled from "styled-components";
 
 /**
  * Type definition for TabsHandleType, representing the properties of a tab component.

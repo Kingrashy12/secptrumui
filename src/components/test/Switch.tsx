@@ -1,4 +1,4 @@
-import { Switch, SwitchHandle } from "@/styles/test/styled";
+import { Switch, SwitchHandle } from "@/styles/test/input/styled";
 import React from "react";
 import { Box, colors, shouldForwardProps } from "secptrum-ui";
 
@@ -16,11 +16,11 @@ type SwitchType = {
   checkedColor?: string;
 
   /**
-   * The size variant of the switch, which determines its width and height.
+   * The size of the switch, which determines its width and height.
    * Can be either "md" (medium) or "lg" (large).
    * @default "md"
    */
-  variant?: "md" | "lg";
+  size?: "md" | "lg";
   /**
    * Callback function triggered when the switch is toggled.
    */
@@ -31,12 +31,18 @@ type SwitchType = {
    * @default false
    */
   checked?: boolean;
+  /**
+   * Optional class name for custom styling.
+   */
   className?: string;
+  /**
+   * Disables the switch when set to true, preventing user interaction.
+   */
   disabled?: boolean;
 };
 
-const getSize = (variant: SwitchType["variant"]) => {
-  switch (variant) {
+const getSize = (size: SwitchType["size"]) => {
+  switch (size) {
     case "md":
       return { width: `35px`, height: `20px` };
     case "lg":
@@ -45,8 +51,8 @@ const getSize = (variant: SwitchType["variant"]) => {
       return { width: `35px`, height: `15px` };
   }
 };
-const getSwitchSize = (variant: SwitchType["variant"]) => {
-  switch (variant) {
+const getSwitchSize = (size: SwitchType["size"]) => {
+  switch (size) {
     case "md":
       return { width: `15px`, height: `15px` };
     case "lg":
@@ -59,14 +65,14 @@ const getSwitchSize = (variant: SwitchType["variant"]) => {
 const Sw = ({
   color = colors.neutral300,
   checkedColor = "blue",
-  variant = "md",
+  size = "md",
   onSwitch,
   className,
   checked = false,
   disabled,
 }: SwitchType) => {
-  const { width, height } = getSize(variant);
-  const { width: switchWidth, height: switchHeight } = getSwitchSize(variant);
+  const { width, height } = getSize(size);
+  const { width: switchWidth, height: switchHeight } = getSwitchSize(size);
 
   return (
     <Switch

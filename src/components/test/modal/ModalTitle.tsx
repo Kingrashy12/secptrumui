@@ -5,29 +5,61 @@ import { Box } from "secptrum-ui";
 import { IoClose } from "react-icons/io5";
 import { localColors } from "@/styles/global";
 
-/**
- * ModalTitleType interface for defining the props for the ModalTitle component.
- *
- * @extends BoxProps
- *
- * @prop {string} title - The title text displayed in the modal header.
- * @prop {boolean} [showClose] - Whether to show the close icon or not.
- * @prop {string} [iconClass] - Additional class for the close icon.
- * @prop {React.CSSProperties} [iconStyle] - CSS style for the close icon.
- * @prop {number} [iconSize=25] - Size of the close icon.
- * @prop {() => void} [onClose] - Function called when the close icon is clicked.
- * @prop {string} [titleClassName] - Additional class applied to the title (`h2`) element.
- * @prop {React.CSSProperties} [titleStyle] - CSS style applied to the title (`h2`) element.
- */
 interface ModalTitleType extends BoxProps {
+  /**
+   * Model title text.
+   * @type {string}
+   */
   title: string;
+
+  /**
+   * Whether to show the close button.
+   * @type {boolean}
+   * @default false
+   */
   showClose?: boolean;
+
+  /**
+   * CSS class for the icon.
+   * @type {string}
+   */
   iconClass?: string;
+
+  /**
+   * Custom styles for the icon.
+   * @type {React.CSSProperties}
+   */
   iconStyle?: React.CSSProperties;
+
+  /**
+   * Size of the icon.
+   * @type {number}
+   */
   iconSize?: number;
+
+  /**
+   * Callback function when the close button is clicked.
+   * @type {() => void}
+   */
   onClose?: () => void;
+
+  /**
+   * CSS class for the title text.
+   * @type {string}
+   */
   titleClassName?: string;
+
+  /**
+   * Custom styles for the title text.
+   * @type {React.CSSProperties}
+   */
   titleStyle?: React.CSSProperties;
+
+  /**
+   * Prevents the modal from closing when the close button is clicked.
+   * @type {boolean}
+   * @default false
+   */
   preventClose?: boolean;
 }
 

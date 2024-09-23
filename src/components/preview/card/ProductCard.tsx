@@ -67,6 +67,10 @@ const StyledCard = styled(Card)`
   @media screen and (max-width: 550px) {
     width: 190px;
   }
+  @media screen and (max-width: 360px) {
+    width: 90%;
+    height: auto;
+  }
 `;
 
 const ImageContainer = styled(Box)`

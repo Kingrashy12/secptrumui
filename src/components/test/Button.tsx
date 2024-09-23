@@ -1,17 +1,9 @@
-import { useTheme, useThemeMode } from "@/context/useTheme";
-import shouldForwardProp from "@/hooks/styled_prop";
+import { useTheme } from "@/context/useTheme";
 import { getModeStyle } from "@/lib/helper";
-import { Button } from "@/styles/test/styled";
-import {
-  getBorderRadius,
-  getButtonStyles,
-  getHoverStyle,
-  getSizeVariant,
-} from "@/utils/test/variant";
+import { Button } from "@/styles/test/action/styled";
 import React, { ComponentPropsWithRef, useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { colors, Icon } from "secptrum-ui";
-import styled from "styled-components";
+import { Icon } from "secptrum-ui";
 
 type ButtonTypes = ComponentPropsWithRef<"button">;
 
@@ -116,6 +108,12 @@ export declare interface ButtonProps extends ButtonTypes {
    * @type {"light" | "dark"}
    */
   mode?: "dark" | "light";
+  /**
+   * If true, the button will take up the full width of its container.
+   * @default false
+   * @type {boolean}
+   */
+  fullWidth?: boolean;
 }
 
 const Btn = ({
@@ -135,6 +133,7 @@ const Btn = ({
   outlineBorderColor,
   width,
   iconSize,
+  fullWidth,
   mode,
   ...props
 }: ButtonProps): JSX.Element => {
@@ -169,6 +168,12 @@ const Btn = ({
     return getModeStyle(m as "light" | "dark")?.outline_ButtonBorderColor;
   };
 
+  const getWidth = () => {
+    if (fullWidth) {
+      return `100%`;
+    } else return width;
+  };
+
   return (
     <Button
       backgroundcolor={backgroundColor}
@@ -184,7 +189,7 @@ const Btn = ({
       variant={variant}
       size={size}
       radius={radius}
-      width={width}
+      width={getWidth()}
       className={props.className}
     >
       {isLoading ? (

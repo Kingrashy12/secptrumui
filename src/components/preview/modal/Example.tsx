@@ -8,19 +8,23 @@ import {
 } from "@/components";
 import Modal from "@/components/test/modal/Modal";
 import ModalPanel from "@/components/test/modal/ModalPanel";
-import { ModalContent, ModalFooter, ModalTitle } from "@/styles/test/styled";
+import {
+  ModalContent,
+  ModalFooter,
+  ModalTitle,
+} from "@/styles/test/feedback/styled";
 import React, { useState } from "react";
 import { PrevContainer } from "../CircleLoader";
 import { useTheme } from "@/context/useTheme";
-import { toast } from "secptrum-ui";
 import CodeBlock from "@/components/custom/code/CodeBlock";
+import { toast } from "@/components/test/toast/Toast";
 
 const ModalExample = ({ code }: { code: string }) => {
   const [open, setOpen] = useState(false);
   const [mode_, setMode] = useState("preview");
   const { mode } = useTheme();
 
-  function del() {
+  function deleteAccount() {
     toast.success("Your account has been deleted");
     setOpen(false);
   }
@@ -45,7 +49,7 @@ const ModalExample = ({ code }: { code: string }) => {
               >
                 Cancel
               </Button>
-              <Button variant="danger" onClick={del}>
+              <Button variant="danger" onClick={deleteAccount}>
                 Continue
               </Button>
             </ModalFooter>

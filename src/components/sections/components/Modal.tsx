@@ -31,12 +31,20 @@ const ModalProps = () => {
           if an action is in progress.
         </li>
         <li>
-          <PropBadge>className</PropBadge>:Optional string to add custom CSS
+          <PropBadge>className</PropBadge>: Optional string to add custom CSS
           classes.
+        </li>
+        <li>
+          <PropBadge>mode</PropBadge>: Sets the theme mode for the backdrop
+          component.
         </li>
         <li>
           <PropBadge>style</PropBadge>: Optional object to add custom inline
           styles.
+        </li>
+        <li>
+          <PropBadge>glassEffect</PropBadge>: Controls the intensity of the
+          backdrop glass effect (blur).
         </li>
       </PropOptions>
       {/* Panel */}

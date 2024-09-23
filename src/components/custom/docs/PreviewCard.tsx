@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import CodeBlock from "../code/CodeBlock";
 import { Button, Tabs, TabsHandle, TabsList } from "@/components";
 import { useTheme } from "@/context/useTheme";
-import { Stack, toast } from "secptrum-ui";
+import { Stack } from "secptrum-ui";
 import styled from "styled-components";
-import { localColors } from "@/styles/global";
+import { toast } from "@/components/test/toast/Toast";
 
 type PreviewCardType = {
   code: string;

@@ -33,7 +33,7 @@ const Stack_Page = () => {
       </TextContent_Wrap>
       <TextContent_Wrap id="basic">
         <Link className="a" href="#basic">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Basic
           </MediumTextHeader>
         </Link>
@@ -46,7 +46,7 @@ const Stack_Page = () => {
       <BasicStack code={stackCodes.basic} />
       <TextContent_Wrap id="align">
         <Link className="a" href="#align">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Align
           </MediumTextHeader>
         </Link>
@@ -57,7 +57,7 @@ const Stack_Page = () => {
       <AlignStack code={stackCodes.align} />
       <TextContent_Wrap id="api-refrence">
         <Link className="a" href="#api-reference">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

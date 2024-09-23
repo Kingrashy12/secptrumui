@@ -32,7 +32,7 @@ const CheckboxPage = () => {
       </TextContent_Wrap>
       <TextContent_Wrap id="example">
         <Link href="#example" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Examples
           </MediumTextHeader>
         </Link>
@@ -58,7 +58,7 @@ const CheckboxPage = () => {
       <RoundedCheck code={checkboxCode.rounded} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

@@ -62,6 +62,13 @@ export const buttonRef = [
     default: "default",
   },
   {
+    prop: "fullWidth",
+    type: "boolean",
+    description:
+      "If true, the button will take up the full width of its container.",
+    default: "false",
+  },
+  {
     prop: "mode",
     type: "string",
     description: "Sets the theme mode for the button component.",

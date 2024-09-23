@@ -31,7 +31,7 @@ const Backdrop = () => {
       </TextContent_Wrap>
       <TextContent_Wrap id="example">
         <Link href="#example" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Example
           </MediumTextHeader>
         </Link>
@@ -43,7 +43,7 @@ const Backdrop = () => {
       <BasicDrop code={dropCode.basic} />
       <TextContent_Wrap id="theming">
         <Link href="#theming" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Theming
           </MediumTextHeader>
         </Link>
@@ -75,7 +75,7 @@ const Backdrop = () => {
       </TextContent_Wrap>
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

@@ -2,7 +2,6 @@ import { BackgroundLoader, HeroSection } from "@/components";
 import { Container } from "@/styles/global";
 import Head from "next/head";
 import { Suspense } from "react";
-import { Box } from "secptrum-ui";
 
 export default function Home() {
   return (

@@ -41,7 +41,7 @@ const Card_Page = () => {
       <CardExample code={cardCodes.ex} />
       <TextContent_Wrap id="product-card">
         <Link href="#product-card" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Product Card
           </MediumTextHeader>
         </Link>
@@ -54,7 +54,7 @@ const Card_Page = () => {
       <ProductCard code={cardCodes.products} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

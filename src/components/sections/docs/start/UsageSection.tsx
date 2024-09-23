@@ -5,6 +5,7 @@ import TextContent from "@/components/custom/docs/TextContent";
 import PageNavigator from "@/components/PageNavigator";
 import TextBadge from "@/components/test/TextBadge";
 import { useTheme } from "@/context/useTheme";
+import { usageCode } from "@/data/code/usage";
 import {
   BodyText,
   InstallPageContainer,
@@ -39,28 +40,7 @@ const UsageSection = () => {
           in your project:
         </BodyText>
       </TextContent_Wrap>
-      <PreviewCard
-        code={`
-import { Button, toast, useTheme } from 'secptrum-ui'
-
-export default function Home() {
-
- const { theme } = useTheme();
-
-  retrun(
-    <Button
-    size="lg"
-    radius="lg"
-    variant="outline"
-    color={theme.colors?.text}
-    onClick={() => toast.success("This is a success message!")}
-  >
-    Make a toast
-  </Button>
-  )
-}
-      `}
-      />
+      <PreviewCard code={usageCode.quickStart} />
       <TextContent_Wrap id="themeprovider">
         <Link href={`${router.pathname}/#themeprovider`} className="a">
           <MediumTextHeader theme={theme} font="inter" as="h2">
@@ -79,37 +59,18 @@ export default function Home() {
           easily customize the theme if needed.
         </BodyText>
       </TextContent_Wrap>
-      {/* <BodyText theme={theme}>
-        <b id="note">Note:</b> While using the{" "}
-        <Link href="/docs/components/utility/theme#theme-provider">
-          ThemeProvider
-        </Link>{" "}
-        
-      </BodyText> */}
-      <DocInfo type="note">
+      <DocInfo type="info">
         <BodyText>
-          <b>Note:</b> It's highly recommended that you wrap your app with the{" "}
-          <TextBadge>ThemeProvider</TextBadge> to ensure consistent theming. If
-          you choose not to, components will fall back to the default theme, but
-          customization options will be limited.
+          If your app doesn't use a theme toggle, you can use the{" "}
+          <TextBadge>mode</TextBadge> prop to specify the app's mode (light or
+          dark), ensuring the components match your desired theme style.
         </BodyText>
       </DocInfo>
 
       <BodyText style={{ color: theme.colors?.text }}>
         <b>Example:</b>
       </BodyText>
-      <CodeBlock
-        code={`
-import { ThemeProvider } from "secptrum-ui";
-
-export default function App(){
-    <ThemeProvider>
-       ...
-    </ThemeProvider>,
-  }
-);
-      `}
-      />
+      <CodeBlock code={usageCode.theme} />
       <TextContent id="" bodyText="<b></b>" />
       <BodyText theme={theme}>
         By wrapping your root component with the{" "}
@@ -122,7 +83,7 @@ export default function App(){
         </MediumTextHeader>
         <BodyText theme={theme}>
           For more detailed usage and customization options, check out{" "}
-          <Link href="/docs/components/theme#theme-customization">
+          <Link href="/docs/components/utility/theme#theme-customization">
             Theme Customization{" "}
           </Link>{" "}
           Learn how to customize colors, fonts, and more

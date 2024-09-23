@@ -55,7 +55,7 @@ const DocInfo: React.FC<DocNoteProps> = ({ type = "note", children, mt }) => {
     <StyledDocNote mt={mt} noteType={type}>
       <Icon
         icon={noteStyles[type].icon}
-        size={20}
+        size={25}
         color={noteStyles[type].border}
       />
       <div>{children}</div>

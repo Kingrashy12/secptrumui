@@ -37,7 +37,7 @@ const FAB = () => {
       <BasicFab />
       <TextContent_Wrap id="size">
         <Link href="#size" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Size
           </MediumTextHeader>
         </Link>
@@ -50,7 +50,7 @@ const FAB = () => {
       <FabSize code={fabCodes.size} />
       <TextContent_Wrap id="variant">
         <Link href="#variant" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Variant
           </MediumTextHeader>
         </Link>
@@ -63,7 +63,7 @@ const FAB = () => {
       <FabVariant code={fabCodes.variant} />
       <TextContent_Wrap id="color-scheme">
         <Link href="#color-scheme" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             ColorScheme
           </MediumTextHeader>
         </Link>
@@ -81,7 +81,7 @@ const FAB = () => {
       </PropOptions>
       <TextContent_Wrap id="position">
         <Link href="#position" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Position
           </MediumTextHeader>
         </Link>
@@ -102,7 +102,7 @@ const FAB = () => {
       </PropOptions>
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

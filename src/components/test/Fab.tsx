@@ -2,9 +2,10 @@ import { localColors } from "@/styles/global";
 import { getFloatPosition } from "@/utils/test/position";
 import { getFloatSize, getFloatVariantStyle } from "@/utils/test/variant";
 import React, { ComponentPropsWithRef } from "react";
+import { shouldForwardProps } from "secptrum-ui";
 import styled from "styled-components";
-// import { colors } from "../../styles/colors";
-// import { getFloatPosition } from "../../utils/func/toast";
+
+const shouldForwardProp = shouldForwardProps;
 
 type BoxProps = ComponentPropsWithRef<"div">;
 
@@ -56,7 +57,7 @@ const FloatingActionButton = ({
 
 export default FloatingActionButton;
 
-const Fab = styled.div<{
+const Fab = styled.div.withConfig({ shouldForwardProp })<{
   backgroundcolor: string | any;
   position: FloatProps["position"];
   disabled: boolean | any;

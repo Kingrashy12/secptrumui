@@ -8,7 +8,7 @@ import {
 } from "@/components";
 import Modal from "@/components/test/modal/Modal";
 import ModalPanel from "@/components/test/modal/ModalPanel";
-import { ModalContent } from "@/styles/test/styled";
+import { ModalContent } from "@/styles/test/feedback/styled";
 import React, { useState } from "react";
 import { PrevContainer } from "../CircleLoader";
 // import { toast } from "secptrum-ui";
@@ -49,7 +49,6 @@ const FormModal = ({ code }: { code: string }) => {
           preventClose={isLoading}
         >
           <ModalPanel size="lg" transition="dropIn">
-            {/* <ModalTitle>Login</ModalTitle> */}
             <ModalTitle
               title="Login"
               showClose

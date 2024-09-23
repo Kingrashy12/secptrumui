@@ -9,7 +9,7 @@ declare interface InputType extends InputProps {
    */
   icon?: any;
   /**
-   * @param variant Indicates the style which the Input Components will inherits to, default `solid`
+   * @param variant Indicates the style which the Input Components will inherits to, default `outline`
    */
   variant?: "solid" | "outline" | "ghost";
   /**
@@ -56,7 +56,7 @@ declare interface InputType extends InputProps {
    * @type {boolean}
    * @optional
    */
-  error?: boolean | any;
+  hasError?: boolean | any;
   /**
    * The error message to display when the input is in an error state.
    *
@@ -114,6 +114,12 @@ declare interface InputType extends InputProps {
   inputStyle?: React.CSSProperties;
 
   /**
+   * Additional class name to apply to the input element.
+   * @type {string}
+   */
+  inputClass?: string;
+
+  /**
    * The text color for the input field.
    * @type {string}
    */
@@ -138,4 +144,10 @@ declare interface InputType extends InputProps {
    * @default inherited from theme
    */
   ghostVariantHoverColor?: string;
+  /**
+   * If true, the button will take up the full width of its container.
+   * @default false
+   * @type {boolean}
+   */
+  fullWidth?: boolean;
 }

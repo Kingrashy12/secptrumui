@@ -33,7 +33,7 @@ const Modal = () => {
       <ModalExample code={modalCodes.ex} />
       <TextContent_Wrap id="form-modal">
         <Link href="form-modal" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Form Modal
           </MediumTextHeader>
         </Link>
@@ -44,7 +44,7 @@ const Modal = () => {
       <FormModal code={modalCodes.form} />
       <TextContent_Wrap id="modal-components">
         <Link href="#modal-components" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Modal Components
           </MediumTextHeader>
         </Link>

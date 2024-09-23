@@ -40,7 +40,7 @@ const Box_Page = () => {
       <BoxSizeVariant />
       <TextContent_Wrap id="example">
         <Link href="#example" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Example
           </MediumTextHeader>
         </Link>
@@ -52,7 +52,7 @@ const Box_Page = () => {
       <BoxExample code={boxCode.ex} />
       <TextContent_Wrap id="layout-flexibility">
         <Link href="#layout-flexibility" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Layout Flexibility Example
           </MediumTextHeader>
         </Link>

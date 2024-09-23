@@ -31,7 +31,7 @@ const CircleLoader = () => {
       </TextContent_Wrap>
       <TextContent_Wrap id="usage">
         <Link href="#usage" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Usage
           </MediumTextHeader>
         </Link>
@@ -43,7 +43,7 @@ const CircleLoader = () => {
       <CircleLoaderExample code={loadersCode.circelLoader} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

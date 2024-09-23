@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import shouldForwardProp from "@/hooks/styled_prop";
-import { Drop, FixedBox } from "@/styles/test/styled";
+import { Drop } from "@/styles/test/feedback/styled";
 import { useTheme } from "@/context/useTheme";
 import { getModeStyle } from "@/lib/helper";
 

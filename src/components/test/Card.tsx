@@ -1,6 +1,6 @@
 import { useTheme } from "@/context/useTheme";
 import { getModeStyle } from "@/lib/helper";
-import { CardWrap } from "@/styles/test/styled";
+import { CardWrap } from "@/styles/test/layout/styled";
 import React, { ComponentPropsWithRef, useEffect, useState } from "react";
 // import { colors } from "secptrum-ui";
 

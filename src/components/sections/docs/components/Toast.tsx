@@ -42,7 +42,7 @@ const Toast = () => {
       <ToastProps />
       <TextContent_Wrap id="basic-toast">
         <Link href="#basic-toast" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Basic Toast
           </MediumTextHeader>
         </Link>
@@ -50,7 +50,7 @@ const Toast = () => {
       <BasicToast code={toastCodes.basic} />
       <TextContent_Wrap id="position-toast">
         <Link href="#position-toast" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Position Toast
           </MediumTextHeader>
         </Link>
@@ -58,7 +58,7 @@ const Toast = () => {
       <PositionToast code={toastCodes.position} />
       <TextContent_Wrap id="transition-effect">
         <Link href="#transition-effect" className="a">
-          <MediumTextHeader as="h2" theme={theme}>
+          <MediumTextHeader as="h4" isMedium theme={theme}>
             Toast Transition Effects
           </MediumTextHeader>
         </Link>
