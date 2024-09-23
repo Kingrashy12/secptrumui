@@ -1,3 +1,5 @@
+import { ToastOptionsType } from "@/components/test/toast/Toast";
+
 const getToastTransition = (transition: ToastOptionsType["transition"]) => {
   switch (transition) {
     case "walkIn":
