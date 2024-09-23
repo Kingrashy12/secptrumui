@@ -195,9 +195,7 @@ const ImagePicker = ({
   }
 
   function onRemove(index: number) {
-    const filteredImages = images.filter(
-      (image, _i) => _i !== index && console.log(image)
-    );
+    const filteredImages = images.filter((_, _i) => _i !== index);
     setImages(filteredImages);
     setImage("");
     if (onMultipleImageSelect) {
@@ -229,7 +227,7 @@ const ImagePicker = ({
           <ImagesContainer>
             {images.length >= 1 ? (
               images.map((img, index) => (
-                <Picker_ImageContainer>
+                <Picker_ImageContainer key={index}>
                   <ImageRemover onClick={() => onRemove(index)}>
                     <Icon
                       icon={IoClose}

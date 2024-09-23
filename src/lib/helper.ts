@@ -1,13 +1,13 @@
-import { useThemeMode } from "@/context/useTheme";
+import { getThemeMode } from "@/context/useTheme";
 import { localColors } from "@/styles/global";
 import { colors } from "secptrum-ui";
 
 const getModeStyle = (mode: "dark" | "light") => {
   switch (mode) {
     case "dark":
-      return useThemeMode("dark")?.colors;
+      return getThemeMode("dark")?.colors;
     case "light":
-      return useThemeMode("light")?.colors;
+      return getThemeMode("light")?.colors;
   }
 };
 

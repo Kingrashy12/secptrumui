@@ -137,7 +137,7 @@ export const ThemeProvider = ({
 };
 
 // Adjust the useThemeMode function
-export const useThemeMode = (mode: "light" | "dark"): Theme => {
+export const getThemeMode = (mode: "light" | "dark"): Theme => {
   if (mode === "light") {
     return systemTheme.defaultLightTheme;
   } else if (mode === "dark") {

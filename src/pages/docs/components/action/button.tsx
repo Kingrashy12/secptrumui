@@ -2,7 +2,7 @@ import { BackgroundLoader, ButtonDocs } from "@/components";
 import Head from "next/head";
 import React, { Suspense, useEffect, useState, useTransition } from "react";
 
-const button = () => {
+const Button = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [, startTransition] = useTransition();
 
@@ -24,4 +24,4 @@ const button = () => {
   );
 };
 
-export default button;
+export default Button;
