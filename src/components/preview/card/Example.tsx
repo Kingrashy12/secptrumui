@@ -35,7 +35,7 @@ const CardExample = ({ code }: { code: string }) => {
       </Tabs>
       {mode === "preview" ? (
         <CardWrap theme={theme}>
-          <Typography as="h2">Welcome to Spectrum UI</Typography>
+          <Typography as="h2">Welcome to Secptrum UI</Typography>
           <Typography>
             This card uses the default theme and supports shadowing for a raised
             effect.
