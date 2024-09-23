@@ -2,7 +2,6 @@ import { ButtonProps } from "@/components/test/Button";
 import { FloatProps } from "@/components/test/Fab";
 import { ModalPanelType } from "@/components/test/modal/ModalPanel";
 import { localColors } from "@/styles/global";
-import { InputType } from "@/types/test";
 import { colors } from "secptrum-ui";
 
 const getBorderRadius = (radius: ButtonProps["radius"]) => {
