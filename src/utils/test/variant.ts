@@ -41,9 +41,11 @@ const getHoverStyle = (
     mode === "light"
       ? {
           outline: onHoverBackgroundOutline || localColors.gray[50],
+          ghost: onHoverBackgroundGhost || localColors.blue[100],
         }
       : {
           outline: onHoverBackgroundOutline || "rgb(59,130,246,.1)",
+          ghost: onHoverBackgroundGhost || "rgb(59,130,246,.1)",
         };
 
   switch (variant) {
@@ -55,9 +57,7 @@ const getHoverStyle = (
           `;
     case "ghost":
       return `
-             background: ${
-               onHoverBackgroundGhost ? onHoverBackgroundGhost : colors.blue100
-             }
+             background: ${modeColors.ghost}
           `;
     case "light":
       return `

@@ -2,12 +2,14 @@ import { HeroBg, ReactImage } from "@/assets";
 import React from "react";
 import styled from "styled-components";
 import Typography from "../custom/Typography";
-import { Box, Button, colors } from "secptrum-ui";
+import { Box, colors } from "secptrum-ui";
 import Media from "../custom/Media";
 import { fontNunito, fontOff } from "@/styles/global";
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { sidebarlinks } from "@/data/sidebar";
+import CardsSection from "./CardsSection";
+import { Button } from "..";
 
 const Hero_About = () => {
   return (
@@ -25,12 +27,13 @@ const Hero_About = () => {
         </Typography>
       </TagWrapper>
       <DescWrap>
-        <Typography font="nunito">
+        <Typography font="nunito" className="desc">
           A versatile and user-friendly UI component library that offers
           customizable and responsive design elements, empowering developers to
           create dynamic interfaces with ease.
         </Typography>
       </DescWrap>
+      <CardsSection />
       <BTN>
         <Link href="/docs/getting-started">
           <Button className={fontOff.className} radius="lg">
@@ -41,7 +44,7 @@ const Hero_About = () => {
           <Button
             icon={RiArrowRightUpLine}
             radius="lg"
-            variant="outline"
+            variant="ghost"
             iconPosition="right"
             className="out_line"
           >
@@ -57,20 +60,22 @@ export default Hero_About;
 
 const Hero = styled.section`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-image: url(${HeroBg.src});
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 5px;
+  margin-top: 3rem;
+  padding-bottom: 3rem;
 
   h1 {
     font-size: 70px;
     color: white;
     font-weight: 600;
   }
-  p {
+  .desc {
     font-weight: 600;
     color: white;
   }
@@ -81,8 +86,6 @@ const Hero = styled.section`
   }
 
   @media screen and (max-width: 550px) {
-    height: 100vh;
-
     h1 {
       font-size: 40px;
     }
