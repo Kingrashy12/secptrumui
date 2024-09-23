@@ -16,6 +16,18 @@ const systemTheme: SystemTheme = {
     effects: {
       drop_blur: 6,
     },
+    spacing: {
+      xs: "4px", // Smallest unit of spacing, typically for compact layouts.
+      sm: "8px", // Small spacing, useful for padding or margin.
+      md: "16px", // Medium spacing, the base unit for consistent spacing.
+      lg: "24px", // Large spacing, suitable for separating major sections.
+    },
+    breakpoints: {
+      sm: "640px", // Breakpoint for mobile screens.
+      md: "768px", // Breakpoint for tablet screens.
+      lg: "1024px", // Breakpoint for small desktop screens.
+      xl: "1280px", // Breakpoint for large desktop screens.
+    },
   },
   defaultDarkTheme: {
     colors: {
@@ -27,6 +39,18 @@ const systemTheme: SystemTheme = {
     },
     effects: {
       drop_blur: 6,
+    },
+    spacing: {
+      xs: "4px", // Smallest unit of spacing, typically for compact layouts.
+      sm: "8px", // Small spacing, useful for padding or margin.
+      md: "16px", // Medium spacing, the base unit for consistent spacing.
+      lg: "24px", // Large spacing, suitable for separating major sections.
+    },
+    breakpoints: {
+      sm: "640px", // Breakpoint for mobile screens.
+      md: "768px", // Breakpoint for tablet screens.
+      lg: "1024px", // Breakpoint for small desktop screens.
+      xl: "1280px", // Breakpoint for large desktop screens.
     },
   },
 };
@@ -109,16 +133,6 @@ export const ThemeProvider = ({
       {children}
     </ThemeContext.Provider>
   );
-};
-
-enum ThemeNames {
-  light = "defaultLightTheme",
-  dark = "defaultDarkTheme",
-}
-
-const themeModeMap = {
-  light: ThemeNames.light,
-  dark: ThemeNames.dark,
 };
 
 // Adjust the useThemeMode function

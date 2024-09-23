@@ -59,6 +59,7 @@ const PropsList = styled.ul.withConfig({
 
   li {
     font-family: "SUSE", sans-serif;
+    /* font-family: "Poppins-Normal", sans-serif; */
     color: ${({ theme }) => theme.colors?.text};
     font-style: ${(props) => props.italic && "italic"};
   }

@@ -121,7 +121,7 @@ export const Switch = styled(Box).withConfig({ shouldForwardProp })<{
   height: ${(props) => props.height};
   border-radius: 9999px;
   padding: 2px;
-  border: 1px solid ${colors.neutral200};
+  /* border: 1px solid ${colors.neutral200}; */
   background-color: ${(props) =>
     props.checked ? props.checkedColor : props.color};
   transition-property: all;
@@ -130,6 +130,8 @@ export const Switch = styled(Box).withConfig({ shouldForwardProp })<{
   cursor: ${(props) => (props.disabled ? "default" : "pointer")};
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   pointer-events: ${(props) => props.disabled && "none"};
+  display: flex;
+  align-items: center;
 `;
 
 export const SwitchHandle = styled.div.withConfig({ shouldForwardProp })<{

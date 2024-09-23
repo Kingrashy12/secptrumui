@@ -83,7 +83,7 @@ const UsageSection = () => {
         </MediumTextHeader>
         <BodyText theme={theme}>
           For more detailed usage and customization options, check out{" "}
-          <Link href="/docs/components/utility/theme#theme-customization">
+          <Link href="/docs/components/utility/theme#customizing">
             Theme Customization{" "}
           </Link>{" "}
           Learn how to customize colors, fonts, and more

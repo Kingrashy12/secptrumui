@@ -39,6 +39,9 @@ export const SwitchDocs = lazy(
 export const ImagePickerDocs = lazy(
   () => import("./docs/components/utility/ImagePickerDocs")
 );
+export const ThemeDocs = lazy(
+  () => import("./docs/components/utility/ThemeDocs")
+);
 
 export { default as RootLayout } from "./layout/RootLayout";
 export { default as Media } from "./custom/Media";
