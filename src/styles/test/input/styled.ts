@@ -82,7 +82,7 @@ export const Input = styled.div.withConfig({
     outline: none;
     border: none;
     background: transparent;
-    caret-color: ${colors.blue500};
+    caret-color: ${colors.blue[500]};
     color: ${(props) =>
       props.color || props.mode === "light" ? "black" : "white"};
     font-family: inherit;
@@ -121,7 +121,6 @@ export const Switch = styled(Box).withConfig({ shouldForwardProp })<{
   height: ${(props) => props.height};
   border-radius: 9999px;
   padding: 2px;
-  /* border: 1px solid ${colors.neutral200}; */
   background-color: ${(props) =>
     props.checked ? props.checkedColor : props.color};
   transition-property: all;
