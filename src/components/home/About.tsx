@@ -2,14 +2,13 @@ import { HeroBg, ReactImage } from "@/assets";
 import React from "react";
 import styled from "styled-components";
 import Typography from "../custom/Typography";
-import { Box } from "secptrum-ui";
+import { Box, Button } from "secptrum-ui";
 import Media from "../custom/Media";
 import { fontNunito, fontOff } from "@/styles/global";
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { sidebarlinks } from "@/data/sidebar";
 import CardsSection from "./CardsSection";
-import { Button } from "..";
 
 const Hero_About = () => {
   return (
@@ -47,6 +46,7 @@ const Hero_About = () => {
             variant="ghost"
             iconPosition="right"
             className="out_line"
+            mode="dark"
           >
             Components
           </Button>
