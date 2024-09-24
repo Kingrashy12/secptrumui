@@ -9,6 +9,7 @@ import { useAppDispatch } from "@/hooks/store";
 import { getPageContents } from "@/store/contentBar";
 import { useTheme } from "@/context/useTheme";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const Navbar = dynamic(() => import("./Navbar"), { ssr: false });
 const StickyBar = dynamic(() => import("../custom/StickyBar"), { ssr: false });
@@ -31,6 +32,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <StyledComponentsRegistry>
           {children}
           <Analytics />
+          <SpeedInsights />
         </StyledComponentsRegistry>
       </RootWrap>
       <ScrollTop />
