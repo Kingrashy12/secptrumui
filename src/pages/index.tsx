@@ -1,11 +1,12 @@
-import { BackgroundLoader, HeroSection } from "@/components";
+import { HeroSection } from "@/components";
 import { Container } from "@/styles/global";
 import Head from "next/head";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <Suspense fallback={<BackgroundLoader />}>
+    // <Suspense fallback={<BackgroundLoader />}>
+    <>
       <Head>
         <title>
           Secptrum UI - Customizable and modern UI component library for react
@@ -14,6 +15,7 @@ export default function Home() {
       <Container direction="column">
         <HeroSection />
       </Container>
-    </Suspense>
+    </>
+    // {/* </Suspense> */}
   );
 }

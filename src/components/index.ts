@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-export const HeroSection = lazy(() => import("./home/About"));
+// export const HeroSection = lazy(() => import("./home/About"));
 export const InstallPage = lazy(() => import("./docs/start/InstallPage"));
 export const OverViewPage = lazy(() => import("./docs/start/OverviewPage"));
 export const NextjsPage = lazy(() => import("./docs/start/NextjsPage"));
@@ -57,3 +57,4 @@ export { default as TabsHandle } from "./test/tabs/TabsHandle";
 export { default as Button } from "./test/Button";
 export { default as Card } from "./test/Card";
 export { default as Fab } from "./test/Fab";
+export { default as HeroSection } from "./home/About";

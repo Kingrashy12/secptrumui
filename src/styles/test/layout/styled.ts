@@ -65,6 +65,6 @@ export const TabHandle = styled.button.withConfig({ shouldForwardProp })<{
     )}
 
   &:hover {
-    border-bottom-color: ${(props) => !props.isCurrent && colors.neutral[300]};
+    border-bottom-color: ${(props) => !props.isCurrent && colors.gray[300]};
   }
 `;

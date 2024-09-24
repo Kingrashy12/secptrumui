@@ -63,7 +63,7 @@ const getSwitchSize = (size: SwitchType["size"]) => {
 };
 
 const Sw = ({
-  color = colors.neutral[300],
+  color = colors.gray[300],
   checkedColor = "blue",
   size = "md",
   onSwitch,
