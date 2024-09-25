@@ -15,6 +15,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import Customizing from "../components/Customizing";
 
 const UsageSection = () => {
   const router = useRouter();
@@ -41,6 +42,20 @@ const UsageSection = () => {
         </BodyText>
       </TextContent_Wrap>
       <PreviewCard code={usageCode.quickStart} />
+      <TextContent_Wrap id="customizing">
+        <Link href={`${router.pathname}/#customizing`} className="a">
+          <MediumTextHeader theme={theme} font="inter" as="h2">
+            Customizing
+          </MediumTextHeader>
+        </Link>
+        <BodyText theme={theme}>
+          When customizing with styled-components, you might encounter issues
+          where your custom styles don't apply due to the component's default
+          styles having higher specificity. In such cases, you can use{" "}
+          <TextBadge>&&</TextBadge> to increase the specificity of your styles.
+        </BodyText>
+      </TextContent_Wrap>
+      <Customizing />
       <TextContent_Wrap id="themeprovider">
         <Link href={`${router.pathname}/#themeprovider`} className="a">
           <MediumTextHeader theme={theme} font="inter" as="h2">
