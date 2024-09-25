@@ -8,7 +8,7 @@ export const themeCodes = {
     active_TabColor_Solid: "black", // Active tab color for solid variant TabHandle
     inActiveTabColor: colors.neutral[400], // Inactive tab color for TabHandle
     tabListBackground: colors.gray[100], // Background color for TabList component
-    button_OutlineHoverColor: localColors.gray[50], // Hover color for outline buttons
+    button_OutlineHoverColor: colors.gray[50], // Hover color for outline buttons
     card: "white", // Default background color for card components
     card_BorderColor: colors.neutral[200], // Border color for cards
     cardShadow: "rgba(0, 0, 0, 0.1)", // Shadow effect for card components
