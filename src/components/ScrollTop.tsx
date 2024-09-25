@@ -26,7 +26,7 @@ const ScrollTop = () => {
   return (
     <>
       {visible && (
-        <Fab variant="light" size="lg" onClick={scrollToTop}>
+        <Fab variant="light" size="lg" onClick={scrollToTop} draggable>
           <IoIosArrowUp />
         </Fab>
       )}

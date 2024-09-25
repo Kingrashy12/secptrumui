@@ -1,6 +1,13 @@
 import { FloatProps } from "@/components/test/Fab";
 import { ToastPositionType } from "@/components/test/toast/Toast";
 
+export type DragPosition = {
+  top: number;
+  bottom: number;
+  right: number;
+  left: number;
+};
+
 export const getFloatPosition = (position: FloatProps["position"]) => {
   switch (position) {
     case "top-right":
@@ -12,14 +19,13 @@ export const getFloatPosition = (position: FloatProps["position"]) => {
     case "bottom-left":
       return { bottom: `25px`, left: `35px` };
     case "bottom-center":
-      return { bottom: `25px`, "align-self": "center" };
+      return { bottom: `25px`, left: `50%` };
     case "top-center":
-      return { top: `25px`, "align-self": "center" };
+      return { top: `25px`, right: `50%` };
   }
 };
 
 // Toast
-
 export const getToastPosition = (position: ToastPositionType) => {
   switch (position) {
     case "top-right":
