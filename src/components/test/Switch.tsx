@@ -44,11 +44,11 @@ type SwitchType = {
 const getSize = (size: SwitchType["size"]) => {
   switch (size) {
     case "md":
-      return { width: `35px`, height: `20px` };
+      return { width: `35px`, height: `22px` };
     case "lg":
-      return { width: `42px`, height: `27px` };
+      return { width: `44px`, height: `27px` };
     default:
-      return { width: `35px`, height: `15px` };
+      return { width: `35px`, height: `22px` };
   }
 };
 const getSwitchSize = (size: SwitchType["size"]) => {

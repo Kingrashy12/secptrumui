@@ -157,7 +157,7 @@ const Toast = () => {
           position={toast.position || "top-right"}
           className={toast.className}
           transition={toast.transition}
-          showtoast={true}
+          show-toast={true}
         >
           <ContentWrap>
             <Icon

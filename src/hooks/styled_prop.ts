@@ -53,6 +53,7 @@ const shouldForwardProp = (prop: string) => {
     "rounded",
     "textColor",
     "position",
+    "show-toast",
   ];
 
   return !invalidProps.includes(prop); // Only forward valid props

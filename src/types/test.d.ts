@@ -1,6 +1,6 @@
-import React, { ComponentPropsWithRef } from "react";
+import React, { ComponentProps } from "react";
 
-type InputProps = ComponentPropsWithRef<"input">;
+type InputProps = ComponentProps<"input">;
 
 declare interface InputType extends InputProps {
   /**
