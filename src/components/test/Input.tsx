@@ -146,6 +146,7 @@ const TextInput = ({
         ) : null}
         <input
           {...props}
+          // ref={props.ref}
           className={inputClass}
           style={inputStyle}
           type={inputType}

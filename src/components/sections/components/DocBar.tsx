@@ -1,7 +1,7 @@
 import Typography from "@/components/custom/Typography";
 import { useTheme } from "@/context/useTheme";
 import { useAppSelector } from "@/hooks/store";
-import { fontInter, localColors } from "@/styles/global";
+import { fonts, localColors } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 import { Box, colors } from "secptrum-ui";
@@ -77,7 +77,8 @@ const UL = styled.ul`
 
 const ListItem = styled.li`
   color: ${(props) => props.theme.colors?.text};
-  ${fontInter.style}
+  font-family: ${fonts.inter};
+  font-weight: 500;
 
   &:hover {
     opacity: 0.8;

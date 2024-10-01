@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Typography from "../custom/Typography";
 import { Box, Button } from "secptrum-ui";
 import Media from "../custom/Media";
-import { fontNunito, fontOff } from "@/styles/global";
+import { fonts } from "@/styles/global";
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { sidebarlinks } from "@/data/sidebar";
@@ -35,9 +35,7 @@ const Hero_About = () => {
       <CardsSection />
       <BTN>
         <Link href="/docs/getting-started">
-          <Button className={fontOff.className} radius="lg">
-            Get started
-          </Button>
+          <Button radius="lg">Get started</Button>
         </Link>
         <Link href={sidebarlinks[1].links[0].uri}>
           <Button
@@ -114,7 +112,8 @@ const BTN = styled(Box)`
   button {
     width: 130px;
     z-index: 10;
-    ${fontNunito.style};
+    font-family: ${fonts.nunito};
+    font-weight: 500;
   }
 `;
 

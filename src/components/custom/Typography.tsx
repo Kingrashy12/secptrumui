@@ -1,5 +1,5 @@
 "use-client";
-import { fontPoppins, fontNunito, fontInter, fontOff } from "@/styles/global";
+import { fonts } from "@/styles/global";
 import React, { ComponentProps, ElementType } from "react";
 
 // Define the props type, allowing any HTML element type and adding custom props
@@ -12,15 +12,15 @@ interface TextProps extends ComponentProps<"p"> {
 const getFonts = (font: TextProps["font"]) => {
   switch (font) {
     case "poppins":
-      return fontPoppins.className;
+      return fonts.poppins;
     case "inter":
-      return fontInter.className;
+      return fonts.inter;
     case "nunito":
-      return fontNunito.className;
+      return fonts.nunito;
     case "off":
-      return fontOff.className;
+      return fonts.off;
     default:
-      return fontPoppins.className;
+      return fonts.poppins;
   }
 };
 
@@ -31,7 +31,11 @@ const Typography = ({
   ...props
 }: TextProps) => {
   return (
-    <Component {...props} className={`${getFonts(font)} ${props.className}`}>
+    <Component
+      {...props}
+      className={`${props.className}`}
+      style={{ fontFamily: getFonts(font) }}
+    >
       {children}
     </Component>
   );

@@ -43,6 +43,8 @@ export const ThemeDocs = lazy(
   () => import("./docs/components/utility/ThemeDocs")
 );
 
+export const TabsDocs = lazy(() => import("./docs/components/layout/Tabs"));
+
 export { default as RootLayout } from "./layout/RootLayout";
 export { default as Media } from "./custom/Media";
 export { default as Typography } from "./custom/Typography";

@@ -63,7 +63,6 @@ export const sidebarlinks = [
       { label: "Stack", uri: "/docs/components/layout/stack" },
       {
         label: "Tabs",
-        not_available: true,
         uri: "/docs/components/layout/tabs",
       },
       {

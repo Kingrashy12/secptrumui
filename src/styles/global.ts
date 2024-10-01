@@ -1,25 +1,14 @@
-"use-client";
+"use client";
 
-import { Inter, Nunito_Sans, Offside, Poppins } from "next/font/google";
 import { Box, colors } from "secptrum-ui";
 import styled, { createGlobalStyle } from "styled-components";
 
-const fontPoppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-const fontNunito = Nunito_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const fontInter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const fontOff = Offside({ subsets: ["latin"], weight: ["400"] });
-export { fontPoppins, fontNunito, fontInter, fontOff };
+export const fonts = {
+  poppins: '"Poppins", system-ui',
+  nunito: '"Nunito Sans", system-ui',
+  off: '"Offside", system-ui',
+  inter: '"Inter", sans-serif',
+};
 
 export const Container = styled(Box)`
   margin-top: 0;

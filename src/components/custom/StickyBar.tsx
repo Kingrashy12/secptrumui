@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { RiMenuFold2Line, RiMenuUnfold2Line } from "react-icons/ri";
-import { Box, colors, Icon } from "secptrum-ui";
+import React from "react";
+import { Box, colors } from "secptrum-ui";
 import styled from "styled-components";
 import Collapsible from "./Collapsible";
 import { sidebarlinks } from "@/data/sidebar";
@@ -11,70 +10,16 @@ import { localColors } from "@/styles/global";
 import { useTheme } from "@/context/useTheme";
 import shouldForwardProp from "@/hooks/styled_prop";
 
-const getContent = (fold: boolean) => {
-  return fold ? { display: "flex" } : { display: "none" };
-};
-
 const StickyBar = () => {
-  const [fold, setFold] = useState(false);
-  const [width, setWidth] = useState(280);
   const router = useRouter();
   const { theme, mode } = useTheme();
 
   const light = mode === "light";
 
-  // Retrieve fold state from localStorage on initial load
-  useEffect(() => {
-    const savedFoldState = localStorage.getItem("sidebarFold");
-    const parsed = savedFoldState ? JSON.parse(savedFoldState) : false;
-    if (savedFoldState !== null) {
-      const isFolded = parsed;
-      setFold(isFolded);
-    }
-  }, []);
-
-  // Listen for route change to maintain the fold state
-  useEffect(() => {
-    const handleRouteChange = () => {
-      // Ensure fold state is maintained across page navigation
-      const savedFoldState = localStorage.getItem("sidebarFold");
-      const parsed = savedFoldState ? JSON.parse(savedFoldState) : false;
-      if (savedFoldState !== null) {
-        const isFolded = parsed;
-        setFold(isFolded);
-      }
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router]);
-
-  // Toggle fold state and persist it in localStorage
-  function foldBar() {
-    const newFoldState = !fold;
-    setFold(newFoldState);
-    localStorage.setItem("sidebarFold", JSON.stringify(newFoldState));
-
-    if (fold) {
-      setWidth(80);
-    } else {
-      setWidth(280);
-    }
-  }
-
   return (
-    <StyledBar width={width} theme={theme.colors} light={light}>
+    <StyledBar theme={theme.colors} light={light}>
       <BarContent>
-        <FoldIcon onClick={foldBar} light={light}>
-          <Icon
-            icon={fold ? RiMenuUnfold2Line : RiMenuFold2Line}
-            color={theme.colors?.icon}
-            size={25}
-          />
-        </FoldIcon>
-        <BarStack fold={fold}>
+        <BarStack>
           <>
             {sidebarlinks.map((link, index) => (
               <Collapsible
@@ -126,10 +71,10 @@ export default StickyBar;
 
 const StyledBar = styled(Box).withConfig({
   shouldForwardProp: (props) => props !== "light",
-})<{ width: number; light: boolean }>`
+})<{ light: boolean }>`
   height: 100vh;
   background: ${(props) => props.theme?.background};
-  width: ${(props) => props.width}px;
+  width: 280px;
   flex-direction: column;
   border-right: 1px solid
     ${(props) => (props.light ? colors.gray[300] : localColors.neutral[800])};
@@ -153,35 +98,13 @@ const BarContent = styled(Box)`
   width: 100%;
 `;
 
-const FoldIcon = styled(Box).withConfig({
-  shouldForwardProp: (props) => props !== "light",
-})<{ light: boolean }>`
-  cursor: pointer;
-  align-self: flex-end;
-  margin-right: 16px;
-  margin-bottom: 5px;
-  padding: 4px;
-  border-radius: 8px;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
-
-  &:hover {
-    background: ${(props) =>
-      props.light ? colors.neutral[100] : "rgb(38 38 38)"};
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
-  }
-`;
-
 const BarStack = styled(Box).withConfig({
   shouldForwardProp: (prop) => prop !== "fold",
-})<{ fold: boolean }>`
+})`
   flex-direction: column;
   margin-top: 1rem;
   gap: 1rem;
-  ${(props) => getContent(props.fold)}
+  display: flex;
 `;
 
 export const DocsContent = styled(Box).withConfig({

@@ -3,7 +3,7 @@ import { NextInstallContainer } from "./NextInstallation";
 import Typography from "@/components/custom/Typography";
 import styled from "styled-components";
 import { Box } from "secptrum-ui";
-import { fontInter } from "@/styles/global";
+import { fonts } from "@/styles/global";
 import CodeBlock from "@/components/custom/code/CodeBlock";
 import { useTheme } from "@/context/useTheme";
 
@@ -71,7 +71,7 @@ const Content = styled(Box)`
     color: ${(props) => props.theme.colors?.text};
   }
   li {
-    ${fontInter.style}
+    font-family: ${fonts.inter};
     font-weight: 700;
     color: ${(props) => props.theme.colors?.text};
   }
