@@ -14,7 +14,7 @@ type TabsHandleType = {
   children?: React.ReactNode;
   /**
    * The color to be applied when the tab is active.
-   * @default "black"
+   * @default "blue"
    */
   activeColor?: string;
   /**
@@ -39,9 +39,36 @@ type TabsHandleType = {
    * If true, disables the tab, preventing interaction.
    */
   disabled?: boolean;
+  /**
+   * Optional additional CSS class for styling the TabsHandle.
+   */
+  className?: string;
+
+  /**
+   * Inline styles for the TabsHandle.
+   */
+  style?: React.CSSProperties;
+
+  /**
+   * Indicates whether the TabsHandle is currently active.
+   * @default false
+   */
+  isActive?: boolean;
+
+  /**
+   * The icon component to be rendered in the TabsHandle.
+   * Can be any valid React component type.
+   */
+  icon?: React.ElementType;
+
+  /**
+   * The size of the icon in pixels.
+   * @default 16
+   */
+  iconSize?: number;
 };
 
-const TabsHandle = ({
+const TabsHandle: React.FC<TabsHandleType> = ({
   children,
   activeColor,
   activeSolidColor,
@@ -49,8 +76,13 @@ const TabsHandle = ({
   value,
   onClick,
   disabled = false,
-}: TabsHandleType) => {
-  const { onSwitch, activeTabValue, variant, themeMode } = useTabList();
+  className,
+  style,
+  isActive,
+  icon: IconComponent,
+  iconSize = 16,
+}) => {
+  const { onSwitch, variant, themeMode, fullWidth } = useTabList();
 
   function switchTab() {
     onSwitch(value);
@@ -58,7 +90,7 @@ const TabsHandle = ({
       onClick();
     }
   }
-  const isCurrent = activeTabValue === value;
+  const isCurrent = isActive as boolean;
 
   const handleStyle = {
     activeColor: activeColor || getModeStyle(themeMode)?.active_TabColor,
@@ -73,13 +105,17 @@ const TabsHandle = ({
           ? handleStyle.activeSolidColor
           : handleStyle.activeColor
       }
-      isCurrent={isCurrent}
+      iscurrent={isCurrent}
       value={value}
       onClick={switchTab}
       variant={variant}
       disabled={disabled}
-      inActiveColor={inActiveColor}
+      inactivecolor={inActiveColor}
+      full-width={fullWidth}
+      className={className}
+      style={style}
     >
+      {IconComponent && <IconComponent size={iconSize} />}
       {children}
     </TabHandle>
   );

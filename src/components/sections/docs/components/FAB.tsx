@@ -15,6 +15,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -34,10 +35,11 @@ const FAB = () => {
           central to the app’s purpose.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} style={{ marginBottom: 15 }} />
       <BasicFab />
       <TextContent_Wrap id="size">
         <Link href="#size" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="size" isMedium theme={theme}>
             Size
           </MediumTextHeader>
         </Link>
@@ -50,7 +52,7 @@ const FAB = () => {
       <FabSize code={fabCodes.size} />
       <TextContent_Wrap id="variant">
         <Link href="#variant" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="variant" isMedium theme={theme}>
             Variant
           </MediumTextHeader>
         </Link>
@@ -63,7 +65,7 @@ const FAB = () => {
       <FabVariant code={fabCodes.variant} />
       <TextContent_Wrap id="color-scheme">
         <Link href="#color-scheme" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="color-scheme" isMedium theme={theme}>
             ColorScheme
           </MediumTextHeader>
         </Link>
@@ -72,7 +74,7 @@ const FAB = () => {
           to convey different semantic meanings:
         </BodyText>
       </TextContent_Wrap>
-      <PropOptions>
+      <PropOptions header="ColorScheme options">
         <li>
           colorScheme: <TextBadge>primary</TextBadge> |{" "}
           <TextBadge>secondary</TextBadge> | <TextBadge>danger</TextBadge>{" "}
@@ -81,7 +83,7 @@ const FAB = () => {
       </PropOptions>
       <TextContent_Wrap id="position">
         <Link href="#position" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="position" isMedium theme={theme}>
             Position
           </MediumTextHeader>
         </Link>
@@ -90,7 +92,7 @@ const FAB = () => {
           different locations:
         </BodyText>
       </TextContent_Wrap>
-      <PropOptions>
+      <PropOptions header="Position options">
         <li>
           position: <TextBadge>top-left</TextBadge> |{" "}
           <TextBadge>top-center</TextBadge> | <TextBadge>top-right</TextBadge> |{" "}
@@ -102,7 +104,7 @@ const FAB = () => {
       </PropOptions>
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

@@ -5,7 +5,7 @@ import { PropBadge } from "@/styles/custom";
 import React from "react";
 
 export const BoxFeatures = () => (
-  <NastedList>
+  <NastedList id="features">
     <PropOptions header="Features">
       <li>
         <b>
@@ -33,7 +33,7 @@ export const BoxFeatures = () => (
 
 export const BoxProps = () => (
   <NastedList>
-    <p>
+    <p className="bodyHeader">
       Below is a list of the additional props Box accepts, along with a
       description of how each works:
     </p>
@@ -110,7 +110,7 @@ export const BoxProps = () => (
 );
 
 export const BoxSizeVariant = () => (
-  <NastedList>
+  <NastedList id="sizevariants">
     <PropOptions header="SizeVariants">
       <li>
         <PropBadge>"xs"</PropBadge>

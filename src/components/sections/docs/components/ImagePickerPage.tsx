@@ -14,6 +14,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -33,9 +34,10 @@ const ImagePickerPage = () => {
           container, and remover elements.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} />
       <TextContent_Wrap id="basic">
         <Link href="#basic" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="basic" isMedium theme={theme}>
             Basic Picker
           </MediumTextHeader>
         </Link>
@@ -50,7 +52,7 @@ const ImagePickerPage = () => {
       <BasicPicker code={pickerCodes.basic} />
       <TextContent_Wrap id="multiple">
         <Link href="#multiple" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="multiple" isMedium theme={theme}>
             Multiple Picker
           </MediumTextHeader>
         </Link>
@@ -64,7 +66,7 @@ const ImagePickerPage = () => {
       <MultiplePicker code={pickerCodes.multiple} />
       <TextContent_Wrap id="autoselect">
         <Link href="#autoselect" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="autoselect" isMedium theme={theme}>
             AutoSelect Picker
           </MediumTextHeader>
         </Link>
@@ -78,7 +80,7 @@ const ImagePickerPage = () => {
       <AutoSelectPicker code={pickerCodes.autoSelect} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

@@ -14,6 +14,7 @@ import BoxExample from "@/components/preview/box/Example";
 import { boxCode } from "@/data/code/box";
 import BoxLay from "@/components/preview/box/LayoutFlex";
 import { PropBadge } from "@/styles/custom";
+import { Divider } from "@/styles/global";
 
 const Box_Page = () => {
   const { theme } = useTheme();
@@ -31,6 +32,7 @@ const Box_Page = () => {
           and alignment, allowing for easy customization and responsive design.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} style={{ marginBottom: 15 }} />
       <BoxFeatures />
       <div style={{ marginTop: 16 }} />
       <BoxProps />
@@ -38,7 +40,7 @@ const Box_Page = () => {
       <BoxSizeVariant />
       <TextContent_Wrap id="example">
         <Link href="#example" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="example" isMedium theme={theme}>
             Example
           </MediumTextHeader>
         </Link>
@@ -50,7 +52,12 @@ const Box_Page = () => {
       <BoxExample code={boxCode.ex} />
       <TextContent_Wrap id="layout-flexibility">
         <Link href="#layout-flexibility" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader
+            as="h4"
+            id="layout-flexibility"
+            isMedium
+            theme={theme}
+          >
             Layout Flexibility Example
           </MediumTextHeader>
         </Link>

@@ -29,7 +29,13 @@ const UsageSection = () => {
       />
       <TextContent_Wrap id="quickstart">
         <Link href={`${router.pathname}/#quickstart`} className="a">
-          <MediumTextHeader theme={theme} font="inter" as="h2">
+          <MediumTextHeader
+            theme={theme}
+            id="quickstart"
+            font="inter"
+            as="h4"
+            isMedium
+          >
             Quickstart
           </MediumTextHeader>
         </Link>
@@ -44,7 +50,13 @@ const UsageSection = () => {
       <PreviewCard code={usageCode.quickStart} />
       <TextContent_Wrap id="customizing">
         <Link href={`${router.pathname}/#customizing`} className="a">
-          <MediumTextHeader theme={theme} font="inter" as="h2">
+          <MediumTextHeader
+            theme={theme}
+            id="customizing"
+            font="inter"
+            as="h4"
+            isMedium
+          >
             Customizing
           </MediumTextHeader>
         </Link>
@@ -58,7 +70,13 @@ const UsageSection = () => {
       <Customizing />
       <TextContent_Wrap id="themeprovider">
         <Link href={`${router.pathname}/#themeprovider`} className="a">
-          <MediumTextHeader theme={theme} font="inter" as="h2">
+          <MediumTextHeader
+            theme={theme}
+            id="themeprovider"
+            font="inter"
+            as="h4"
+            isMedium
+          >
             ThemeProvider
           </MediumTextHeader>
         </Link>

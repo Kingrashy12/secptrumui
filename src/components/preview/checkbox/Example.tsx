@@ -1,6 +1,8 @@
-import { Checkbox, Tabs, TabsHandle, TabsList, Typography } from "@/components";
+import { Checkbox, Tabs, TabsHandle, Typography } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
+import TabPanel from "@/components/test/tabs/TabPanel";
 import { useTheme } from "@/context/useTheme";
+import { CodeCard } from "@/example/layout/BasicTabs";
 import { Preview } from "@/styles/docs/start.styled";
 import React, { useState } from "react";
 import { Box, Stack } from "secptrum-ui";
@@ -8,31 +10,27 @@ import styled from "styled-components";
 
 const CheckboxExample = ({ code }: { code: string }) => {
   const [check, setCheck] = useState(false);
-  const [mode, setMode] = useState("preview");
   const { theme } = useTheme();
 
   return (
     <Container>
       <Tabs>
-        <TabsList variant="line">
-          <TabsHandle value="preview" onClick={() => setMode("preview")}>
-            Preview
-          </TabsHandle>
-          <TabsHandle value="code" onClick={() => setMode("code")}>
-            Code
-          </TabsHandle>
-        </TabsList>
+        <TabsHandle value="preview">Preview</TabsHandle>
+        <TabsHandle value="code">Code</TabsHandle>
+
+        <TabPanel>
+          <Stack align="horizontal" spacing="lg">
+            <Trigger onClick={() => setCheck(!check)}>
+              <Checkbox checked={check} onCheck={() => setCheck(!check)} />
+              <Text theme={theme}>I have reviewed and accepted the terms.</Text>
+            </Trigger>
+          </Stack>
+        </TabPanel>
+
+        <CodeCard>
+          <CodeBlock code={code} />
+        </CodeCard>
       </Tabs>
-      {mode === "preview" ? (
-        <Stack align="horizontal" spacing="lg">
-          <Trigger onClick={() => setCheck(!check)}>
-            <Checkbox checked={check} onCheck={() => setCheck(!check)} />
-            <Text theme={theme}>I have reviewed and accepted the terms.</Text>
-          </Trigger>
-        </Stack>
-      ) : (
-        <CodeBlock code={code} />
-      )}
     </Container>
   );
 };

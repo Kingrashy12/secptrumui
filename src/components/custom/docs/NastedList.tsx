@@ -26,9 +26,13 @@ const Container = styled(Box)`
   p {
     font-family: "Poppins-Medium", sans-serif;
   }
+  .bodyHeader {
+    color: ${(props) => props.theme.colors?.text};
+  }
 `;
 
 export const ListBody = styled.p`
   font-family: "Poppins-Medium", sans-serif;
   color: ${({ theme }) => theme.colors?.body};
+  font-weight: 500;
 `;

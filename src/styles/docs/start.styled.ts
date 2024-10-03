@@ -8,7 +8,8 @@ export const InstallPageContainer = styled(Box)`
   flex-direction: column;
   margin-top: 3rem;
   /* gap: 1rem; */
-  padding: 2rem 5rem;
+  /* padding: 2rem 3rem; */
+  padding: 2rem 35px;
 
   a {
     text-decoration: none;

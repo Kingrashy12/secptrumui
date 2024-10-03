@@ -12,6 +12,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -29,9 +30,10 @@ const Backdrop = () => {
           modals, side drawers, or loading indicators.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} />
       <TextContent_Wrap id="example">
         <Link href="#example" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="example" isMedium theme={theme}>
             Example
           </MediumTextHeader>
         </Link>
@@ -43,7 +45,7 @@ const Backdrop = () => {
       <BasicDrop code={dropCode.basic} />
       <TextContent_Wrap id="theming">
         <Link href="#theming" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="theming" isMedium theme={theme}>
             Theming
           </MediumTextHeader>
         </Link>
@@ -75,7 +77,7 @@ const Backdrop = () => {
       </TextContent_Wrap>
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

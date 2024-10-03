@@ -15,6 +15,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -30,9 +31,10 @@ const CheckboxPage = () => {
           Checkboxes allow the user to select one or more items from a set.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} />
       <TextContent_Wrap id="example">
         <Link href="#example" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="example" isMedium theme={theme}>
             Examples
           </MediumTextHeader>
         </Link>
@@ -48,7 +50,7 @@ const CheckboxPage = () => {
       <CheckboxExample code={checkboxCode.basic} />
 
       <div style={{ marginTop: 16 }} />
-      <NastedList>
+      <NastedList id="with-rounded">
         <PropOptions hideHeader>
           <li>
             With <PropBadge>rounded</PropBadge> prop
@@ -58,7 +60,7 @@ const CheckboxPage = () => {
       <RoundedCheck code={checkboxCode.rounded} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

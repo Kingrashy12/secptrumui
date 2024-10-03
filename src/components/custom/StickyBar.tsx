@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import { Box, colors } from "secptrum-ui";
 import styled from "styled-components";
-import Collapsible from "./Collapsible";
+import Collapsible, { CollapsibleAction } from "./Collapsible";
 import { sidebarlinks } from "@/data/sidebar";
 import Typography from "./Typography";
 import { useRouter } from "next/router";
@@ -9,6 +10,8 @@ import Link from "next/link";
 import { localColors } from "@/styles/global";
 import { useTheme } from "@/context/useTheme";
 import shouldForwardProp from "@/hooks/styled_prop";
+import { RiArrowRightUpLine } from "react-icons/ri";
+import { SignedIn } from "@clerk/nextjs";
 
 const StickyBar = () => {
   const router = useRouter();
@@ -60,6 +63,17 @@ const StickyBar = () => {
                 </>
               </Collapsible>
             ))}
+            <ExtraLinks>
+              <SignedIn>
+                <CollapsibleAction
+                  theme={theme}
+                  onClick={() => window.open("/test/components")}
+                >
+                  <Typography>Test Environment</Typography>
+                  <RiArrowRightUpLine />
+                </CollapsibleAction>
+              </SignedIn>
+            </ExtraLinks>
           </>
         </BarStack>
       </BarContent>
@@ -81,6 +95,7 @@ const StyledBar = styled(Box).withConfig({
   position: sticky;
   top: 0;
   flex-shrink: 0;
+  padding-right: 3px;
 
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -96,6 +111,7 @@ const BarContent = styled(Box)`
   margin-top: 4.5rem;
   overflow-y: auto;
   width: 100%;
+  height: 100%;
 `;
 
 const BarStack = styled(Box).withConfig({
@@ -105,6 +121,7 @@ const BarStack = styled(Box).withConfig({
   margin-top: 1rem;
   gap: 1rem;
   display: flex;
+  height: 100%;
 `;
 
 export const DocsContent = styled(Box).withConfig({
@@ -165,4 +182,11 @@ export const DocLinkWrap = styled(Box).withConfig({
   padding: 4px 8px;
   border-radius: 6px;
   cursor: ${(props) => (props.notavailable ? "default" : "pointer")};
+`;
+
+export const ExtraLinks = styled(Box)`
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 10px 16px;
 `;

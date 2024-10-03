@@ -22,6 +22,7 @@ import PositionToast from "@/components/preview/toast/Position";
 import CodeBlock from "@/components/custom/code/CodeBlock";
 import { toastCodes } from "@/data/code/toast";
 import TransitionsToast from "@/components/preview/toast/Transitions";
+import { Divider } from "@/styles/global";
 
 const Toast = () => {
   const { theme } = useTheme();
@@ -39,10 +40,11 @@ const Toast = () => {
           disappear after a short duration.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} style={{ marginBottom: 16 }} />
       <ToastProps />
       <TextContent_Wrap id="basic-toast">
         <Link href="#basic-toast" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="basic-toast" isMedium theme={theme}>
             Basic Toast
           </MediumTextHeader>
         </Link>
@@ -50,7 +52,7 @@ const Toast = () => {
       <BasicToast code={toastCodes.basic} />
       <TextContent_Wrap id="position-toast">
         <Link href="#position-toast" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="position-toast" isMedium theme={theme}>
             Position Toast
           </MediumTextHeader>
         </Link>
@@ -58,7 +60,12 @@ const Toast = () => {
       <PositionToast code={toastCodes.position} />
       <TextContent_Wrap id="transition-effect">
         <Link href="#transition-effect" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader
+            as="h4"
+            id="transition-effect"
+            isMedium
+            theme={theme}
+          >
             Toast Transition Effects
           </MediumTextHeader>
         </Link>

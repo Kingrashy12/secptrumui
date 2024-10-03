@@ -16,6 +16,7 @@ import { sidebarlinks } from "@/data/sidebar";
 import { LuMenu } from "react-icons/lu";
 import { useMenu } from "@/context/useMenu";
 import { useSideBar } from "@/context/useSideBar";
+import { fonts } from "@/styles/global";
 
 const Navbar = () => {
   const { mode, theme, toggleTheme } = useTheme();
@@ -34,6 +35,7 @@ const Navbar = () => {
         />
         <Link href="/">
           <Logo src={SecptrumLogo.src} />
+          <Secptrum theme={theme}>Secptrum UI</Secptrum>
         </Link>
       </Box>
       <LinkWrapper>
@@ -85,6 +87,14 @@ const Navbar = () => {
 
 export default Navbar;
 
+const Secptrum = styled.p`
+  color: ${(props) => props.theme.colors?.text};
+  font-family: ${fonts.nunito};
+  font-weight: 600;
+  font-size: 18px;
+  transform: translateY(2px);
+`;
+
 const Nav = styled.div.withConfig({
   shouldForwardProp: (props) => props !== "light",
 })<{ light: boolean }>`
@@ -112,6 +122,13 @@ const Nav = styled.div.withConfig({
       @media screen and (max-width: 820px) {
         display: flex;
       }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 0;
     }
   }
 

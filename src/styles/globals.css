@@ -45,11 +45,20 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 9px;
-  background: white;
+  width: 5px;
+  /* background: white; */
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb {
   background: blue;
   border-radius: 4px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(10, 10, 207);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background: transparent;
 }

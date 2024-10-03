@@ -12,6 +12,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -31,9 +32,10 @@ const Stack_Page = () => {
           elements either horizontally or vertically.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} />
       <TextContent_Wrap id="basic">
         <Link className="a" href="#basic">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="basic" isMedium theme={theme}>
             Basic
           </MediumTextHeader>
         </Link>
@@ -43,10 +45,11 @@ const Stack_Page = () => {
           <TextBadge>Stack</TextBadge>
         </BodyText>
       </TextContent_Wrap>
+
       <BasicStack code={stackCodes.basic} />
       <TextContent_Wrap id="align">
         <Link className="a" href="#align">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="align" isMedium theme={theme}>
             Align
           </MediumTextHeader>
         </Link>
@@ -57,7 +60,7 @@ const Stack_Page = () => {
       <AlignStack code={stackCodes.align} />
       <TextContent_Wrap id="api-refrence">
         <Link className="a" href="#api-reference">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

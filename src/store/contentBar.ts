@@ -12,7 +12,7 @@ const contentBar = createSlice({
   reducers: {
     getPageContents: (state) => {
       const headingElements = Array.from(
-        global?.document.querySelectorAll("h2")
+        global?.document.querySelectorAll("h4")
       );
       const headings = headingElements.map((header) => ({
         id: header.id,

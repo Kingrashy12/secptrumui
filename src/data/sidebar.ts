@@ -56,9 +56,9 @@ export const sidebarlinks = [
       { label: "Box", category: "Layout", uri: "/docs/components/layout/box" },
       { label: "Card", uri: "/docs/components/layout/card" },
       {
-        label: "Collapsible",
+        label: "Collapse",
         not_available: true,
-        uri: "/docs/components/layout/collapsible",
+        uri: "/docs/components/layout/collapse",
       },
       { label: "Stack", uri: "/docs/components/layout/stack" },
       {

@@ -12,6 +12,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -38,10 +39,11 @@ const Card_Page = () => {
           features like shadows, borders, and theme integration.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} style={{ marginBottom: 17 }} />
       <CardExample code={cardCodes.ex} />
       <TextContent_Wrap id="product-card">
         <Link href="#product-card" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="product-card" isMedium theme={theme}>
             Product Card
           </MediumTextHeader>
         </Link>
@@ -54,7 +56,7 @@ const Card_Page = () => {
       <ProductCard code={cardCodes.products} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

@@ -18,6 +18,7 @@ const FrameworkGuide = () => {
       <TextContent
         mediumHeader="Framework Guides"
         id="framework-guides"
+        isMedium
         bodyText="Framework-specific guides covering our recommended approach to installing SecptrumUI in a variety of popular environments."
       />
       <FrameWorksContainer>

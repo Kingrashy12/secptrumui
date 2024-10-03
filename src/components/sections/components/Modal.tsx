@@ -17,7 +17,7 @@ const ModalProps = () => {
         The outermost container for the modal, responsible for handling
         visibility and overlay.
       </ListBody>
-      <PropOptions italic>
+      <PropOptions italic header="Modal Props">
         <li>
           <PropBadge>open*</PropBadge>: Boolean indicating whether the modal is
           open.
@@ -54,7 +54,7 @@ const ModalProps = () => {
       <ListBody theme={theme}>
         The main content area of the modal, defining its size and shape.
       </ListBody>
-      <PropOptions italic>
+      <PropOptions italic header="ModalPanel Props">
         <li>
           <PropBadge>size</PropBadge>: Determines the width of the modal. It can
           be <PropBadge>sm</PropBadge>, <PropBadge>md</PropBadge>,{" "}
@@ -83,7 +83,7 @@ const ModalProps = () => {
       <ListBody theme={theme}>
         Displays the modal title and optionally includes close icon.
       </ListBody>
-      <PropOptions italic>
+      <PropOptions italic header="ModalTitle Props">
         <li>
           <PropBadge>title*</PropBadge>: String representing the modal title.
         </li>
@@ -125,7 +125,7 @@ const ModalProps = () => {
         <TextBadge>ModalContent</TextBadge>
       </p>
       <ListBody theme={theme}>Holds the main content of the modal.</ListBody>
-      <PropOptions italic>
+      <PropOptions italic header="ModalContent Props">
         <li>
           <PropBadge>children</PropBadge>: Content to display within the modal.
         </li>
@@ -149,7 +149,7 @@ const ModalProps = () => {
         The footer section of the modal, typically containing action buttons
         like "Close", "Save", or "Cancel".
       </ListBody>
-      <PropOptions italic>
+      <PropOptions italic header="ModalFooter Props">
         <li>
           <PropBadge>position</PropBadge>: Optional positioning for the buttons
           (default: <PropBadge>right</PropBadge>).

@@ -1,67 +1,63 @@
-import { Tabs, TabsHandle, TabsList } from "@/components";
+import { Tabs, TabsHandle } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
 import TextInput from "@/components/test/Input";
+import TabPanel from "@/components/test/tabs/TabPanel";
 import { Preview } from "@/styles/docs/start.styled";
-import React, { useState } from "react";
+import React from "react";
 import { Stack } from "secptrum-ui";
 import styled from "styled-components";
 
 const TextInputRadius = ({ code }: { code: string }) => {
-  const [mode, setMode] = useState("preview");
-
   return (
     <Container>
-      <Tabs>
-        <TabsList variant="line">
-          <TabsHandle value="preview" onClick={() => setMode("preview")}>
-            Preview
-          </TabsHandle>
-          <TabsHandle value="code" onClick={() => setMode("code")}>
-            Code
-          </TabsHandle>
-        </TabsList>
+      <Tabs variant="solid">
+        <TabsHandle value="preview">Preview</TabsHandle>
+        <TabsHandle value="code">Code</TabsHandle>
+
+        <TabPanel>
+          <Wrap align="horizontal" spacing="lg">
+            <TextInput
+              Type="text"
+              name="email"
+              placeholder="Small Radius TextInput"
+              variant="solid"
+              radius="sm"
+            />
+            <TextInput
+              Type="text"
+              name="email"
+              placeholder="Medium Radius TextInput"
+              variant="solid"
+              radius="md"
+            />
+            <TextInput
+              Type="text"
+              name="email"
+              placeholder="Large Radius TextInput"
+              variant="outline"
+              radius="lg"
+            />
+            <TextInput
+              Type="text"
+              name="email"
+              placeholder="Extra Large Radius TextInput"
+              variant="outline"
+              radius="xl"
+            />
+            <TextInput
+              Type="text"
+              name="email"
+              placeholder="Full Radius TextInput"
+              variant="solid"
+              radius="full"
+            />
+          </Wrap>
+        </TabPanel>
+
+        <TabPanel>
+          <CodeBlock code={code} />
+        </TabPanel>
       </Tabs>
-      {mode === "preview" ? (
-        <Wrap align="horizontal" spacing="lg">
-          <TextInput
-            Type="text"
-            name="email"
-            placeholder="Small Radius TextInput"
-            variant="solid"
-            radius="sm"
-          />
-          <TextInput
-            Type="text"
-            name="email"
-            placeholder="Medium Radius TextInput"
-            variant="solid"
-            radius="md"
-          />
-          <TextInput
-            Type="text"
-            name="email"
-            placeholder="Large Radius TextInput"
-            variant="outline"
-            radius="lg"
-          />
-          <TextInput
-            Type="text"
-            name="email"
-            placeholder="Extra Large Radius TextInput"
-            variant="outline"
-            radius="xl"
-          />
-          <TextInput
-            Type="text"
-            name="email"
-            placeholder="Full Radius TextInput"
-            variant="solid"
-            radius="full"
-          />
-        </Wrap>
-      ) : (
-        <CodeBlock code={code} />
-      )}
     </Container>
   );
 };

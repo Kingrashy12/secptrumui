@@ -56,7 +56,7 @@ const StyledCollapsible = styled(Box)`
   padding: 5px;
 `;
 
-const CollapsibleAction = styled(Box)`
+export const CollapsibleAction = styled(Box)`
   align-items: center;
   gap: 6px;
   cursor: pointer;

@@ -13,6 +13,7 @@ const NextInstallation = () => {
       <TextContent
         mediumHeader="Installtion"
         id="installation"
+        isMedium
         bodyText="Secptrum UI is built for React, Run one of the following commands to add Secptrum UI to your project:"
       />
       <ContentWithOptions
@@ -28,6 +29,7 @@ const NextInstallation = () => {
       <TextContent
         mediumHeader="Run CLI Tool"
         id="run-cli-tool"
+        isMedium
         bodyText="SecptrumUI includes a CLI tool to help set up your Next.js project for use with styled-components. This tool automatically configures your project with the necessary files and settings. Navigate to your project directory and run the setup script:"
       />
       <ContentWithOptions

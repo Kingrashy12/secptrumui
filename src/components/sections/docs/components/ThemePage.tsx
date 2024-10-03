@@ -34,9 +34,15 @@ const ThemePage = () => {
           process for different projects.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} />
       <TextContent_Wrap id="theme-object-structure">
         <Link href="#theme-object-structure" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader
+            as="h4"
+            id="theme-object-structure"
+            isMedium
+            theme={theme}
+          >
             Theme Object Structure
           </MediumTextHeader>
         </Link>
@@ -50,7 +56,7 @@ const ThemePage = () => {
       <CodeBlock code={themeCodes.default} />
       <TextContent_Wrap id="customizing">
         <Link href="#customizing" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="customizing" isMedium theme={theme}>
             Customizing the Theme
           </MediumTextHeader>
         </Link>
@@ -65,7 +71,7 @@ const ThemePage = () => {
       <CodeBlock code={themeCodes.customize} />
       <TextContent_Wrap id="toggletheme">
         <Link href="#toggletheme" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="toggletheme" isMedium theme={theme}>
             toggleTheme
           </MediumTextHeader>
         </Link>
@@ -80,7 +86,7 @@ const ThemePage = () => {
       <ThemeTogglerExample code={themeCodes.toggler} />
       <TextContent_Wrap id="use-theme">
         <Link href="#use-theme" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="use-theme" isMedium theme={theme}>
             useTheme
           </MediumTextHeader>
         </Link>
@@ -116,7 +122,7 @@ const ThemePage = () => {
       <UseThemeExample code={themeCodes.usetheme} />
       <TextContent_Wrap id="theme-provider">
         <Link href="#theme-provider" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="theme-provider" isMedium theme={theme}>
             ThemeProvider
           </MediumTextHeader>
         </Link>
@@ -153,7 +159,7 @@ const ThemePage = () => {
         <div style={{ marginTop: 20 }} />
         <Divider theme={theme} />
         <Link href="#single-mode" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="single-mode" isMedium theme={theme}>
             Using Single Mode: Light or Dark
           </MediumTextHeader>
         </Link>

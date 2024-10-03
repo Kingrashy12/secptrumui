@@ -17,6 +17,7 @@ export const Container = styled(Box)`
 
 export const RootWrap = styled(Box)`
   width: 100%;
+  display: flex;
 `;
 
 export const localColors = {
@@ -194,4 +195,14 @@ export const OptionSelector = styled.p.withConfig({
 export const OptionsLine = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.colors?.code_opt_line};
   width: 100%;
+`;
+
+export const AuthMain = styled.main`
+  /* flex: 1; */
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
 `;

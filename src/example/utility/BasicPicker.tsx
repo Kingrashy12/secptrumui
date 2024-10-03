@@ -1,6 +1,7 @@
-import { Button, Media, Tabs, TabsHandle, TabsList } from "@/components";
+import { Button, Media, Tabs, TabsHandle } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
 import ImagePicker from "@/components/test/ImagePicker";
+import TabPanel from "@/components/test/tabs/TabPanel";
 import { toast } from "@/components/test/toast/Toast";
 import { Preview } from "@/styles/docs/start.styled";
 import React, { useState } from "react";
@@ -10,7 +11,6 @@ import styled from "styled-components";
 const BasicPicker = ({ code }: { code: string }) => {
   const [openPicker, setOpenPicker] = useState(false);
   const [image, setImage] = useState("");
-  const [mode, setMode] = useState("preview");
 
   function handleImageSelect(image: string) {
     setImage(image);
@@ -23,35 +23,32 @@ const BasicPicker = ({ code }: { code: string }) => {
 
   return (
     <Preview>
-      <Tabs>
-        <TabsList variant="solid">
-          <TabsHandle value="preview" onClick={() => setMode("preview")}>
-            Preview
-          </TabsHandle>
-          <TabsHandle value="code" onClick={() => setMode("code")}>
-            Code
-          </TabsHandle>
-        </TabsList>
-      </Tabs>
-      {mode === "preview" ? (
-        <Stack spacing="lg" align="horizontal">
-          <ImagePicker
-            onImageSelect={handleImageSelect}
-            isPickerOpen={openPicker}
-            closePicker={() => setOpenPicker(false)}
-          />
+      <Tabs variant="solid">
+        <TabsHandle value="preview">Preview</TabsHandle>
+        <TabsHandle value="code">Code</TabsHandle>
 
-          {image ? (
-            <SelectedImage src={image} onClick={() => setImage("")} />
-          ) : (
-            <Button variant="outline" onClick={() => setOpenPicker(true)}>
-              Upload image
-            </Button>
-          )}
-        </Stack>
-      ) : (
-        <CodeBlock code={code} />
-      )}
+        <TabPanel>
+          <Stack spacing="lg" align="horizontal">
+            <ImagePicker
+              onImageSelect={handleImageSelect}
+              isPickerOpen={openPicker}
+              closePicker={() => setOpenPicker(false)}
+            />
+
+            {image ? (
+              <SelectedImage src={image} onClick={() => setImage("")} />
+            ) : (
+              <Button variant="outline" onClick={() => setOpenPicker(true)}>
+                Upload image
+              </Button>
+            )}
+          </Stack>
+        </TabPanel>
+
+        <TabPanel>
+          <CodeBlock code={code} />
+        </TabPanel>
+      </Tabs>
     </Preview>
   );
 };

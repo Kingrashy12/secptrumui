@@ -11,6 +11,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -29,9 +30,10 @@ const CircleLoader = () => {
           background.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} />
       <TextContent_Wrap id="usage">
         <Link href="#usage" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="usage" isMedium theme={theme}>
             Usage
           </MediumTextHeader>
         </Link>
@@ -43,7 +45,7 @@ const CircleLoader = () => {
       <CircleLoaderExample code={loadersCode.circelLoader} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

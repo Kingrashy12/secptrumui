@@ -1,18 +1,24 @@
-import Collapsible from "@/components/custom/Collapsible";
+import Collapsible, {
+  CollapsibleAction,
+} from "@/components/custom/Collapsible";
 import {
   DocAlert,
   DocLinkWrap,
   DocsCategory,
   DocsContent,
   DocsLabel,
+  ExtraLinks,
 } from "@/components/custom/StickyBar";
+import Typography from "@/components/custom/Typography";
 import Backdrop from "@/components/test/Backdrop";
 import { useSideBar } from "@/context/useSideBar";
 import { useTheme } from "@/context/useTheme";
 import { sidebarlinks } from "@/data/sidebar";
+import { SignedIn } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { RiArrowRightUpLine } from "react-icons/ri";
 import { Box } from "secptrum-ui";
 import styled from "styled-components";
 
@@ -65,6 +71,17 @@ const SideBarModal = () => {
               </>
             </Collapsible>
           ))}
+          <ExtraLinks>
+            <SignedIn>
+              <CollapsibleAction
+                theme={theme}
+                onClick={() => window.open("/test/components")}
+              >
+                <Typography>Test Environment</Typography>
+                <RiArrowRightUpLine />
+              </CollapsibleAction>
+            </SignedIn>
+          </ExtraLinks>
         </BarContent>
       </SideBarContainer>
     </Backdrop>

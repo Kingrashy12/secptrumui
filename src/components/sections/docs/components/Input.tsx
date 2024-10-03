@@ -19,6 +19,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -37,10 +38,11 @@ const Input = () => {
           handling, and more, ensuring flexibility for form elements.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} style={{ marginBottom: 16 }} />
       <InputHero />
       <TextContent_Wrap id="variants">
         <Link href="#variants" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="variants" isMedium theme={theme}>
             Variants
           </MediumTextHeader>
         </Link>
@@ -62,7 +64,7 @@ const Input = () => {
       <TextInput_Variants code={inputCodes.variant} />
       <TextContent_Wrap id="radius">
         <Link href="#radius" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="radius" isMedium theme={theme}>
             Radius
           </MediumTextHeader>
         </Link>
@@ -91,7 +93,7 @@ const Input = () => {
       <TextInputRadius code={inputCodes.radius} />
       <TextContent_Wrap id="example">
         <Link href="#example" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="example" isMedium theme={theme}>
             Examples
           </MediumTextHeader>
         </Link>
@@ -127,7 +129,7 @@ const Input = () => {
       </DocInfo>
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

@@ -12,6 +12,7 @@ import {
 import Link from "next/link";
 import React from "react";
 import ModalProps from "../../components/Modal";
+import { Divider } from "@/styles/global";
 
 const Modal = () => {
   const { theme } = useTheme();
@@ -28,10 +29,11 @@ const Modal = () => {
           user interaction in a focused manner.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} style={{ marginBottom: 16 }} />
       <ModalExample code={modalCodes.ex} />
       <TextContent_Wrap id="form-modal">
         <Link href="form-modal" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="form-modal" isMedium theme={theme}>
             Form Modal
           </MediumTextHeader>
         </Link>
@@ -42,7 +44,12 @@ const Modal = () => {
       <FormModal code={modalCodes.form} />
       <TextContent_Wrap id="modal-components">
         <Link href="#modal-components" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader
+            as="h4"
+            id="modal-components"
+            isMedium
+            theme={theme}
+          >
             Modal Components
           </MediumTextHeader>
         </Link>

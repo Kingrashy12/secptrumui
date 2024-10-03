@@ -51,6 +51,7 @@ export const ModalPanel = styled.div.withConfig({ shouldForwardProp })<{
   animation-fill-mode: forwards;
   animation-delay: 0s;
   display: flex;
+  flex-direction: column;
 
   @keyframes slideIn {
     from {
@@ -143,6 +144,7 @@ export const StyledToast = styled(Box).withConfig({
   display: ${(props) => (props["show-toast"] ? "flex" : "none")};
   ${(props) => getToastTransition(props.transition)}
   z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   @keyframes slideInFromRight {
     0% {

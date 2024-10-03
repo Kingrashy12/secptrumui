@@ -10,6 +10,7 @@ import { getPageContents } from "@/store/contentBar";
 import { useTheme } from "@/context/useTheme";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const Navbar = dynamic(() => import("./Navbar"), { ssr: false });
 const StickyBar = dynamic(() => import("../custom/StickyBar"), { ssr: false });
@@ -23,20 +24,22 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     dispatch(getPageContents());
   }, [router.pathname]);
   return (
-    <Box direction="column">
-      <GlobalStyles theme={theme} />
+    <ClerkProvider>
+      <Box direction="column">
+        <GlobalStyles theme={theme} />
 
-      <Navbar />
-      <RootWrap>
-        {router.pathname === "/" ? null : <StickyBar />}
-        <StyledComponentsRegistry>
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </StyledComponentsRegistry>
-      </RootWrap>
-      <ScrollTop />
-    </Box>
+        <Navbar />
+        <RootWrap>
+          {router.pathname === "/" ? null : <StickyBar />}
+          <StyledComponentsRegistry>
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </StyledComponentsRegistry>
+        </RootWrap>
+        <ScrollTop />
+      </Box>
+    </ClerkProvider>
   );
 };
 

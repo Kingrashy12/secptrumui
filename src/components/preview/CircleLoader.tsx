@@ -1,33 +1,29 @@
-import { Tabs, TabsHandle, TabsList } from "@/components";
+import { Tabs, TabsHandle } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
 import { Preview } from "@/styles/docs/start.styled";
-import React, { useState } from "react";
+import React from "react";
 import { Stack } from "secptrum-ui";
 import styled from "styled-components";
 import CircleLoader from "../test/loaders/CircleLoader";
+import TabPanel from "../test/tabs/TabPanel";
 
 const CircleLoaderExample = ({ code }: { code: string }) => {
-  const [mode, setMode] = useState("preview");
-
   return (
     <Preview>
-      <Tabs>
-        <TabsList variant="solid">
-          <TabsHandle value="preview" onClick={() => setMode("preview")}>
-            Preview
-          </TabsHandle>
-          <TabsHandle value="code" onClick={() => setMode("code")}>
-            Code
-          </TabsHandle>
-        </TabsList>
+      <Tabs variant="solid">
+        <TabsHandle value="preview">Preview</TabsHandle>
+        <TabsHandle value="code">Code</TabsHandle>
+
+        <TabPanel>
+          <PrevContainer align="horizontal">
+            <CircleLoader />
+          </PrevContainer>
+        </TabPanel>
+
+        <TabPanel>
+          <CodeBlock code={code} />
+        </TabPanel>
       </Tabs>
-      {mode === "preview" ? (
-        <PrevContainer align="horizontal">
-          <CircleLoader />
-        </PrevContainer>
-      ) : (
-        <CodeBlock code={code} />
-      )}
     </Preview>
   );
 };

@@ -44,6 +44,8 @@ export const ThemeDocs = lazy(
 );
 
 export const TabsDocs = lazy(() => import("./docs/components/layout/Tabs"));
+export const TestPage = lazy(() => import("./test/Page"));
+export const Login = lazy(() => import("./test/auth/Login"));
 
 export { default as RootLayout } from "./layout/RootLayout";
 export { default as Media } from "./custom/Media";

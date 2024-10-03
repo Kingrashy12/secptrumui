@@ -25,10 +25,13 @@ const PropOptions = ({
   header,
 }: PropOptionType) => {
   const { theme } = useTheme();
+  const labelId = header ? header?.toLowerCase().replace(/\s/g, "-") : "props";
   return (
-    <Wrapper>
+    <Wrapper id={labelId}>
       {hideHeader ? null : (
-        <Lable theme={theme}>{header ? header : "Props"}</Lable>
+        <Lable theme={theme} as="h4" id={labelId}>
+          {header ? header : "Props"}
+        </Lable>
       )}
       <PropsList italic={italic} theme={theme}>
         {children}
@@ -49,6 +52,11 @@ const Lable = styled(Typography)`
   font-size: 16px;
   font-weight: 500;
   color: ${({ theme }) => theme.colors?.text};
+  font-family: "General Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  letter-spacing: 0.1px;
+  line-height: 1.5;
 `;
 const PropsList = styled.ul.withConfig({
   shouldForwardProp: (prop) => prop !== "italic",

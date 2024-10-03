@@ -36,7 +36,7 @@ const ToastProps = () => {
 export default ToastProps;
 
 export const ToastPositions = () => (
-  <NastedList>
+  <NastedList id="positions">
     <PropOptions italic header="Positions">
       <li>
         <PropBadge>top-left</PropBadge>
@@ -55,7 +55,7 @@ export const ToastPositions = () => (
 );
 
 export const ToastTypes = () => (
-  <NastedList>
+  <NastedList id="types">
     <PropOptions italic header="Types">
       <li>
         <PropBadge>info</PropBadge>
@@ -74,7 +74,7 @@ export const ToastTypes = () => (
 );
 
 export const ToastTransition = () => (
-  <NastedList>
+  <NastedList id="transition-options">
     <PropOptions italic header="Transition Options">
       <li>
         <PropBadge>walkIn</PropBadge>: The toast will animate in from a

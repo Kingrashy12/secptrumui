@@ -4,11 +4,13 @@ import React from "react";
 import { Box } from "secptrum-ui";
 import styled from "styled-components";
 import Install from "@/components/sections/docs/start/Install";
+import DocBar from "@/components/sections/components/DocBar";
 
 const InstallPage = () => {
   return (
     <Container>
       <Install />
+      <DocBar />
     </Container>
   );
 };
@@ -20,5 +22,6 @@ export const Container = styled(Box)`
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  flex-direction: column;
+  /* flex-shrink: 1; */
+  /* flex-direction: column; */
 `;

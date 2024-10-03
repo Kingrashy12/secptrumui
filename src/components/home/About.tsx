@@ -32,7 +32,7 @@ const Hero_About = () => {
           create dynamic interfaces with ease.
         </Typography>
       </DescWrap>
-      <CardsSection />
+      {/* <CardsSection /> */}
       <BTN>
         <Link href="/docs/getting-started">
           <Button radius="lg">Get started</Button>
@@ -58,7 +58,7 @@ export default Hero_About;
 
 const Hero = styled.section`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-image: url(${HeroBg.src});
   display: flex;
   justify-content: center;

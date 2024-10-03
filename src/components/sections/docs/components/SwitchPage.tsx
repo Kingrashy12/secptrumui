@@ -15,6 +15,7 @@ import {
   MediumTextHeader,
   TextContent_Wrap,
 } from "@/styles/docs/start.styled";
+import { Divider } from "@/styles/global";
 import Link from "next/link";
 import React from "react";
 
@@ -33,10 +34,11 @@ const SwitchPage = () => {
           functionality. It can be customized with different colors and sizes
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} style={{ marginBottom: 16 }} />
       <BasicSwitch />
       <TextContent_Wrap id="sizes">
         <Link href="#sizes" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="sizes" isMedium theme={theme}>
             Sizes
           </MediumTextHeader>
         </Link>
@@ -48,7 +50,7 @@ const SwitchPage = () => {
       <SwitchSizes code={switchCode.sizes} />
       <TextContent_Wrap id="color">
         <Link href="#color" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="color" isMedium theme={theme}>
             Color
           </MediumTextHeader>
         </Link>
@@ -57,7 +59,7 @@ const SwitchPage = () => {
       <SwitchColors code={switchCode.colors} />
       <TextContent_Wrap id="disabled">
         <Link href="#disabled" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="disabled" isMedium theme={theme}>
             Disabled
           </MediumTextHeader>
         </Link>
@@ -65,7 +67,12 @@ const SwitchPage = () => {
       <DisabledSwitch code={switchCode.disabled} />
       <TextContent_Wrap id="customizing-the-switch">
         <Link href="#customizing-the-switch" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader
+            as="h4"
+            id="customizing-the-switch"
+            isMedium
+            theme={theme}
+          >
             Customizing the Switch
           </MediumTextHeader>
         </Link>
@@ -88,7 +95,7 @@ const SwitchPage = () => {
       </TextContent_Wrap>
       <TextContent_Wrap id="api-refrence">
         <Link className="a" href="#api-reference">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

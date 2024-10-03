@@ -1,7 +1,8 @@
-import { Button, Tabs, TabsHandle, TabsList } from "@/components";
+import { Button, Tabs, TabsHandle } from "@/components";
 import CodeBlock from "@/components/custom/code/CodeBlock";
+import TabPanel from "@/components/test/tabs/TabPanel";
 import { Preview } from "@/styles/docs/start.styled";
-import React, { useState } from "react";
+import React from "react";
 import {
   RiContactsFill,
   RiMessage3Line,
@@ -11,35 +12,30 @@ import { Stack } from "secptrum-ui";
 import styled from "styled-components";
 
 const BasicStack = ({ code }: { code: string }) => {
-  const [mode, setMode] = useState("preview");
-
   return (
     <Preview>
-      <Tabs>
-        <TabsList variant="solid">
-          <TabsHandle value="preview" onClick={() => setMode("preview")}>
-            Preview
-          </TabsHandle>
-          <TabsHandle value="code" onClick={() => setMode("code")}>
-            Code
-          </TabsHandle>
-        </TabsList>
+      <Tabs variant="solid">
+        <TabsHandle value="preview">Preview</TabsHandle>
+        <TabsHandle value="code">Code</TabsHandle>
+
+        <TabPanel>
+          <Container>
+            <Button size="lg" icon={RiVideoChatFill} variant="outline">
+              Video Chat
+            </Button>
+            <Button size="lg" icon={RiMessage3Line} variant="ghost">
+              Chat
+            </Button>
+            <Button icon={RiContactsFill} size="lg" variant="light">
+              Add to contact
+            </Button>
+          </Container>
+        </TabPanel>
+
+        <TabPanel>
+          <CodeBlock code={code} />
+        </TabPanel>
       </Tabs>
-      {mode === "preview" ? (
-        <Container>
-          <Button size="lg" icon={RiVideoChatFill} variant="outline">
-            Video Chat
-          </Button>
-          <Button size="lg" icon={RiMessage3Line} variant="ghost">
-            Chat
-          </Button>
-          <Button icon={RiContactsFill} size="lg" variant="light">
-            Add to contact
-          </Button>
-        </Container>
-      ) : (
-        <CodeBlock code={code} />
-      )}
     </Preview>
   );
 };

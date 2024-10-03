@@ -17,6 +17,7 @@ const Overview = () => {
         // largeHeader="Secptrum UI - Overview"
         mediumHeader="Introduction"
         id="introduction"
+        isMedium
         bodyText="SecptrumUI is a customizable and modern UI component library for react, built with styled-components. Designed to help developers quickly build beautiful and responsive web applications, SecptrumUI offers a range of components that are easy to use and adapt to any project."
       />
       <TextContent
@@ -27,11 +28,13 @@ const Overview = () => {
         header="Why Use SecptrumUI?"
         id="why-use-secptrum-ui?"
         li={why_use_list_texts}
+        isMedium
       />
       <TextContentWithList
         header="Key Features"
         id="key-features"
         li={keyFeature}
+        isMedium
       />
       <PageNavigator />
     </InstallPageContainer>

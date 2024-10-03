@@ -13,6 +13,7 @@ const Install = () => {
       <TextContent
         mediumHeader="Installation"
         id="installation"
+        isMedium
         bodyText="Everything you need to set up Secptrum UI"
       />
       <Divider theme={theme} />

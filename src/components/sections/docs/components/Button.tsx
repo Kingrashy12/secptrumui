@@ -23,6 +23,7 @@ import ButtonLoading from "@/components/preview/button/Loading";
 import ReferenceTable from "@/components/custom/docs/ReferenceTable";
 import { buttonRef } from "@/data/reference/button";
 import DocsLayout from "@/components/layout/DocsLayout";
+import { Divider } from "@/styles/global";
 
 const Button = () => {
   const { theme } = useTheme();
@@ -39,10 +40,11 @@ const Button = () => {
           sizes, and states to fit various use cases.
         </BodyText>
       </TextContent_Wrap>
+      <Divider theme={theme} style={{ marginBottom: 15 }} />
       <ButtonPreview code={buttonCodes.basic} />
       <TextContent_Wrap id="variants">
         <Link href="#variants" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="variants" isMedium theme={theme}>
             Variants
           </MediumTextHeader>
         </Link>
@@ -59,7 +61,7 @@ const Button = () => {
       <ButtonVaraints code={buttonCodes.variants} />
       <TextContent_Wrap id="sizes">
         <Link href="#sizes" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="sizes" isMedium theme={theme}>
             Sizes
           </MediumTextHeader>
         </Link>
@@ -76,7 +78,7 @@ const Button = () => {
       <ButtonSize code={buttonCodes.size} />
       <TextContent_Wrap id="radius">
         <Link href="#radius" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="radius" isMedium theme={theme}>
             Radius
           </MediumTextHeader>
         </Link>
@@ -93,7 +95,7 @@ const Button = () => {
       <ButtonRadius code={buttonCodes.radius} />
       <TextContent_Wrap id="loading-state">
         <Link href="#loading-state" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="loading-state" isMedium theme={theme}>
             Loading State
           </MediumTextHeader>
         </Link>
@@ -112,7 +114,7 @@ const Button = () => {
       <ButtonLoading code={buttonCodes.loading} />
       <TextContent_Wrap id="api-reference">
         <Link href="#api-reference" className="a">
-          <MediumTextHeader as="h4" isMedium theme={theme}>
+          <MediumTextHeader as="h4" id="api-reference" isMedium theme={theme}>
             API Reference
           </MediumTextHeader>
         </Link>

@@ -1,11 +1,4 @@
-import {
-  Button,
-  Card,
-  Tabs,
-  TabsHandle,
-  TabsList,
-  Typography,
-} from "@/components";
+import { Button, Card, Tabs, TabsHandle, Typography } from "@/components";
 import Modal from "@/components/test/modal/Modal";
 import ModalPanel from "@/components/test/modal/ModalPanel";
 import { ModalContent } from "@/styles/test/feedback/styled";
@@ -18,10 +11,10 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import ModalTitle from "@/components/test/modal/ModalTitle";
 import { toast } from "@/components/test/toast/Toast";
+import TabPanel from "@/components/test/tabs/TabPanel";
 
 const FormModal = ({ code }: { code: string }) => {
   const [open, setOpen] = useState(false);
-  const [mode_, setMode] = useState("preview");
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -80,25 +73,22 @@ const FormModal = ({ code }: { code: string }) => {
         </Modal>
       ) : (
         <Card>
-          <Tabs>
-            <TabsList variant="solid">
-              <TabsHandle value="preview" onClick={() => setMode("preview")}>
-                Preview
-              </TabsHandle>
-              <TabsHandle value="code" onClick={() => setMode("code")}>
-                Code
-              </TabsHandle>
-            </TabsList>
+          <Tabs variant="solid">
+            <TabsHandle value="preview">Preview</TabsHandle>
+            <TabsHandle value="code">Code</TabsHandle>
+
+            <TabPanel>
+              <PrevContainer>
+                <Button onClick={() => setOpen(true)} variant="outline">
+                  Login
+                </Button>
+              </PrevContainer>
+            </TabPanel>
+
+            <TabPanel>
+              <CodeBlock code={code} />
+            </TabPanel>
           </Tabs>
-          {mode_ === "preview" ? (
-            <PrevContainer>
-              <Button onClick={() => setOpen(true)} variant="outline">
-                Login
-              </Button>
-            </PrevContainer>
-          ) : (
-            <CodeBlock code={code} />
-          )}
         </Card>
       )}
     </>
