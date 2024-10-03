@@ -11,4 +11,6 @@ const TabPanel = forwardRef<HTMLDivElement, BoxProps>(
   }
 );
 
+TabPanel.displayName = "TabPanel";
+
 export default TabPanel;

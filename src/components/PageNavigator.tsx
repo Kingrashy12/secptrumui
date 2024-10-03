@@ -59,6 +59,7 @@ const PageNavigator = () => {
 
     // Call getPage on mount or when router changes
     getPage();
+    console.log("currentPage:", currentPage);
   }, [router.pathname]);
 
   return (

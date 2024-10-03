@@ -8,7 +8,7 @@ import { fonts } from "@/styles/global";
 import Link from "next/link";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { sidebarlinks } from "@/data/sidebar";
-import CardsSection from "./CardsSection";
+// import CardsSection from "./CardsSection";
 
 const Hero_About = () => {
   return (
